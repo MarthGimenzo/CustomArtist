@@ -5,6 +5,9 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
+app.config["MONGO_CA"] = 'custom_artist'
+MONGO_URI_CA = os.environ['MONGO_URI_CA']
+
 @app.route('/')
 def hello():
     return 'Hello World'
