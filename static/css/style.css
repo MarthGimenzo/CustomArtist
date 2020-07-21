@@ -1,0 +1,53 @@
+@import url("//hello.myfonts.net/count/3befa6");
+  
+@font-face {
+  font-family: 'BeatsterOutline';
+  src: url('fonts/font.woff2') format('woff2'), url('fonts/font.woff') format('woff');
+}
+
+.logo {
+    max-width: 100px;
+}
+
+.bg-dark {
+    background-color: black!important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-family: 'BeatsterOutline';
+    font-size: xx-large;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+body {
+  animation: 50000ms ease-in-out infinite color-change;
+}
+
+@keyframes color-change{
+  0% {
+    background-color: teal;
+    animation-delay: 10s;
+  }
+  20% {
+    background-color: gold;
+    animation-delay: 10s;
+  }
+  40% {
+    background-color: indianred;
+    animation-delay: 10s;
+  }
+  60% {
+    background-color: violet;
+    animation-delay: 10s;
+  }
+  80% {
+    background-color: green;
+    animation-delay: 10s;
+  }
+  100% {
+    background-color: teal;
+    animation-delay: 10s;
+  }
+}
