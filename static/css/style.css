@@ -22,32 +22,6 @@
 }
 
 body {
-  animation: 50000ms ease-in-out infinite color-change;
-}
-
-@keyframes color-change{
-  0% {
-    background-color: teal;
-    animation-delay: 10s;
-  }
-  20% {
-    background-color: gold;
-    animation-delay: 10s;
-  }
-  40% {
-    background-color: indianred;
-    animation-delay: 10s;
-  }
-  60% {
-    background-color: violet;
-    animation-delay: 10s;
-  }
-  80% {
-    background-color: green;
-    animation-delay: 10s;
-  }
-  100% {
-    background-color: teal;
-    animation-delay: 10s;
-  }
+  background-image: url("backgrounds/background1.jpg");
+  background-position: 50% 0;
 }
