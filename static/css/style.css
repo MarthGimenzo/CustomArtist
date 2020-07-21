@@ -5,6 +5,10 @@
   src: url('fonts/font.woff2') format('woff2'), url('fonts/font.woff') format('woff');
 }
 
+html, body{
+    height: 100%;
+}
+
 .logo {
     max-width: 100px;
 }
@@ -21,7 +25,9 @@
     padding-right:30px;
 }
 
-body {
-  background-image: url("backgrounds/background1.jpg");
+.fader {
+  background-image: url("../images/backgrounds/bg2.jpg");
   background-position: 50% 0;
+  background-size: cover;
+  height: 100%;
 }
