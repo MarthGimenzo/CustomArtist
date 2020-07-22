@@ -51,6 +51,7 @@ h3 {
 
 .bg-dark {
     background-color: black!important;
+    filter: drop-shadow(0 0 10px black);
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -72,14 +73,10 @@ h3 {
 }
 
 .mainfield {
-    background-color: white;
+    background-color: black;
     margin-left: auto;
     margin-right: auto;
     z-index: 6;
-}
-
-.rounded {
-    border-radius: .25rem!important;
 }
 
 .ontop{
@@ -88,6 +85,7 @@ h3 {
 }
 
 .border {
-    border: 5px solid black!important;
+    border: 3px solid white!important;
     z-index: 6;
+    border-radius: 20px!important;
 }
