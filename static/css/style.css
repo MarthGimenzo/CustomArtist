@@ -32,7 +32,7 @@ h3 {
     height: 100%;
     font-weight: bold;
     filter: drop-shadow(0 0 30px white);
-    opacity: 100%;
+    opacity: 100%!important;
 }
 
 .logo {
@@ -46,7 +46,7 @@ h3 {
     align-items: center;
     max-width: 100%;
     filter: drop-shadow(0 0 30px grey);
-    opacity: 100%;
+    opacity: 100%!important;
 }
 
 @media only screen and (max-width: 991px) {
@@ -89,6 +89,7 @@ h3 {
     margin-left: auto;
     margin-right: auto;
     z-index: 6;
+    filter: drop-shadow(0 0 10px black);
 }
 
 .ontop{
