@@ -5,7 +5,7 @@ $(document).ready(function () {
   // https://www.youtube.com/watch?v=XjPdQSqtJhs
   // Thank you for the great explanation!
 
-  var count = Math.floor(Math.random() * 4);
+  var count = Math.floor(Math.random() * 3);
   console.log(count);
   var images = [
     "../static/images/backgrounds/bg1.jpg",

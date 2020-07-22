@@ -27,34 +27,12 @@ p {
     text-align: center;
 }
 
-// Modal
-
-.modal-content {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 100%;
-    pointer-events: auto;
-    background-color: black;
-    background-clip: padding-box;
-    border: 3px solid white;
-    border-radius: 20px;
-    outline: 0;
-}
-
 .paint {
     background-image: url("../images/Paintcloud.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: 50% 0;
     filter: drop-shadow(0 0 30px white);
-    
-    
 }
 
 .slogan {
@@ -97,8 +75,7 @@ p {
   }
   .slogan {
       text-size-adjust: auto;
-      
-  }
+    }
 }
 
 @media only screen and (min-width: 1199px) {
@@ -109,8 +86,7 @@ p {
   }
   .slogan {
       text-size-adjust: auto;
-      
-  }
+    }
 }
 
 .bg-dark {
@@ -144,7 +120,7 @@ p {
     filter: drop-shadow(0 0 10px black);
 }
 
-.ontop{
+.ontop {
     position: absolute;
     z-index: 6;
 }
@@ -153,4 +129,13 @@ p {
     border: 3px solid white!important;
     z-index: 6;
     border-radius: 20px!important;
+}
+
+// Modal
+
+.modal-content, .modal-dialog, .modal {
+    background-color: black;
+    border: 3px solid white;
+    border-radius: 20px;
+    outline: 0;
 }
