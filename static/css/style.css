@@ -13,6 +13,11 @@ html, body{
     max-width: 100px;
 }
 
+.mainlogo {
+    max-width: 100%;
+    filter: drop-shadow(0 0 50px white);
+}
+
 .bg-dark {
     background-color: black!important;
 }
