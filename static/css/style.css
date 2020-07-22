@@ -37,6 +37,7 @@ html, body{
   position: relative;
   height: 100%;
   z-index: 3;
+  opacity: 0.5;
 }
 
 .mainfield {
