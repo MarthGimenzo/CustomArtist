@@ -1,4 +1,5 @@
 @import url("//hello.myfonts.net/count/3befa6");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
   
 @font-face {
   font-family: 'BeatsterOutline';
@@ -9,11 +10,22 @@ html, body{
     height: 100%;
 }
 
-h1, h2 {
+h1{
     font-family: 'BeatsterOutline';
-    
 }
 
+h2{
+    font-family: 'BeatsterOutline';
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-align: center;
+}
 
 .paint {
     background-image: url("../images/Paint.png");
