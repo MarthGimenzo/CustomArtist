@@ -29,5 +29,24 @@ html, body{
   background-image: url("../images/backgrounds/bg2.jpg");
   background-position: 50% 0;
   background-size: cover;
+  position: relative;
   height: 100%;
+  z-index: 3;
+}
+
+.mainfield {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 6;
+}
+
+.ontop{
+    position: absolute;
+    z-index: 6;
+}
+
+.border {
+    border: 5px solid black!important;
+    z-index: 6;
 }
