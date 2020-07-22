@@ -61,6 +61,13 @@ h3 {
   }
 }
 
+@media only screen and (max-width: 575px) {
+  .slogan {
+      text-size-adjust: auto;
+      font-size: 200%;
+  }
+}
+
 .bg-dark {
     background-color: black!important;
     filter: drop-shadow(0 0 10px black);
