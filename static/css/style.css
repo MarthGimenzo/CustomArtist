@@ -82,6 +82,13 @@ p {
     opacity: 100%!important;
 }
 
+@media only screen and (max-width: 575px) {
+  .slogan {
+      text-size-adjust: auto;
+      font-size: 200%;
+  }
+}
+
 @media only screen and (max-width: 991px) {
   .mainlogo {
     max-width: 40%;
@@ -94,10 +101,15 @@ p {
   }
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (min-width: 1199px) {
+  .mainlogo {
+    max-width: 90%;
+    text-align: center;
+    margin: auto;
+  }
   .slogan {
       text-size-adjust: auto;
-      font-size: 200%;
+      
   }
 }
 
