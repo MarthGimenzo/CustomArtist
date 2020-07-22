@@ -9,13 +9,28 @@ html, body{
     height: 100%;
 }
 
+h3 {
+    font-family: 'BeatsterOutline';
+    font-size: 300%;
+}
+
+.slogan {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-weight: bold;
+    filter: drop-shadow(0 0 30px white);
+}
+
 .logo {
     max-width: 100px;
 }
 
 .mainlogo {
     max-width: 100%;
-    filter: drop-shadow(0 0 50px white);
+    filter: drop-shadow(0 0 30px grey);
 }
 
 .bg-dark {
