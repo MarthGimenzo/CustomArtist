@@ -141,4 +141,9 @@ p {
     border: 1px solid white;
     border-radius: 20px;
     outline: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+label {
+    color: white;
 }
