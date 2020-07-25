@@ -113,9 +113,12 @@ p {
 
 .fader {
   background-image: url("../images/backgrounds/bg2.jpg");
-  background-position: 50% 0;
   background-size: cover;
-  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  min-width: 100%;
+  position: static;
   height: 100%;
   z-index: 3;
   opacity: 0.5;
@@ -125,18 +128,16 @@ p {
     background-color: black;
     margin-left: auto;
     margin-right: auto;
-    z-index: 6;
     filter: drop-shadow(0 0 10px black);
 }
 
 .ontop {
     position: absolute;
-    z-index: 6;
+    z-index: 10;
 }
 
 .border {
     border: 3px solid white!important;
-    z-index: 6;
     border-radius: 20px!important;
 }
 
@@ -148,6 +149,16 @@ p {
     border-radius: 20px;
     outline: 0;
     font-family: 'Montserrat', sans-serif;
+    max-width: 100%;
+}
+
+.register {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 20px;
+    outline: 0;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 100%;
 }
 
 label {
