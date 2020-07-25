@@ -112,7 +112,6 @@ p {
 }
 
 .fader {
-  background-image: url("../images/backgrounds/bg2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -133,6 +132,7 @@ p {
 
 .ontop {
     position: absolute;
+    min-width: 100%;
     z-index: 10;
 }
 
