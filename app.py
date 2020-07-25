@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = os.environ['MONGO_CA']
 app.config['MONGO_URI'] = os.environ['MONGO_URI_CA']
+app.secret_key = os.environ['SECRET_KEY']
 
 mongo = PyMongo(app)
 
@@ -18,7 +19,6 @@ def index():
         return 'You are logged in as ' + session['username']
 
     return render_template('index.html')
-
 
 @app.route('/login')
 def login():
@@ -31,14 +31,14 @@ def register_artist():
         existing_artist = artists.find_one({'username' : request.form['username']})
 
         if existing_artist == None:
-            hashpass = bcrypt.hashpw(request.form['pass'], bcrypt.gensalt())
-            artists.insert({'name' : request.form['username'], password : hashpass})
+            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
+            artists.insert({'name' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
             return redirect(url_for('index'))
         
         return 'That username already exists!'
     
-    print('Hello, world!')
+    print('Hello, You!')
     return render_template('register_artist.html')
 
     return 'You are a mango' 
