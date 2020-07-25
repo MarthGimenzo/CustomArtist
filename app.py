@@ -32,7 +32,7 @@ def register_artist():
 
         if existing_artist == None:
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            artists.insert({'name' : request.form['username'], 'password' : hashpass})
+            artists.insert({'username' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
             return redirect(url_for('index'))
         
