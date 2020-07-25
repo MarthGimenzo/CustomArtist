@@ -16,12 +16,12 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content custom">
                     <div class="modal-header custom">
-                        <h2 class="modal-title" id="exampleModalLabel">Login as Artist (Or register)</h2>
+                        <h2 class="modal-title" id="exampleModalLabel">Login as Artist</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form>
+                    <form method="POST" action="{{ url_for('login') }}">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="inputEmail1">Email address</label>
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary">Register</button>
+                            <button type="button" class="btn btn-secondary">Register as new Artist</button>
                             <button type="submit" class="btn btn-light">Login</button>
                         </div>
                     </form>
@@ -47,7 +47,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content custom">
                     <div class="modal-header custom">
-                        <h2 class="modal-title" id="exampleModalLabel2">Login as Client (Or register)</h2>
+                        <h2 class="modal-title" id="exampleModalLabel2">Login as Client</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary">Register</button>
+                            <button type="button" class="btn btn-secondary">Register as new Client</button>
                             <button type="submit" class="btn btn-light">Login</button>
                         </div>
                     </form>
@@ -101,6 +101,10 @@
         <!-- Content -->
         <div class="ontop">
             {% block content %} {% endblock %}
+        </div>
+
+        <div class="ontop">
+            {% block body %} {% endblock %}
         </div>
 
         <!-- Changing Background Div -->
