@@ -15,28 +15,30 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def index():
-    if 'username' in session:
-        return 'You are logged in as ' + session['username']
+    if 'artistname' in session:
+        return 'You are logged in as ' + session['artistname']
 
     return render_template('index.html')
 
 @app.route('/login')
 def login():
-    return 'You are a banana'
+    return 'Je bent een banaan'
+
+
 
 @app.route('/register_artist', methods=['POST', 'GET'])
 def register_artist():
     if request.method == 'POST':
         artists = mongo.db.artists
-        existing_artist = artists.find_one({'username' : request.form['username']})
+        existing_artist = artists.find_one({'username' : request.form['artistname']})
 
         if existing_artist == None:
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            artists.insert({'username' : request.form['username'], 'password' : hashpass})
-            session['username'] = request.form['username']
+            artists.insert({'username' : request.form['artistname'], 'password' : hashpass})
+            session['artistname'] = request.form['artistname']
             return redirect(url_for('index'))
         
-        return 'That username already exists!'
+        return 'That Artist username already exists!'
     
     print('Hello, You!')
     return render_template('register_artist.html')
