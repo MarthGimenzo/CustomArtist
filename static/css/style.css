@@ -6,6 +6,12 @@
   src: url('fonts/font.woff2') format('woff2'), url('fonts/font.woff') format('woff');
 }
 
+* {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+}
+
 html, body{
     height: 100%;
 }
