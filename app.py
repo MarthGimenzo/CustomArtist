@@ -34,7 +34,7 @@ def artist_login():
         if bcrypt.hashpw(request.form['artistpass'].encode('utf-8'), login_artist['password']) == login_artist['password']:
             print('Accepted')
             session['artistname'] = request.form['artistname']
-            return render_template('artist_index.html')
+            return render_template('artist_index.html', assignments=mongo.db.assignments.find())
 
 
 @app.route('/sign_out')
