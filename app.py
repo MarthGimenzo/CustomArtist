@@ -21,8 +21,8 @@ def index():
     return render_template('index.html')
     
 
-@app.route('/login', methods=['POST'])
-def login():
+@app.route('/artist_login', methods=['POST'])
+def artist_login():
     print('Got to Login')
     
     artists = mongo.db.artists
@@ -35,6 +35,7 @@ def login():
             print('Accepted')
             session['artistname'] = request.form['artistname']
             return render_template('artist_index.html')
+
 
 @app.route('/sign_out')
 def sign_out():
