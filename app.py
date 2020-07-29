@@ -16,7 +16,7 @@ mongo = PyMongo(app)
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if 'artistname' in session:
-        return 'You are logged in as ' + session['artistname']
+        return render_template('artist_index.html')
 
     return render_template('index.html')
     
@@ -34,7 +34,12 @@ def login():
         if bcrypt.hashpw(request.form['artistpass'].encode('utf-8'), login_artist['password']) == login_artist['password']:
             print('Accepted')
             session['artistname'] = request.form['artistname']
-            return 'You are logged in as ' + session['artistname']
+            return render_template('artist_index.html')
+
+@app.route('/sign_out')
+def sign_out():
+    session.pop('artistname')
+    return redirect(url_for('index'))
 
 
 @app.route('/register_artist', methods=['POST', 'GET'])
