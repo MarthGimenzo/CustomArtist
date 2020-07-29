@@ -9,8 +9,7 @@
     <div class="row">
         
         <div class="col-md-6 offset-md-3 register">
-            <h2 class="modal-title">Register as Artist</h2>
-            <hr>
+            <h2 class="register-title">Register as Artist</h2>
             <form method="POST" action="{{ url_for('register_artist') }}">
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="whitetext">Username</label>
@@ -23,7 +22,7 @@
                 {% if userexists %}
                     <p>That Username Already Exists!</p>
                     {% endif %}
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                <button type="submit" class="btn btn-secondary btn-block">Register</button>
             </form>
             <br>
         </div>
