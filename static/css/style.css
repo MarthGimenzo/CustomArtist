@@ -6,12 +6,6 @@
   src: url('fonts/font.woff2') format('woff2'), url('fonts/font.woff') format('woff');
 }
 
-* {
-  background: #000 !important;
-  color: #0f0 !important;
-  outline: solid #f00 1px !important;
-}
-
 html, body{
     height: 100%;
 }
@@ -137,6 +131,7 @@ hr {
   background-position: center center;
   background-attachment: fixed;
   min-width: 100%;
+  min-height: 100%;
   position: static;
   height: 100%;
   z-index: 3;
@@ -148,11 +143,13 @@ hr {
     margin-left: auto;
     margin-right: auto;
     filter: drop-shadow(0 0 10px black);
+    
 }
 
 .ontop {
     position: absolute;
     min-width: 100%;
+    min-height: 100%;
     z-index: 10;
 }
 

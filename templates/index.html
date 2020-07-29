@@ -1,49 +1,51 @@
-{% extends 'base.html' %} {% block content %}
-
-<div class="row paint">
-  <div class="col-lg-1"></div>
-  <div class="col-12 col-lg-5">
-    <img
-      src="../static/images/Customartist_logo_mascot.png"
-      class="mainlogo"
-      alt=""
-    />
-  </div>
-  <div class="col-1 d-lg-none"></div>
-  <div class="col-10 col-lg-5">
-    <h1 class="slogan">
-      The online supply and demand platform for artists and clients.
-    </h1>
-  </div>
-</div>
-
-<div class="mainfield">
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-10">
-      <h2 class="mainfieldheader">Welcome to Custom Artist</h2>
-      <p>
-        Custom Artist creates opportunities for artists to get in touch with
-        clients. These clients could be companies or private clients who are
-        looking for an artist to create a particular form of artwork.
-      </p>
-      <p>
-        The client uploads an assignment. Artists respond to assignments they’re
-        interested in with an artwork proposal. Through a logical and clear
-        step-by-step process the artist and client can come to an agreement.
-      </p>
-      <p>
-        Custom Artist supports artists who are struggling to find assignments to
-        earn money. At the same time it saves companies and private clients time
-        to find the art they are – in whatever form – looking for. 
-      </p>
-      <p>
-        Want to know
-        how it works? Click on 'How does it work' in the navigation bar. Artist
-        or Client? Choose your preferred login in the navigation bar.
-      </p>
+{% extends 'base.html' %} {% block title_and_slogan %}
+<div class="container-fluid">
+    <div class="row paint">
+    <div class="col-lg-1"></div>
+    <div class="col-12 col-lg-5">
+        <img
+        src="../static/images/Customartist_logo_mascot.png"
+        class="mainlogo"
+        alt=""
+        />
     </div>
-  </div>
+    <div class="col-1 d-lg-none"></div>
+    <div class="col-10 col-lg-5">
+        <h1 class="slogan">
+        The online supply and demand platform for artists and clients.
+        </h1>
+    </div>
+    </div>
 </div>
 
+<div class="container-fluid">
+    
+        <div class="row mainfield">
+            <div class="col-1"></div>
+            <div class="col-10">
+            <h2 class="mainfieldheader">Welcome to Custom Artist</h2>
+            <p>
+                Custom Artist creates opportunities for artists to get in touch with
+                clients. These clients could be companies or private clients who are
+                looking for an artist to create a particular form of artwork.
+            </p>
+            <p>
+                The client uploads an assignment. Artists respond to assignments they’re
+                interested in with an artwork proposal. Through a logical and clear
+                step-by-step process the artist and client can come to an agreement.
+            </p>
+            <p>
+                Custom Artist supports artists who are struggling to find assignments to
+                earn money. At the same time it saves companies and private clients time
+                to find the art they are – in whatever form – looking for. 
+            </p>
+            <p>
+                Want to know
+                how it works? Click on 'How does it work' in the navigation bar. Artist
+                or Client? Choose your preferred login in the navigation bar.
+            </p>
+            </div>
+        </div>
+    
+</div>
 {% endblock %}

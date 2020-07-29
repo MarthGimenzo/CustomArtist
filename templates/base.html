@@ -75,7 +75,7 @@
 
         <!-- Navigation Bar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="/templates/index.html">
                     <img src="/static/images/Customartist.png" class="logo" alt="" />
                 </a>
@@ -100,15 +100,17 @@
         
         <!-- Content -->
         
-        <div class="container-fluid">
-            <div class="ontop">
-                {% block content %} {% endblock %}
-            </div>
+        
+        <div class="ontop">
+            {% block title_and_slogan %} {% endblock %}
         </div>
+        
 
         <div class="ontop">
             {% block register_artist %} {% endblock %}
         </div>
+
+        <div></div>
 
         <!-- Changing Background Div -->
         <div class="fader container-fluid"></div>
