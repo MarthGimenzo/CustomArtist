@@ -36,6 +36,20 @@ p {
     text-align: center;
 }
 
+hr {
+    color: white;
+    border: 1px;
+}
+
+.whitetext {
+    color: white;
+}
+
+.black {
+    color: black;
+}
+
+
 .paint {
     background-image: url("../images/Paintcloud.png");
     background-repeat: no-repeat;
@@ -158,8 +172,7 @@ p {
     border-radius: 20px;
     outline: 0;
     font-family: 'Montserrat', sans-serif;
-    max-width: 100%;
-}
+    
 
 label {
     color: white;

@@ -38,7 +38,10 @@ def register_artist():
             session['artistname'] = request.form['artistname']
             return redirect(url_for('index'))
         
-        return 'That Artist username already exists!'
+        return render_template(
+            'register_artist.html',
+            userexists=True
+)
     
     print('Hello, You!')
     return render_template('register_artist.html')
