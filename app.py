@@ -13,17 +13,28 @@ app.secret_key = os.environ['SECRET_KEY']
 
 mongo = PyMongo(app)
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
     if 'artistname' in session:
         return 'You are logged in as ' + session['artistname']
 
     return render_template('index.html')
+    
 
-@app.route('/login')
+@app.route('/login', methods=['POST'])
 def login():
-    return 'Je bent een banaan'
-
+    print('Got to Login')
+    
+    artists = mongo.db.artists
+    print(artists)
+    login_artist = artists.find_one({'username' : request.form['artistname']})
+    print('Got here3')
+    print(login_artist)
+    if login_artist:
+        if bcrypt.hashpw(request.form['artistpass'].encode('utf-8'), login_artist['password']) == login_artist['password']:
+            print('Accepted')
+            session['artistname'] = request.form['artistname']
+            return 'You are logged in as ' + session['artistname']
 
 
 @app.route('/register_artist', methods=['POST', 'GET'])
