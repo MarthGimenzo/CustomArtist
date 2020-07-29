@@ -5,7 +5,7 @@ $(document).ready(function() {
     // https://www.youtube.com/watch?v=XjPdQSqtJhs
     // Thank you for the great explanation!
 
-    var count = Math.floor(Math.random() * 6);
+    var count = Math.floor(Math.random() * 9);
 
 
     console.log('count at first: ' + count);
@@ -16,6 +16,9 @@ $(document).ready(function() {
         "../static/images/backgrounds/bg4.jpg",
         "../static/images/backgrounds/bg5.jpg",
         "../static/images/backgrounds/bg6.jpg",
+        "../static/images/backgrounds/bg7.jpg",
+        "../static/images/backgrounds/bg8.jpg",
+        "../static/images/backgrounds/bg9.jpg",
     ];
 
     var image = $(".fader");
@@ -29,7 +32,7 @@ $(document).ready(function() {
             console.log('old count: ' + count);
             var oldcount = count;
             while (count == oldcount){
-                count = Math.floor(Math.random() * 6);
+                count = Math.floor(Math.random() * 9);
             }
 
             // New picture presents defined on new count
