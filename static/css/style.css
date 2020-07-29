@@ -200,3 +200,7 @@ hr {
 label {
     color: white;
 }
+
+.assignment_view {
+    padding-top: 15px;
+}

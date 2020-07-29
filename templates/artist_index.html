@@ -1,9 +1,19 @@
 {% extends 'artist_base.html' %} {% block content %}
 
 {% for assignment in assignments %}
-<br>
-<div class="col-md-8 offset-md-2 register">
-            <h2 class="register-title">{{assignment.title}}</h2>
+
+<div class="container assignment_view">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 register">
+        <h2 class="register-title">{{assignment.title}}</h2>
+            <div class="container-fluid">
+                <div class="col"><img src="/static/images/Customartist.png" class="logo" alt=""></div>
+                <div class="col">
+                    <p>{{assignment.short_description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
