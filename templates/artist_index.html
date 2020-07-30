@@ -1,15 +1,35 @@
 {% extends 'artist_base.html' %} {% block content %}
 
+<h3>Available assignments</h3>
+
 {% for assignment in assignments %}
 
 <div class="container assignment_view">
     <div class="row">
-        <div class="col-md-8 offset-md-2 register">
+        <div class="col-md-12 register">
         <h2 class="register-title">{{assignment.title}}</h2>
             <div class="container-fluid">
-                <div class="col-lx"><img src="/static/images/Customartist.png" class="logo"alt=""></div>
-                <div class="col-lx">
+                <div class="row">
+                    <div class="col-2"><img src="/static/images/Customartist.png" class="assignment_logo"alt=""></div>
+                    <div class="col-4">
+                    <ul class="whitetext">
+                        <li>Added by: {{assignment.client_id}}</li>
+                        <li>Offer: {{assignment.offer}}</li>
+                        <li>Date added: {{assignment.add_date}}</li>
+                        <li>Location: {{assignment.city}}</li>
+                    </ul>
+                    
+                    </div>
+                    <div class="col-6">
                     <p>{{assignment.short_description}}</p>
+                    </div>
+                    
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col offset-md-11">
+                    <button class="btn btn-light">View Details</button>
+                    <br><br>
+                    </div>
                 </div>
             </div>
         </div>
