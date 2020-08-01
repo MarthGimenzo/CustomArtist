@@ -200,12 +200,12 @@
 
                 <div class="row justify-content-end addspacebelow">
                     <div class="col">
-                        <form action="{{url_for('assignments')}}">
-                        <button type="submit" class="btn btn-secondary endpagebuttons">Back to Assignments</button>
-                        </form>
-                    
                         <form action="{{url_for('add_proposal', assignment_id=assignment._id)}}">
                         <button type="submit" class="btn btn-light endpagebuttons">Submit a Proposal</button>
+                        </form>
+
+                        <form action="{{url_for('assignments')}}">
+                        <button type="submit" class="btn btn-secondary endpagebuttons">Back to Assignments</button>
                         </form>
                     </div>
                 </div>
