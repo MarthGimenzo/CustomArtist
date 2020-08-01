@@ -30,8 +30,9 @@
                         <p>{{assignment.long_description}}</p>
                     </div>
                 </div>
+
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md">
                     <h3 class="topics">Goals</h2>
                     <ol class="whitetext">
                         {% if assignment.goal_1 %}
@@ -53,10 +54,66 @@
                     
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col">
                         <h3 class="topics">Preferred Properties</h2>
-                        <p><input type="range" class="slider" name="points" min="0" max="10" disabled></p>
+
+                        <table class="whitetext" style="width:100%">
+                            <tr>
+                                <td>Female</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_fem}}" disabled></td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Modern</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_mod}}" disabled></td>
+                                <td>Classic</td>
+                            </tr>
+                            <tr>
+                                <td>Noisy</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_noi}}" disabled></td>
+                                <td>Quiet</td>
+                            </tr>
+                            <tr>
+                                <td>Simple</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_sim}}" disabled></td>
+                                <td>Complex</td>
+                            </tr>
+                            <tr>
+                                <td>Subtle</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_sub}}" disabled></td>
+                                <td>Clear</td>
+                            </tr>
+                            <tr>
+                                <td>Very Big</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_big}}" disabled></td>
+                                <td>Very Small</td>
+                            </tr>
+                            <tr>
+                                <td>Abstract</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_abs}}" disabled></td>
+                                <td>Organic</td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Preferred Colours</h2>
+
+                        <table class="whitetext" style="width:100%">
+                            <tr>
+                                <td style="background-color: red">#e66465</td>
+                                <td><input type="color" id="head" name="head" value="#e66465"></td>
+                                <td><input type="color" id="head" name="head" value="#e66465"></td>
+                                <td><input type="color" id="head" name="head" value="#e66465"></td>
+                            </tr>
+                            
+                        </table>
                     </div>
                 </div>
 

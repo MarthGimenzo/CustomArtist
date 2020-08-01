@@ -51,6 +51,10 @@ hr {
     border: 1px;
 }
 
+td {
+    text-align: center;
+}
+
 /* Additional styles for fonts */
 
 .whitetext {
@@ -284,5 +288,9 @@ label {
 
 .assignment_logo {
     max-width: 15vw;
+}
+
+.slider {
+    width:90%;
 }
 
