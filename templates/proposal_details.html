@@ -25,10 +25,40 @@
                 </div>
 
                 <div class="row">
-                <h3 class="topics">Assignment Description</h2>
-                <p>{{assignment.long_description}}</p>
+                    <div class="col">
+                        <h3 class="topics">Assignment Description</h2>
+                        <p>{{assignment.long_description}}</p>
+                    </div>
                 </div>
-
+                <div class="row">
+                    <div class="col">
+                    <h3 class="topics">Goals</h2>
+                    <ol class="whitetext">
+                        {% if assignment.goal_1 %}
+                        <li>{{assignment.goal_1}}</li>
+                        {% endif %}
+                        {% if assignment.goal_2 %}
+                        <li>{{assignment.goal_2}}</li>
+                        {% endif %}
+                        {% if assignment.goal_3 %}
+                        <li>{{assignment.goal_3}}</li>
+                        {% endif %}
+                        {% if assignment.goal_4 %}
+                        <li>{{assignment.goal_4}}</li>
+                        {% endif %}
+                        {% if assignment.goal_5 %}
+                        <li>{{assignment.goal_5}}</li>
+                        {% endif %}
+                    </ol>
+                    
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Preferred Properties</h2>
+                        <p><input type="range" class="slider" name="points" min="0" max="10" disabled></p>
+                    </div>
+                </div>
 
                 <div class="row justify-content-end">
                     <div class="col offset-md-11">
