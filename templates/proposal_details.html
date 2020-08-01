@@ -6,7 +6,7 @@
         <h2 class="register-title">{{assignment.title}}</h2>
            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2"><img src="/static/images/Customartist.png" class="assignment_logo"alt=""></div>
+                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
                     <div class="col-5">
                     <ul class="whitetext">
                         <li>Type: {{assignment.type}}</li>
@@ -177,10 +177,31 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Preferred Materials</h2>
+                        <p>{{assignment.materials}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Preferred Techniques</h2>
+                        <p>{{assignment.techniques}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Images</h2>
+                        <p>Supported soon</p>
+                    </div>
+                </div>
+
                 <div class="row justify-content-end">
                     <div class="col offset-md-11">
                         <form action="{{url_for('assignment_details', assignment_id=assignment._id)}}">
-                        <button type="submit" class="btn btn-light">View Details</button>
+                        <button type="submit" class="btn btn-light">Submit a Proposal</button>
                         </form>
                     <br><br>
                     </div>
