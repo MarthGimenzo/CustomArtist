@@ -1,0 +1,95 @@
+{% extends 'artist_base.html' %} {% block content %}
+
+<div class="container assignment_view">
+    <div class="row">
+        <div class="col-md-12 register">
+        <h2 class="register-title">{{assignment.title}}</h2>
+           <div class="container-fluid">
+                <div class="row">
+                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
+                    <div class="col-5">
+                    <ul class="whitetext">
+                        <li>Type: {{assignment.type}}</li>
+                        <li>Added by: {{assignment.client_id}}</li>
+                        <li>Offer: {{assignment.offer}}</li>
+                        <li>Date added: {{assignment.add_date}}</li>
+                        <li>End date: {{assignment.end_date}}</li>
+                        <li>Location: {{assignment.city}}</li>
+                    </ul>
+                    
+                    </div>
+                    <div class="col-5">
+                    <p>{{assignment.short_description}}</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Assignment Description</h2>
+                        <p>{{assignment.long_description}}</p>
+                    </div>
+                </div>
+
+                <div class="container assignment_view">
+                    <div class="row">
+                        <div class="col-md-12 register">
+                        <h2 class="register-title">My proposal for: {{assignment.title}}</h2>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col">
+                                        <form>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Title of Proposal</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                        </div>
+                                        <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Description</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput2">Materials Used</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                                        </div>
+                                        <p>Uploading images to support your proposal will be available soon</p>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput2">Available period, from</label>
+                                            <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput2">Untill</label>
+                                            <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                                        </div>
+                                        
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-end">
+                                <div class="col">
+                                    <form action="{{url_for('add_proposal', assignment_id=assignment._id)}}">
+                                    <button type="submit" class="btn btn-light endpagebuttons">Submit a Proposal</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="row justify-content-end">
+                    <div class="col">
+                        <form action="{{url_for('assignments')}}">
+                            <button type="submit" class="btn btn-secondary endpagebuttons">Back to Assignment Details</button>
+                        </form>
+                    </div>
+                </div>
+</div>
+
+                
+        </div> 
+    </div>
+</div>
+
+
+{% endblock %}

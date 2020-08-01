@@ -43,7 +43,12 @@ def assignments():
 @app.route('/assignment_detail/<assignment_id>')
 def assignment_details(assignment_id):
     the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
-    return render_template('proposal_details.html', assignment=the_assignment)
+    return render_template('assignment_details.html', assignment=the_assignment)
+
+@app.route('/add_proposal/<assignment_id>')
+def add_proposal(assignment_id):
+    the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
+    return render_template('add_proposal.html', assignment=the_assignment)
 
 @app.route('/sign_out')
 def sign_out():
