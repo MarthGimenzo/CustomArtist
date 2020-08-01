@@ -1,3 +1,5 @@
+/* Import font styles */
+
 @import url("//hello.myfonts.net/count/3befa6");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
   
@@ -5,6 +7,8 @@
   font-family: 'BeatsterOutline';
   src: url('fonts/font.woff2') format('woff2'), url('fonts/font.woff') format('woff');
 }
+
+/* Element styles */
 
 html, body{
     height: 100%;
@@ -28,19 +32,12 @@ h3{
     font-size: xx-large;
     text-align: center;
     margin-top: 15px;
-    
-
-}
 }
 
 h4{
     font-family: 'BeatsterOutline';
     color: white;
     text-align: center;
-}
-
-.mainfieldheader {
-    margin-top: 20px;
 }
 
 p {
@@ -54,6 +51,8 @@ hr {
     border: 1px;
 }
 
+/* Additional styles for fonts */
+
 .whitetext {
     color: white;
 }
@@ -62,73 +61,13 @@ hr {
     color: black;
 }
 
-
-.paint {
-    background-image: url("../images/Paintcloud.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: 50% 0;
-    filter: drop-shadow(0 0 30px white);
-}
-
-.slogan {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-weight: bold;
-    filter: drop-shadow(0 0 30px white);
-    opacity: 100%!important;
-}
+/* Logo in Navbar */
 
 .logo {
     max-width: 100px;
 }
 
-.mainlogo {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    filter: drop-shadow(0 0 30px grey);
-    opacity: 100%!important;
-}
-
-@media only screen and (max-width: 575px) {
-  .slogan {
-      text-size-adjust: auto;
-      font-size: 200%;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  .mainlogo {
-    max-width: 40%;
-    text-align: center;
-    margin: auto;
-  }
-  .slogan {
-      text-size-adjust: auto;
-    }
-}
-
-@media only screen and (min-width: 1199px) {
-  .mainlogo {
-    max-width: 90%;
-    text-align: center;
-    margin: auto;
-  }
-  .slogan {
-      text-size-adjust: auto;
-    }
-}
-
-.bg-dark {
-    background-color: black!important;
-    filter: drop-shadow(0 0 10px black);
-}
+/* Navbar styles */
 
 .navbar-dark .navbar-nav .nav-link {
     color: white;
@@ -137,6 +76,23 @@ hr {
     padding-left:30px;
     padding-right:30px;
 }
+
+.bg-dark {
+    background-color: black!important;
+}
+
+/* Modal */
+
+.modal-content {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 20px;
+    outline: 0;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 100%;
+}
+
+/* Fading backgrounds */
 
 .fader {
   background-size: cover;
@@ -152,6 +108,81 @@ hr {
   padding-bottom: 100%;
 }
 
+/* Adds space above the header inside the black div on the index page */
+
+.mainfieldheader {
+    margin-top: 20px;
+}
+
+/* Adds the paint cloud behind the main logo */
+
+.paint {
+    background-image: url("../images/Paintcloud.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 50% 0;
+    filter: drop-shadow(0 0 30px white);
+}
+
+/* Index page logo and slogan style */
+
+.mainlogo {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    filter: drop-shadow(0 0 30px grey);
+    opacity: 100%!important;
+}
+
+.slogan {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-weight: bold;
+    filter: drop-shadow(0 0 30px white);
+    opacity: 100%!important;
+}
+
+/* Index page logo and slogan style small view */
+
+@media only screen and (max-width: 575px) {
+  .slogan {
+      text-size-adjust: auto;
+      font-size: 200%;
+  }
+}
+
+/* Index page logo and slogan style medium view */
+
+@media only screen and (max-width: 991px) {
+  .mainlogo {
+    max-width: 40%;
+    text-align: center;
+    margin: auto;
+  }
+  .slogan {
+      text-size-adjust: auto;
+    }
+}
+
+/* Index page logo and slogan style large view */
+
+@media only screen and (min-width: 1199px) {
+  .mainlogo {
+    max-width: 90%;
+    text-align: center;
+    margin: auto;
+  }
+  .slogan {
+      text-size-adjust: auto;
+    }
+}
+/* Black div */
+
 .mainfield {
     background-color: black;
     margin-left: auto;
@@ -160,6 +191,8 @@ hr {
     
 }
 
+/* Makes sure content stays on top */
+
 .ontop {
     position: absolute;
     min-width: 100%;
@@ -167,21 +200,7 @@ hr {
     z-index: 10;
 }
 
-.border {
-    border: 3px solid white!important;
-    border-radius: 20px!important;
-}
-
-/* Modal */
-
-.modal-content {
-    background-color: black;
-    border: 1px solid white;
-    border-radius: 20px;
-    outline: 0;
-    font-family: 'Montserrat', sans-serif;
-    max-width: 100%;
-}
+/* Basic Divs */
 
 .register {
     background-color: black;
@@ -211,14 +230,18 @@ hr {
     font-size:3.5vw;
 }
 
+/* Forms */
+
 label {
     color: white;
 }
+
+/* Assignments page */
 
 .assignment_view {
     padding-top: 15px;
 }
 
 .assignment_logo {
-    max-width: 13vw;
+    max-width: 15vw;
 }
