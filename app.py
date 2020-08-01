@@ -52,9 +52,15 @@ def add_proposal(assignment_id):
 def insert_proposal():
     proposals = mongo.db.proposals
     full_insert = request.form.to_dict()
+
+    # Add artist name to the proposal
     full_insert['artist_name'] = session['artistname']
+
+    # Add the _id of the artist's record to the proposal as artist_id
+    artist_insession_record = mongo.db.artists.find_one({"username" : session['artistname']})
+    full_insert['artist_id'] = (artist_insession_record['_id'])
+
     proposals.insert_one(full_insert)
-    print(request.form.to_dict())
     return redirect(url_for('assignments'))
 
 @app.route('/sign_out')
