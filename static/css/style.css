@@ -300,3 +300,13 @@ label {
     border-radius: 1rem;
 }
 
+.themeborder {
+    margin: 1px;
+    padding: 2px;
+    border-radius: 1rem;
+    color: black;
+    text-align: center;
+    background-color: white;
+    float: left;
+    width:32.5%
+}

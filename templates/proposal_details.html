@@ -117,6 +117,66 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Preferred Themes</h2>
+                        {% if assignment.abstract %}
+                        <div class="themeborder">Abstract</div>
+                        {% endif %}
+                        {% if assignment.architecture %}
+                        <div class="themeborder">Architecture</div>
+                        {% endif %}
+                        {% if assignment.nature %}
+                        <div class="themeborder">Nature</div>
+                        {% endif %}
+                        {% if assignment.collage %}
+                        <div class="themeborder">Collage</div>
+                        {% endif %}
+                        {% if assignment.animals %}
+                        <div class="themeborder">Animals</div>
+                        {% endif %}
+                        {% if assignment.fantasy %}
+                        <div class="themeborder">Fantasy</div>
+                        {% endif %}
+                        {% if assignment.interior %}
+                        <div class="themeborder">Interior</div>
+                        {% endif %}
+                        {% if assignment.landscape %}
+                        <div class="themeborder">Landscape</div>
+                        {% endif %}
+                        {% if assignment.maritime %}
+                        <div class="themeborder">Maritime</div>
+                        {% endif %}
+                        {% if assignment.people %}
+                        <div class="themeborder">People</div>
+                        {% endif %}
+                        {% if assignment.sports %}
+                        <div class="themeborder">Sports</div>
+                        {% endif %}
+                        {% if assignment.city_life %}
+                        <div class="themeborder">City</div>
+                        {% endif %}
+                        {% if assignment.still %}
+                        <div class="themeborder">Still Life</div>
+                        {% endif %}
+                        {% if assignment.vehicles %}
+                        <div class="themeborder">Vehicles</div>
+                        {% endif %}
+                        {% if assignment.beach %}
+                        <div class="themeborder">Beach</div>
+                        {% endif %}
+                        {% if assignment.futurism %}
+                        <div class="themeborder">Futurism</div>
+                        {% endif %}
+                        {% if assignment.portrait %}
+                        <div class="themeborder">Portrait</div>
+                        {% endif %}
+                        {% if assignment.space %}
+                        <div class="themeborder">Space</div>
+                        {% endif %}
+                    </div>
+                </div>
+
                 <div class="row justify-content-end">
                     <div class="col offset-md-11">
                         <form action="{{url_for('assignment_details', assignment_id=assignment._id)}}">
