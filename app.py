@@ -63,6 +63,10 @@ def insert_proposal():
     proposals.insert_one(full_insert)
     return redirect(url_for('assignments'))
 
+@app.route('/my_proposals')
+def my_proposals():
+    return render_template('my_proposals.html', proposals=mongo.db.proposals.find())
+
 @app.route('/sign_out')
 def sign_out():
     session.pop('artistname')
