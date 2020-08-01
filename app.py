@@ -51,9 +51,11 @@ def add_proposal(assignment_id):
 @app.route('/insert_proposal', methods=['POST'])
 def insert_proposal():
     proposals = mongo.db.proposals
-    print('Got here')
-    proposals.insert_one(request.form.to_dict())
-    return "Inserted proposal"
+    full_insert = request.form.to_dict()
+    full_insert['artist_name'] = session['artistname']
+    proposals.insert_one(full_insert)
+    print(request.form.to_dict())
+    return redirect(url_for('assignments'))
 
 @app.route('/sign_out')
 def sign_out():
