@@ -19,12 +19,10 @@ def index():
         return render_template('artist_index.html')
 
     return render_template('index.html')
-    
 
 @app.route('/artist_login', methods=['POST'])
 def artist_login():
     print('Got to Login')
-    
     artists = mongo.db.artists
     print(artists)
     login_artist = artists.find_one({'username' : request.form['artistname']})
@@ -68,10 +66,7 @@ def register_artist():
             session['artistname'] = request.form['artistname']
             return render_template('artist_index.html', assignments=mongo.db.assignments.find())
         
-        return render_template(
-            'register_artist.html',
-            userexists=True
-)
+        return render_template('register_artist.html',userexists=True)
     
     print('Hello, You!')
     return render_template('register_artist.html')
