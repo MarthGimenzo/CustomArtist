@@ -234,14 +234,41 @@ hr {
     padding-right: 0px;
     padding-left: 0px;
     font-size:3.9vw;
+    font-weight: 500;
 }
 
 @media only screen and (max-width: 1199px) {
     .register-title {
-        font-size:3vw;
+        font-size:3.2vw;
     }
 }
 
+.topics {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    color: white;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+    padding-right: 0px;
+    padding-left: 0px;
+    font-size:3.9vw;
+    font-weight: 100;
+    margin-top: 0;
+}
+
+@media only screen and (max-width: 1199px) {
+    .topics {
+        font-size:3.2vw;
+    }
+}
 
 /* Forms */
 

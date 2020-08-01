@@ -39,8 +39,7 @@ def artist_login():
 @app.route('/assignment_detail/<assignment_id>')
 def assignment_details(assignment_id):
     the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
-    proposals = mongo.db.proposals.find()
-    return render_template('proposal_details.html'), assignment=the_assignment, proposals=proposals)
+    return render_template('proposal_details.html', assignment=the_assignment)
 
 @app.route('/sign_out')
 def sign_out():
