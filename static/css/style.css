@@ -294,3 +294,9 @@ label {
     width:90%;
 }
 
+.coloursborder {
+    margin: 1px;
+    padding: 2px;
+    border-radius: 1rem;
+}
+
