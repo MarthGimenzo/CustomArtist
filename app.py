@@ -48,11 +48,17 @@ def add_proposal(assignment_id):
     the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
     return render_template('add_proposal.html', assignment=the_assignment)
 
+@app.route('/insert_proposal', methods=['POST'])
+def insert_proposal():
+    proposals = mongo.db.proposals
+    print('Got here')
+    proposals.insert_one(request.form.to_dict())
+    return "Inserted proposal"
+
 @app.route('/sign_out')
 def sign_out():
     session.pop('artistname')
     return redirect(url_for('index'))
-
 
 @app.route('/register_artist', methods=['POST', 'GET'])
 def register_artist():

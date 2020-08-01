@@ -35,10 +35,11 @@
                     <div class="row">
                         <div class="col-md-12 register">
                         <h2 class="register-title">My proposal for: {{assignment.title}}</h2>
-                            <form action="" method="POST">
+                            
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col">
+                                        <form action="{{url_for('insert_proposal')}}" method="POST">
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Title of Proposal</label>
                                             <input type="text" class="form-control" name="title" id="title" placeholder="Proposal for {{assignment.title}}">
@@ -68,8 +69,9 @@
                                         <button type="submit" class="btn btn-light endpagebuttons">Submit a Proposal</button>
                                     </div>
                                 </div>
+                                </form>
                             </div>
-                            </form>
+                            
                             
                         </div> 
                     </div>
