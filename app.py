@@ -65,7 +65,10 @@ def insert_proposal():
 
 @app.route('/my_proposals')
 def my_proposals():
-    return render_template('my_proposals.html', proposals=mongo.db.proposals.find())
+
+    # Find only proposals of the current user in session
+    session_artist_proposals = mongo.db.proposals.find({"artist_name" : session['artistname']})
+    return render_template('my_proposals.html', proposals=session_artist_proposals)
 
 @app.route('/sign_out')
 def sign_out():
