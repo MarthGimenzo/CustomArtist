@@ -36,6 +36,10 @@ def artist_login():
             session['artistname'] = request.form['artistname']
             return render_template('artist_index.html', assignments=mongo.db.assignments.find())
 
+@app.route('/artist_login')
+def assignments():
+    return render_template('artist_index.html', assignments=mongo.db.assignments.find())
+
 @app.route('/assignment_detail/<assignment_id>')
 def assignment_details(assignment_id):
     the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
