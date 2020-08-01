@@ -210,6 +210,12 @@ hr {
     font-family: 'Montserrat', sans-serif;
     font-size:1.5vw;
 }
+
+@media only screen and (max-width: 575px) {
+    .register {
+        font-size:1.9vw;
+    }
+}
     
 .register-title {
     display: -webkit-box;
@@ -227,8 +233,15 @@ hr {
     border-top-right-radius: .3rem;
     padding-right: 0px;
     padding-left: 0px;
-    font-size:3.5vw;
+    font-size:3.9vw;
 }
+
+@media only screen and (max-width: 1199px) {
+    .register-title {
+        font-size:3vw;
+    }
+}
+
 
 /* Forms */
 
@@ -245,3 +258,4 @@ label {
 .assignment_logo {
     max-width: 15vw;
 }
+
