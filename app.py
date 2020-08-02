@@ -48,8 +48,8 @@ def add_proposal(assignment_id):
     the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
     return render_template('add_proposal.html', assignment=the_assignment)
 
-@app.route('/insert_proposal', methods=['POST'])
-def insert_proposal():
+@app.route('/insert_proposal/<assignment_id>', methods=['POST'])
+def insert_proposal(assignment_id):
     proposals = mongo.db.proposals
     full_insert = request.form.to_dict()
 
@@ -60,6 +60,10 @@ def insert_proposal():
     artist_insession_record = mongo.db.artists.find_one({"username" : session['artistname']})
     full_insert['artist_id'] = (artist_insession_record['_id'])
 
+    # Add the _id of the assignment record to the proposal as assignment_id
+    coupled_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
+    full_insert['assignment_id'] = (coupled_assignment['_id'])
+
     proposals.insert_one(full_insert)
     return redirect(url_for('assignments'))
 
@@ -68,7 +72,11 @@ def my_proposals():
 
     # Find only proposals of the current user in session
     session_artist_proposals = mongo.db.proposals.find({"artist_name" : session['artistname']})
+
+    proposal_assignment = mongo.db.proposals.find({"artist_name" : session['artistname']})
     return render_template('my_proposals.html', proposals=session_artist_proposals)
+
+
 
 @app.route('/sign_out')
 def sign_out():

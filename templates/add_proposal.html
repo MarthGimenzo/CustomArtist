@@ -39,7 +39,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col">
-                                        <form action="{{url_for('insert_proposal')}}" method="POST">
+                                        <form action="{{url_for('insert_proposal', assignment_id=assignment._id)}}" method="POST">
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Title of Proposal</label>
                                             <input type="text" class="form-control" name="title" id="title" placeholder="Proposal for {{assignment.title}}">
