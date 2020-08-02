@@ -12,12 +12,40 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
-                    
-
                     {% for assignment in assignments %}
                     {% if assignment._id == proposal.assignment_id %}
-                        <p>The assignment for this proposal:</p>
-                        <p>{{ assignment.title }}</p>
+                    <p>For assignment:</p>
+                    <div class="container">
+                        <div class="row addspacebelow">
+                            <div class="col-md-12 register">
+                            <h2 class="register-title">{{assignment.title}}</h2>
+                                <div class="container-fluid">
+                                    <div class="row addspacebelow">
+                                        <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
+                                        <div class="col-5">
+                                        <ul class="whitetext">
+                                            <li>Added by: {{assignment.client_id}}</li>
+                                            <li>Offer: {{assignment.offer}}</li>
+                                            <li>Date added: {{assignment.add_date}}</li>
+                                            <li>Location: {{assignment.city}}</li>
+                                        </ul>
+                                        
+                                        </div>
+                                        <div class="col-5">
+                                        <p>{{assignment.short_description}}</p>
+                                        </div>  
+                                    </div>
+                                </div>  
+                            </div> 
+                        </div>
+                    </div>
+                    <p>Your Proposal:</p>
+                    <h3 class="topics">Title</h3>
+                    <p>{{proposal.title}}</p>
+                    <h3 class="topics">Description</h3>
+                    <p>{{proposal.description}}</p>
+
+
                     {% endif %}
                     {% endfor %}
                     </div>
