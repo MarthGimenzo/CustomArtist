@@ -71,10 +71,12 @@ def insert_proposal(assignment_id):
 def my_proposals():
 
     # Find only proposals of the current user in session
-    session_artist_proposals = mongo.db.proposals.find({"artist_name" : session['artistname']})
+    session_artist_proposals = list(mongo.db.proposals.find({"artist_name" : session['artistname']}))
 
-    proposal_assignment = mongo.db.proposals.find({"artist_name" : session['artistname']})
-    return render_template('my_proposals.html', proposals=session_artist_proposals)
+    # Add all assigmnents so that it can be iterated through
+    all_assignments = list(mongo.db.assignments.find())
+    print(all_assignments)
+    return render_template('my_proposals.html', proposals=session_artist_proposals, assignments=all_assignments)
 
 
 

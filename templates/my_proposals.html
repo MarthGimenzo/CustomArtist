@@ -2,8 +2,9 @@
 
 <h3>My Proposals</h3>
 
-{% for proposal in proposals %}
 
+
+{% for proposal in proposals %}
 <div class="container assignment_view">
     <div class="row">
         <div class="col-md-12 register">
@@ -11,9 +12,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
-                    <p>{{proposal.description}}</p>
-                    <p>{{proposal.artist_id}}</p>
                     
+
+                    {% for assignment in assignments %}
+                    {% if assignment._id == proposal.assignment_id %}
+                        <p>The assignment for this proposal:</p>
+                        <p>{{ assignment.title }}</p>
+                    {% endif %}
+                    {% endfor %}
                     </div>
                     
                 </div>
@@ -29,8 +35,6 @@
         </div>
     </div>
 </div>
-
-
 {% endfor %}
 
 {% endblock %}
