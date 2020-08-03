@@ -78,6 +78,12 @@ def my_proposals():
     print(all_assignments)
     return render_template('my_proposals.html', proposals=session_artist_proposals, assignments=all_assignments)
 
+@app.route('/edit_proposal/<proposal_id>/<assignment_id>')
+def edit_proposal(proposal_id, assignment_id):
+    the_proposal = mongo.db.proposals.find_one({"_id": ObjectId(proposal_id)})
+    all_assignments = mongo.db.assignments.find_one({"_id": ObjectId(assignment_id)})
+    print(all_assignments)
+    return render_template('edit_proposal.html', proposal=the_proposal, assignments=all_assignments)
 
 
 @app.route('/sign_out')
@@ -101,8 +107,6 @@ def register_artist():
     
     print('Hello, You!')
     return render_template('register_artist.html')
-
-    return 'You are a mango' 
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

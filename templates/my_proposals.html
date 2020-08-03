@@ -14,7 +14,7 @@
                     <div class="col">
                     {% for assignment in assignments %}
                     {% if assignment._id == proposal.assignment_id %}
-                    <h2 class="topics">For assignment</h2>
+                    <h3 class="topics">For assignment</h3>
                     <div class="container">
                         <div class="row addspacebelow">
                             <div class="col-md-12 register striped-background">
@@ -45,14 +45,14 @@
                     <p>{{proposal.description}}</p>
 
 
-                    {% endif %}
-                    {% endfor %}
+                    
                     </div>
                     
                 </div>
                 <div class="row justify-content-end addspacebelow">
                     <div class="col">
-                        <form action="">
+                        <p>{{assignment._id}}</p>
+                        <form action="{{url_for('edit_proposal', proposal_id=proposal._id, assignment_id=assignment._id)}}">
                         <button type="submit" class="btn btn-light endpagebuttons">Edit Proposal</button>
                         </form>
 
@@ -61,6 +61,8 @@
                         </form>
                     </div>
                 </div>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
