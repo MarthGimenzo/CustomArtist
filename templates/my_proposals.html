@@ -14,7 +14,7 @@
                     <div class="col">
                     {% for assignment in assignments %}
                     {% if assignment._id == proposal.assignment_id %}
-                    <p>For assignment:</p>
+                    <h2 class="topics">For assignment</h2>
                     <div class="container">
                         <div class="row addspacebelow">
                             <div class="col-md-12 register striped-background">
@@ -39,7 +39,6 @@
                             </div> 
                         </div>
                     </div>
-                    <p>Your Proposal:</p>
                     <h3 class="topics">Title</h3>
                     <p>{{proposal.title}}</p>
                     <h3 class="topics">Description</h3>
@@ -51,12 +50,15 @@
                     </div>
                     
                 </div>
-                <div class="row justify-content-end">
-                    <div class="col offset-md-11">
+                <div class="row justify-content-end addspacebelow">
+                    <div class="col">
                         <form action="">
-                        <button type="submit" class="btn btn-light endpageassignmentbuttons addspacebelow">View Details</button>
+                        <button type="submit" class="btn btn-light endpagebuttons">Edit Proposal</button>
                         </form>
-                    <br><br>
+
+                        <form action="">
+                        <button type="submit" class="btn btn-secondary endpagebuttons">Delete Proposal</button>
+                        </form>
                     </div>
                 </div>
             </div>
