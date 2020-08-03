@@ -20,13 +20,13 @@ h1{
 }
 
 h2{
-    font-family: 'BeatsterOutline';
+    font-family: 'Montserrat', sans-serif;
     color: white;
     text-align: center;
 }
 
 h3{
-    font-family: 'BeatsterOutline';
+    font-family: 'Montserrat', sans-serif;
     color: black;
     font-weight: bold;
     font-size: xx-large;
@@ -216,12 +216,12 @@ td {
     border-radius: 20px;
     outline: 0;
     font-family: 'Montserrat', sans-serif;
-    font-size:1.5vw;
+    font-size:1.3vw;
 }
 
 @media only screen and (max-width: 575px) {
     .register {
-        font-size:1.9vw;
+        font-size:1.6vw;
     }
 }
     
@@ -241,15 +241,11 @@ td {
     border-top-right-radius: .3rem;
     padding-right: 0px;
     padding-left: 0px;
-    font-size:3.9vw;
+    font-size:2vw;
     font-weight: 500;
 }
 
-@media only screen and (max-width: 1199px) {
-    .register-title {
-        font-size:3.2vw;
-    }
-}
+
 
 .topics {
     display: -webkit-box;
@@ -267,16 +263,11 @@ td {
     border-top-right-radius: .3rem;
     padding-right: 0px;
     padding-left: 0px;
-    font-size:3.9vw;
+    font-size:2vw;
     font-weight: 100;
     margin-top: 0;
 }
 
-@media only screen and (max-width: 1199px) {
-    .topics {
-        font-size:3.2vw;
-    }
-}
 
 /* Forms */
 
