@@ -23,6 +23,7 @@ h2{
     font-family: 'Montserrat', sans-serif;
     color: white;
     text-align: center;
+    font-weight: 900;
 }
 
 h3{
@@ -32,12 +33,14 @@ h3{
     font-size: xx-large;
     text-align: center;
     margin-top: 15px;
+    font-weight: 900;
 }
 
 h4{
     font-family: 'BeatsterOutline';
     color: white;
     text-align: center;
+    font-weight: 900;
 }
 
 p {
@@ -227,11 +230,13 @@ td {
     outline: 0;
     font-family: 'Montserrat', sans-serif;
     font-size:1.3vw;
+    
 }
 
 @media only screen and (max-width: 575px) {
     .register {
         font-size:1.6vw;
+        
     }
 }
     
@@ -252,7 +257,7 @@ td {
     padding-right: 0px;
     padding-left: 0px;
     font-size:2vw;
-    font-weight: 500;
+    
 }
 
 
@@ -274,7 +279,6 @@ td {
     padding-right: 0px;
     padding-left: 0px;
     font-size:2vw;
-    font-weight: 100;
     margin-top: 0;
 }
 
