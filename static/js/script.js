@@ -23,6 +23,7 @@ $(document).ready(function() {
 
     var image = $(".fader");
     image.css("background-image", "url(" + images[count] + ")");
+    console.log(image)
     console.log("background-image", "url(" + images[count] + ")")
     console.log('count now: ' + count);
 
