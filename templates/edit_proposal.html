@@ -37,7 +37,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col">
-                                        <form action="{{url_for('update_proposal', proposal_id=proposal._id)}}" method="POST">
+                                        <form action="{{url_for('update_proposal', proposal_id=proposal._id, assignment_id=assignments._id)}}" method="POST">
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Title of Proposal</label>
                                             <input type="text" class="form-control" name="title" id="title" value="{{proposal.title}}">
