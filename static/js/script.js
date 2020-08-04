@@ -10,19 +10,20 @@ $(document).ready(function() {
 
     console.log('count at first: ' + count);
     var images = [
-        "../static/images/backgrounds/bg1.jpg",
-        "../static/images/backgrounds/bg2.jpg",
-        "../static/images/backgrounds/bg3.jpg",
-        "../static/images/backgrounds/bg4.jpg",
-        "../static/images/backgrounds/bg5.jpg",
-        "../static/images/backgrounds/bg6.jpg",
-        "../static/images/backgrounds/bg7.jpg",
-        "../static/images/backgrounds/bg8.jpg",
-        "../static/images/backgrounds/bg9.jpg",
+        "/static/images/backgrounds/bg1.jpg",
+        "/static/images/backgrounds/bg2.jpg",
+        "/static/images/backgrounds/bg3.jpg",
+        "/static/images/backgrounds/bg4.jpg",
+        "/static/images/backgrounds/bg5.jpg",
+        "/static/images/backgrounds/bg6.jpg",
+        "/static/images/backgrounds/bg7.jpg",
+        "/static/images/backgrounds/bg8.jpg",
+        "/static/images/backgrounds/bg9.jpg",
     ];
 
     var image = $(".fader");
     image.css("background-image", "url(" + images[count] + ")");
+    console.log("background-image", "url(" + images[count] + ")")
     console.log('count now: ' + count);
 
     setInterval(function() {

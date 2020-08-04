@@ -20,6 +20,7 @@ def index():
 
     return render_template('index.html')
 
+
 @app.route('/artist_login', methods=['POST'])
 def artist_login():
     print('Got to Login')
@@ -34,19 +35,23 @@ def artist_login():
             session['artistname'] = request.form['artistname']
             return render_template('artist_index.html', assignments=mongo.db.assignments.find())
 
+
 @app.route('/artist_login')
 def assignments():
     return render_template('artist_index.html', assignments=mongo.db.assignments.find())
+
 
 @app.route('/assignment_detail/<assignment_id>')
 def assignment_details(assignment_id):
     the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
     return render_template('assignment_details.html', assignment=the_assignment)
 
+
 @app.route('/add_proposal/<assignment_id>')
 def add_proposal(assignment_id):
     the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
     return render_template('add_proposal.html', assignment=the_assignment)
+
 
 @app.route('/insert_proposal/<assignment_id>', methods=['POST'])
 def insert_proposal(assignment_id):
@@ -67,6 +72,7 @@ def insert_proposal(assignment_id):
     proposals.insert_one(full_insert)
     return redirect(url_for('assignments'))
 
+
 @app.route('/my_proposals')
 def my_proposals():
 
@@ -78,6 +84,7 @@ def my_proposals():
     print(all_assignments)
     return render_template('my_proposals.html', proposals=session_artist_proposals, assignments=all_assignments)
 
+
 @app.route('/edit_proposal/<proposal_id>/<assignment_id>')
 def edit_proposal(proposal_id, assignment_id):
     the_proposal = mongo.db.proposals.find_one({"_id": ObjectId(proposal_id)})
@@ -85,7 +92,8 @@ def edit_proposal(proposal_id, assignment_id):
     print(all_assignments)
     return render_template('edit_proposal.html', proposal=the_proposal, assignments=all_assignments)
 
-@app.route('/update/<proposal_id>/<assignment_id>', methods=["POST"])
+
+@app.route('/update_proposal/<proposal_id>/<assignment_id>', methods=["POST"])
 def update_proposal(proposal_id, assignment_id):
     proposals = mongo.db.proposals
 
@@ -104,10 +112,12 @@ def update_proposal(proposal_id, assignment_id):
     })
     return redirect(url_for('my_proposals'))
 
+
 @app.route('/sign_out')
 def sign_out():
     session.pop('artistname')
     return redirect(url_for('index'))
+
 
 @app.route('/register_artist', methods=['POST', 'GET'])
 def register_artist():
