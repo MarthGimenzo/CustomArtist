@@ -85,6 +85,18 @@ def edit_proposal(proposal_id, assignment_id):
     print(all_assignments)
     return render_template('edit_proposal.html', proposal=the_proposal, assignments=all_assignments)
 
+@app.route('/update/<proposal_id>', methods=["POST"])
+def update_proposal(proposal_id):
+    proposals = mongo.db.proposals
+    proposals.update({'_id': ObjectId(proposal_id)},
+    { 
+        'title' : request.form.get('title'),
+        'description' : request.form.get('description'),
+        'materials' : request.form.get('materials'),
+        'availability_start' : request.form.get('availability_start'),
+        'availability_end' : request.form.get('availability_end')
+    })
+    return redirect(url_for('my_proposals'))
 
 @app.route('/sign_out')
 def sign_out():

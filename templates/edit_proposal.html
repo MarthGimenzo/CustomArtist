@@ -37,7 +37,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col">
-                                        <form action="" method="POST">
+                                        <form action="{{url_for('update_proposal', proposal_id=proposal._id)}}" method="POST">
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Title of Proposal</label>
                                             <input type="text" class="form-control" name="title" id="title" value="{{proposal.title}}">
@@ -64,7 +64,9 @@
                                 </div>
                                 <div class="row justify-content-end">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-light endpagebuttons">Edit your Proposal</button>
+                                        
+                                        <button type="submit" class="btn btn-light endpagebuttons">Save Changes</button>
+                                        
                                     </div>
                                 </div>
                                 </form>
