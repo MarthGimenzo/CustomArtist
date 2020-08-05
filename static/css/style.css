@@ -12,13 +12,13 @@
 
 html{
     height: 100%;
-    padding-bottom: 100%;
+    
     background: transparent;
 }
 
 body{
     height: 100%;
-    padding-bottom: 100%;
+    
     background: repeating-linear-gradient(
     45deg,
     #696969,
@@ -130,7 +130,7 @@ td {
     background-position: center center;
     background-attachment: fixed;
     min-width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     position: static;
     
     z-index: 3;
