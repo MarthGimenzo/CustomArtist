@@ -23,12 +23,12 @@
                     <form method="POST" action="{{ url_for('artist_login') }}">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="inputEmail1">Username</label>
-                                <input type="text" class="form-control" id="inputArtistname" name="artistname" aria-describedby="emailHelp" placeholder="Enter username" />
+                                <label class="topics" for="inputArtistusername">Username</label>
+                                <input type="text" class="form-control" id="artistname" name="artistname" placeholder="Enter username" required />
                             </div>
                             <div class="form-group">
-                                <label for="Password1">Password</label>
-                                <input type="password" class="form-control" id="Password1" name="artistpass" placeholder="Password" />
+                                <label class="topics" for="inputArtistpassword">Password</label>
+                                <input type="password" class="form-control" id="artistpass" name="artistpass" placeholder="Password" required />
                             </div>
                         </div>
                         <div class="modal-footer">

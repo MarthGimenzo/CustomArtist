@@ -34,7 +34,9 @@ def artist_login():
             print('Accepted')
             session['artistname'] = request.form['artistname']
             return render_template('artist_index.html', assignments=mongo.db.assignments.find())
-
+        
+    print('Not Accepted')
+    return render_template('index.html')
 
 @app.route('/artist_login')
 def assignments():
