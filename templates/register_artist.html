@@ -14,15 +14,16 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="whitetex topics">Username</label>
                     <input type="text" class="form-control" name="artistname" placeholder="Username" minlength="8" required>
+                    {% if userexists %}
+                    <p class="warning">That Username Already Exists!</p>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" class="whitetext topics">Password</label>
-                    <p>Your password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter.</p>
                     <input type="password" class="form-control" name="pass" placeholder="Password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                    <p class="note">Your password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter.</p>
                 </div>
-                {% if userexists %}
-                    <p>That Username Already Exists!</p>
-                    {% endif %}
+                
                 <button type="submit" class="btn btn-secondary btn-block">Register</button>
             </form>
             <br>

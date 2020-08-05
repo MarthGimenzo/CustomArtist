@@ -85,6 +85,17 @@ td {
     color: black;
 }
 
+.note {
+    color: #CDCDCD;
+    font-style: italic;
+}
+
+.warning {
+    color: red;
+    font-style: italic;
+}
+
+
 .bordered_header {
     font-weight: 900;
     text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
