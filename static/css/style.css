@@ -318,6 +318,28 @@ td {
     margin-top: 0;
 }
 
+@media only screen and (max-width: 575px) {
+    .topics-small {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 0.3rem;
+        color: white;
+        border-top-left-radius: .3rem;
+        border-top-right-radius: .3rem;
+        padding-right: 0px;
+        padding-left: 0px;
+        font-size:4vw;
+        margin-top: 0;
+    }
+}
+
 
 /* Forms */
 
