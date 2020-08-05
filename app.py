@@ -144,6 +144,11 @@ def sign_out():
     session.pop('artistname')
     return redirect(url_for('index'))
 
+@app.route('/sign_out_client')
+def sign_out_client():
+    session.pop('clientname')
+    return redirect(url_for('index'))
+
 
 @app.route('/register_artist', methods=['POST', 'GET'])
 def register_artist():
