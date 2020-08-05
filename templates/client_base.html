@@ -23,13 +23,13 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto pl-4 mt-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('assignments')}}">Assignments</a>
+                            <a class="nav-link" href="{{url_for('assignments')}}">New Assignment</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('my_proposals')}}">My Proposals</a>
+                            <a class="nav-link" href="{{url_for('my_proposals')}}">My Assignments</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('sign_out') }}">Log Out: {{ session['artistname'] }}</a>
+                            <a class="nav-link" href="{{ url_for('sign_out') }}">Log Out: {{ session['clientname'] }}</a>
                         </li>
                     </ul>
                 </div>
