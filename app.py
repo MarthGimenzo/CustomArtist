@@ -38,8 +38,32 @@ def artist_login():
     print('Not Accepted')
     return render_template('index.html', badlogin=True)
 
+
 @app.route('/artist_login')
 def assignments():
+    return render_template('artist_index.html', assignments=mongo.db.assignments.find())
+
+
+@app.route('/client_login', methods=['POST'])
+def client_login():
+    print('Got to Login Clients')
+    clients = mongo.db.clients
+    print(clients)
+    login_client = clients.find_one({'username' : request.form['clientname']})
+    print('Got here4')
+    print(login_client)
+    if login_client:
+        if bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), login_client['password']) == login_client['password']:
+            print('Accepted')
+            session['clientname'] = request.form['clientname']
+            return render_template('client_index.html', assignments=mongo.db.assignments.find())
+        
+    print('Not Accepted')
+    return render_template('index.html', badlogin2=True)
+
+
+@app.route('/client_login')
+def new_assignment():
     return render_template('artist_index.html', assignments=mongo.db.assignments.find())
 
 
@@ -137,6 +161,24 @@ def register_artist():
     
     print('Hello, You!')
     return render_template('register_artist.html')
+
+@app.route('/register_client', methods=['POST', 'GET'])
+def register_client():
+    if request.method == 'POST':
+        clients = mongo.db.clients
+        existing_client = clients.find_one({'username' : request.form['clientname']})
+
+        if existing_client == None:
+            hashpass = bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), bcrypt.gensalt())
+            clients.insert({'username' : request.form['clientname'], 'password' : hashpass})
+            session['clientname'] = request.form['clientname']
+            return render_template('client_index.html', assignments=mongo.db.assignments.find())
+        
+        return render_template('register_client.html',userexists=True)
+
+    print('Hello, You!')
+    return render_template('register_client.html')
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
