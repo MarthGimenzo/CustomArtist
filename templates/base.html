@@ -26,8 +26,8 @@
                     <form method="POST" action="{{ url_for('artist_login') }}">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label class="topics topics-small" for="inputArtistusername">Username</label>
-                                <input type="text" class="form-control" id="artistname" name="artistname" placeholder="Enter username" required />
+                                <label class="topics topics-small" for="inputArtistusername">Artist Username</label>
+                                <input type="text" class="form-control" id="artistname" name="artistname" placeholder="Enter Artist Username" required />
                                 
                             </div>
                             <div class="form-group">
@@ -35,7 +35,7 @@
                                 <input type="password" class="form-control" id="artistpass" name="artistpass" placeholder="Password" required />
                             </div>
                             {% if badlogin %}
-                            <p class="warning">Incorrect username and/or password</p>
+                            <p class="warning">Incorrect Artist Username and/or Password</p>
                             {% endif %}
                         </div>
                         <div class="modal-footer">
@@ -61,8 +61,8 @@
                     <form method="POST" action="{{ url_for('client_login') }}">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label class="topics topics-small" for="inputClientusername">Username</label>
-                                <input type="text" class="form-control" id="clientname" name="clientname" placeholder="Enter username" required />
+                                <label class="topics topics-small" for="inputClientusername">Client Username</label>
+                                <input type="text" class="form-control" id="clientname" name="clientname" placeholder="Enter Client Username" required />
                                 
                             </div>
                             <div class="form-group">
@@ -70,7 +70,7 @@
                                 <input type="password" class="form-control" id="artistpass" name="clientpass" placeholder="Password" required />
                             </div>
                             {% if badlogin2 %}
-                            <p class="warning">Incorrect username and/or password</p>
+                            <p class="warning">Incorrect Client Username and/or Password</p>
                             {% endif %}
                         </div>
                         <div class="modal-footer">
@@ -122,6 +122,9 @@
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
         {% if badlogin %}
         <script>$(document).ready(function(){$("#artistLoginModal").modal('show');});</script>
+        {% endif %}
+        {% if badlogin2 %}
+        <script>$(document).ready(function(){$("#clientLoginModal").modal('show');});</script>
         {% endif %}
     </body>
 </html>
