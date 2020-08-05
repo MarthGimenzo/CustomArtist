@@ -36,7 +36,7 @@ def artist_login():
             return render_template('artist_index.html', assignments=mongo.db.assignments.find())
         
     print('Not Accepted')
-    return render_template('index.html')
+    return render_template('index.html', badlogin=True)
 
 @app.route('/artist_login')
 def assignments():

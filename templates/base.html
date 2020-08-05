@@ -7,10 +7,15 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+        
     </head>
 
     <body>
         <!--Artist Login Modal -->
+        
+        
+        
+
         <div class="modal fade" id="artistLoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content custom">
@@ -20,16 +25,21 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    
                     <form method="POST" action="{{ url_for('artist_login') }}">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label class="topics" for="inputArtistusername">Username</label>
                                 <input type="text" class="form-control" id="artistname" name="artistname" placeholder="Enter username" required />
+                                
                             </div>
                             <div class="form-group">
                                 <label class="topics" for="inputArtistpassword">Password</label>
                                 <input type="password" class="form-control" id="artistpass" name="artistpass" placeholder="Password" required />
                             </div>
+                            {% if badlogin %}
+                            <p class="warning">Incorrect username and/or password</p>
+                            {% endif %}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" onclick="location.href='{{ url_for('register_artist') }}'">Register as new Artist</button>
@@ -109,5 +119,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        {% if badlogin %}
+        <script>$(document).ready(function(){$("#artistLoginModal").modal('show');});</script>
+        {% endif %}
     </body>
 </html>
