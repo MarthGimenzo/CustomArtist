@@ -46,14 +46,7 @@ def assignments():
 
 @app.route('/client_login', methods=['POST'])
 def client_login():
-    
     clients = mongo.db.clients
-    
-    
-    print('Got here4')
-    
-    
-    
     login_client = clients.find_one({'username' :  request.form['clientname']})
 
     if login_client:
@@ -70,6 +63,15 @@ def client_login():
         
     print('Not Accepted')
     return render_template('index.html', badlogin2=True)
+
+
+@app.route('/client_login')
+def my_assignments():
+    clients = mongo.db.clients
+    login_client = clients.find_one({'username' : session['clientname']}) 
+    client_id = login_client['_id']
+    only_user_assignments = mongo.db.assignments.find({'client_id' : ObjectId(client_id)})
+    return render_template('client_index.html', assignments=only_user_assignments)
 
 
 @app.route('/client_login')
