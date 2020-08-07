@@ -212,39 +212,41 @@
                     </div>
                 </div>
                 
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Proposals for {{assignment.title}}</h2>
+                    </div>
+                </div>
+
                 {% for proposal in proposals %}
                 <div class="container assignment_view">
                     <div class="row addspacebelow">
                         <div class="col-md-12 register striped-background">
-                        
+                            <h2 class="register-title">{{proposal.title}}</h2>
                             
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col">
                                         <form action="{{url_for('insert_proposal', assignment_id=assignment._id)}}" method="POST">
                                         <div class="form-group">
-                                            <label for="formGroupExampleInput">Title of Proposal</label>
-                                            <p>{{proposal.title}}</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">By Artist:</label>
+                                            <label class="topics" for="formGroupExampleInput">By Artist:</label>
                                             <p>{{proposal.artist_name}}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">Description</label>
+                                            <label class="topics" for="exampleFormControlTextarea1">Description</label>
                                             <p>{{proposal.description}}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="formGroupExampleInput2">Materials Used</label>
+                                            <label class="topics" for="formGroupExampleInput2">Materials Used</label>
                                             <p>{{proposal.materials}}</p>
                                         </div>
                                         <p>Uploading images to support your proposal will be available soon</p>
                                         <div class="form-group">
-                                            <label for="formGroupExampleInput2">Available period, from</label>
+                                            <label class="topics" for="formGroupExampleInput2">Available period, from</label>
                                             <p>{{proposal.availability_start}}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="formGroupExampleInput2">Untill</label>
+                                            <label class="topics" for="formGroupExampleInput2">Untill</label>
                                             <p>{{proposal.availability_end}}</p>
                                         </div>
                                         
