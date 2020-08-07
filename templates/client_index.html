@@ -2,6 +2,44 @@
 
 <h3 class="bordered_header">CLIENT LOGIN</h3>
 
-Banaan
+{% for assignment in assignments %}
+
+<div class="container assignment_view">
+    <div class="row">
+        <div class="col-12 register">
+        <h2 class="register-title">{{assignment.title}}</h2>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
+                    <div class="col-5">
+                    <ul class="whitetext">
+                        <li>Added by: {{assignment.client_id}}</li>
+                        <li>Offer: {{assignment.offer}}</li>
+                        <li>Date added: {{assignment.add_date}}</li>
+                        <li>Location: {{assignment.city}}</li>
+                    </ul>
+                    
+                    </div>
+                    <div class="col-5">
+                    <p>{{assignment.short_description}}</p>
+                    </div>
+                    
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col offset-md-11">
+                        <form action="{{url_for('assignment_details', assignment_id=assignment._id)}}">
+                        <button type="submit" class="btn btn-light endpageassignmentbuttons addspacebelow">View Details</button>
+                        </form>
+                    <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endfor %}
+
 
 {% endblock %}

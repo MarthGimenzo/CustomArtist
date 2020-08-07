@@ -46,17 +46,27 @@ def assignments():
 
 @app.route('/client_login', methods=['POST'])
 def client_login():
-    print('Got to Login Clients')
+    
     clients = mongo.db.clients
-    print(clients)
-    login_client = clients.find_one({'username' : request.form['clientname']})
+    
+    
     print('Got here4')
-    print(login_client)
+    
+    
+    
+    login_client = clients.find_one({'username' :  request.form['clientname']})
+
     if login_client:
         if bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), login_client['password']) == login_client['password']:
             print('Accepted')
             session['clientname'] = request.form['clientname']
-            return render_template('client_index.html', assignments=mongo.db.assignments.find())
+            
+            print(login_client)
+            client_id = login_client['_id']
+            print(client_id)
+            only_user_assignments = mongo.db.assignments.find({'client_id' : ObjectId(client_id)})
+
+            return render_template('client_index.html', assignments=only_user_assignments)
         
     print('Not Accepted')
     return render_template('index.html', badlogin2=True)
@@ -64,7 +74,7 @@ def client_login():
 
 @app.route('/client_login')
 def new_assignment():
-    return render_template('artist_index.html', assignments=mongo.db.assignments.find())
+    return render_template('client_index.html', assignments=mongo.db.assignments.find())
 
 
 @app.route('/assignment_detail/<assignment_id>')
