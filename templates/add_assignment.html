@@ -2,44 +2,88 @@
 
 <h3 class="bordered_header">New Assignment</h3>
 
+<form action="">
 <div class="container assignment_view">
     <div class="row">
         <div class="col-md-12 register">
-        <h2 class="register-title">TITLE</h2>
+        <h2 class="register-title">Add details for a new Assignment</h2>
            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
-                    <div class="col-5">
-                    <ul class="whitetext">
-                        <li>Type: </li>
-                        <li>Added by: </li>
-                        <li>Offer: </li>
-                        <li>Date added: </li>
-                        <li>End date: </li>
-                        <li>Location: </li>
-                    </ul>
-                    
+                    <div class="col">
+                        <h3 class="topics">Assignment Title</h2>
+                        <input class="form-control" type="text" placeholder="Assignment Title">
                     </div>
-                    <div class="col-5">
-                    <p>DESCRIPTION</p>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Short Description</h2>
+                        <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                        </div>
                     </div>
-                    
                 </div>
 
                 <div class="row">
                     <div class="col">
                         <h3 class="topics">Assignment Description</h2>
-                        <p>LONG DESCRIPTION</p>
+                        <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md">
-                    <h3 class="topics">Goals</h2>
-                    <ol class="whitetext">
-                        GOALS
-                    </ol>
-                    
+                    <div class="col">
+                        <h3 class="topics">Goals</h2>
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 1</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="Enter a goal">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 2</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="Enter a goal">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 3</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="Enter a goal">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 4</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="Enter a goal">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 5</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="Enter a goal">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Assignment Type</h2>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Business of Private</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Business</option>
+                            <option>Private</option>
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Business name</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="colFormLabel" placeholder="Business name">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -95,10 +139,10 @@
 
                         <table class="whitetext" style="width:100%">
                             <tr>
-                                <td class="coloursborder" width="25%" style="background-color: yellow">COLOUR PICKER</td>
-                                <td class="coloursborder" width="25%" style="background-color: yellow">COLOUR PICKER</td>
-                                <td class="coloursborder" width="25%" style="background-color: yellow">COLOUR PICKER</td>
-                                <td class="coloursborder" width="25%" style="background-color: yellow">COLOUR PICKER</td>
+                                <td><label for="head">Color 1 </label><input type="color" id="head" name="head"></td>
+                                <td><label for="head">Color 2 </label><input type="color" id="head" name="head"></td>
+                                <td><label for="head">Color 3 </label><input type="color" id="head" name="head"></td>
+                                <td><label for="head">Color 4 </label><input type="color" id="head" name="head"></td>
                             </tr>
                             
                         </table>
@@ -109,7 +153,13 @@
                     <div class="col">
                         <h3 class="topics">Preferred Themes</h2>
                         
-                        <div class="themeborder">Abstract</div>
+                        
+                            <div class="btn-group-toggle themeborder" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                                <input type="checkbox" checked autocomplete="off"> Checked
+                            </label>
+                            </div>
+                        
                         
                         
                         <div class="themeborder">Architecture</div>
@@ -168,14 +218,14 @@
                 <div class="row">
                     <div class="col">
                         <h3 class="topics">Preferred Materials</h2>
-                        <p>MATERIALS INPUT</p>
+                        <input class="form-control" type="text" placeholder="Preferred Materials">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col">
                         <h3 class="topics">Preferred Techniques</h2>
-                        <p>TECHNIQUES INPUT</p>
+                        <input class="form-control" type="text" placeholder="Preferred Techniques">
                     </div>
                 </div>
 
@@ -188,18 +238,14 @@
 
                 <div class="row justify-content-end addspacebelow">
                     <div class="col">
-                        <form action="">
-                        <button type="submit" class="btn btn-light endpagebuttons">Submit a Proposal</button>
-                        </form>
-
-                        <form action="">
-                        <button type="submit" class="btn btn-secondary endpagebuttons">Back to Assignments</button>
-                        </form>
+                        
+                        <button type="submit" class="btn btn-light endpagebuttons">Submit Assignment</button>
+                        
                     </div>
                 </div>
             </div> 
         </div>
     </div>
 </div>
-
+</form>
 {% endblock %}
