@@ -224,31 +224,35 @@
                                         <form action="{{url_for('insert_proposal', assignment_id=assignment._id)}}" method="POST">
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Title of Proposal</label>
-                                            <input type="text" class="form-control" name="title" id="title" placeholder="Proposal for {{assignment.title}}">
+                                            <p>{{proposal.title}}</p>
                                         </div>
                                         <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Description</label>
-                                        <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                                            <label for="formGroupExampleInput">By Artist:</label>
+                                            <p>{{proposal.artist_name}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Description</label>
+                                            <p>{{proposal.description}}</p>
                                         </div>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput2">Materials Used</label>
-                                            <input type="text" class="form-control" name="materials" id="materials" placeholder="Materials">
+                                            <p>{{proposal.materials}}</p>
                                         </div>
                                         <p>Uploading images to support your proposal will be available soon</p>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput2">Available period, from</label>
-                                            <input type="date" class="form-control" name="availability_start" id="availability_start" placeholder="Another input">
+                                            <p>{{proposal.availability_start}}</p>
                                         </div>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput2">Untill</label>
-                                            <input type="date" class="form-control" name="availability_end" id="availability_end" placeholder="Another input">
+                                            <p>{{proposal.availability_end}}</p>
                                         </div>
                                         
                                     </div>
                                 </div>
                                 <div class="row justify-content-end">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-light endpagebuttons">Submit a Proposal</button>
+                                        <button type="submit" class="btn btn-light endpagebuttons">Accept this Proposal</button>
                                     </div>
                                 </div>
                                 </form>
