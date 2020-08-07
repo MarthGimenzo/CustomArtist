@@ -1,0 +1,205 @@
+{% extends 'client_base.html' %} {% block content %}
+
+<h3 class="bordered_header">New Assignment</h3>
+
+<div class="container assignment_view">
+    <div class="row">
+        <div class="col-md-12 register">
+        <h2 class="register-title">TITLE</h2>
+           <div class="container-fluid">
+                <div class="row">
+                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
+                    <div class="col-5">
+                    <ul class="whitetext">
+                        <li>Type: </li>
+                        <li>Added by: </li>
+                        <li>Offer: </li>
+                        <li>Date added: </li>
+                        <li>End date: </li>
+                        <li>Location: </li>
+                    </ul>
+                    
+                    </div>
+                    <div class="col-5">
+                    <p>DESCRIPTION</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Assignment Description</h2>
+                        <p>LONG DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                    <h3 class="topics">Goals</h2>
+                    <ol class="whitetext">
+                        GOALS
+                    </ol>
+                    
+                    </div>
+                </div>
+
+                <div class="row addspacebelow">
+                    <div class="col">
+                        <h3 class="topics">Preferred Properties</h2>
+
+                        <table class="whitetext" style="width:100%">
+                            <tr>
+                                <td>Female</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Modern</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td>Classic</td>
+                            </tr>
+                            <tr>
+                                <td>Noisy</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td>Quiet</td>
+                            </tr>
+                            <tr>
+                                <td>Simple</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td>Complex</td>
+                            </tr>
+                            <tr>
+                                <td>Subtle</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td>Clear</td>
+                            </tr>
+                            <tr>
+                                <td>Very Big</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td>Very Small</td>
+                            </tr>
+                            <tr>
+                                <td>Abstract</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td>Organic</td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row addspacebelow">
+                    <div class="col">
+                        <h3 class="topics">Preferred Colours</h2>
+
+                        <table class="whitetext" style="width:100%">
+                            <tr>
+                                <td class="coloursborder" width="25%" style="background-color: yellow">COLOUR PICKER</td>
+                                <td class="coloursborder" width="25%" style="background-color: yellow">COLOUR PICKER</td>
+                                <td class="coloursborder" width="25%" style="background-color: yellow">COLOUR PICKER</td>
+                                <td class="coloursborder" width="25%" style="background-color: yellow">COLOUR PICKER</td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row addspacebelow">
+                    <div class="col">
+                        <h3 class="topics">Preferred Themes</h2>
+                        
+                        <div class="themeborder">Abstract</div>
+                        
+                        
+                        <div class="themeborder">Architecture</div>
+                        
+                        
+                        <div class="themeborder">Nature</div>
+                        
+                        
+                        <div class="themeborder">Collage</div>
+                        
+                        
+                        <div class="themeborder">Animals</div>
+                        
+                        
+                        <div class="themeborder">Fantasy</div>
+                        
+                        
+                        <div class="themeborder">Interior</div>
+                        
+                        
+                        <div class="themeborder">Landscape</div>
+                        
+                       
+                        <div class="themeborder">Maritime</div>
+                        
+                        
+                        <div class="themeborder">People</div>
+                        
+                        
+                        <div class="themeborder">Sports</div>
+                        
+                        
+                        <div class="themeborder">City</div>
+                        
+                        
+                        <div class="themeborder">Still Life</div>
+                        
+
+                        <div class="themeborder">Vehicles</div>
+                        
+                        
+                        <div class="themeborder">Beach</div>
+                        
+                        
+                        <div class="themeborder">Futurism</div>
+                        
+                        
+                        <div class="themeborder">Portrait</div>
+                        
+                        
+                        <div class="themeborder">Space</div>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Preferred Materials</h2>
+                        <p>MATERIALS INPUT</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Preferred Techniques</h2>
+                        <p>TECHNIQUES INPUT</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Images</h2>
+                        <p>Supported soon</p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-end addspacebelow">
+                    <div class="col">
+                        <form action="">
+                        <button type="submit" class="btn btn-light endpagebuttons">Submit a Proposal</button>
+                        </form>
+
+                        <form action="">
+                        <button type="submit" class="btn btn-secondary endpagebuttons">Back to Assignments</button>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}

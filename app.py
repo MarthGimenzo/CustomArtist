@@ -150,15 +150,17 @@ def update_proposal(proposal_id, assignment_id):
     })
     return redirect(url_for('my_proposals'))
 
+
 @app.route('/assignment_details_client/<assignment_id>')
 def assignment_details_client(assignment_id):
     the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
-    
     coupled_proposals = mongo.db.proposals.find({"assignment_id" : ObjectId(assignment_id)})
-
-
-
     return render_template('assignment_details_client.html', assignment=the_assignment, proposals=coupled_proposals)
+
+
+@app.route('/add_assignment')
+def add_assignment():
+    return render_template('add_assignment.html')
 
 
 @app.route('/sign_out')
@@ -188,6 +190,7 @@ def register_artist():
     
     print('Hello, You!')
     return render_template('register_artist.html')
+
 
 @app.route('/register_client', methods=['POST', 'GET'])
 def register_client():
