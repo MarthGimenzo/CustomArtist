@@ -1,6 +1,6 @@
 {% extends 'client_base.html' %} {% block content %}
 
-<h3 class="bordered_header">CLIENT LOGIN</h3>
+<h3 class="bordered_header">My Running Assignments</h3>
 
 {% for assignment in assignments %}
 
@@ -13,7 +13,6 @@
                     <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
                     <div class="col-5">
                     <ul class="whitetext">
-                        <li>Added by: {{assignment.client_id}}</li>
                         <li>Offer: {{assignment.offer}}</li>
                         <li>Date added: {{assignment.add_date}}</li>
                         <li>Location: {{assignment.city}}</li>
@@ -27,7 +26,7 @@
                 </div>
                 <div class="row justify-content-end">
                     <div class="col offset-md-11">
-                        <form action="{{url_for('assignment_details', assignment_id=assignment._id)}}">
+                        <form action="{{url_for('assignment_details_client', assignment_id=assignment._id)}}">
                         <button type="submit" class="btn btn-light endpageassignmentbuttons addspacebelow">View Details</button>
                         </form>
                     <br><br>

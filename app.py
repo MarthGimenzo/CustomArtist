@@ -150,6 +150,16 @@ def update_proposal(proposal_id, assignment_id):
     })
     return redirect(url_for('my_proposals'))
 
+@app.route('/assignment_details_client/<assignment_id>')
+def assignment_details_client(assignment_id):
+    the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
+    
+    coupled_proposals = mongo.db.proposals.find({"assignment_id" : ObjectId(assignment_id)})
+
+
+
+    return render_template('assignment_details_client.html', assignment=the_assignment, proposals=coupled_proposals)
+
 
 @app.route('/sign_out')
 def sign_out():

@@ -1,0 +1,270 @@
+{% extends 'client_base.html' %} {% block content %}
+
+<h3 class="bordered_header">My Assignment Details</h3>
+
+<div class="container assignment_view">
+    <div class="row">
+        <div class="col-md-12 register">
+        <h2 class="register-title">{{assignment.title}}</h2>
+           <div class="container-fluid">
+                <div class="row">
+                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
+                    <div class="col-5">
+                    <ul class="whitetext">
+                        <li>Type: {{assignment.type}}</li>
+                        <li>Added by: {{assignment.client_id}}</li>
+                        <li>Offer: {{assignment.offer}}</li>
+                        <li>Date added: {{assignment.add_date}}</li>
+                        <li>End date: {{assignment.end_date}}</li>
+                        <li>Location: {{assignment.city}}</li>
+                    </ul>
+                    
+                    </div>
+                    <div class="col-5">
+                    <p>{{assignment.short_description}}</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Assignment Description</h2>
+                        <p>{{assignment.long_description}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                    <h3 class="topics">Goals</h2>
+                    <ol class="whitetext">
+                        {% if assignment.goal_1 %}
+                        <li>{{assignment.goal_1}}</li>
+                        {% endif %}
+                        {% if assignment.goal_2 %}
+                        <li>{{assignment.goal_2}}</li>
+                        {% endif %}
+                        {% if assignment.goal_3 %}
+                        <li>{{assignment.goal_3}}</li>
+                        {% endif %}
+                        {% if assignment.goal_4 %}
+                        <li>{{assignment.goal_4}}</li>
+                        {% endif %}
+                        {% if assignment.goal_5 %}
+                        <li>{{assignment.goal_5}}</li>
+                        {% endif %}
+                    </ol>
+                    
+                    </div>
+                </div>
+
+                <div class="row addspacebelow">
+                    <div class="col">
+                        <h3 class="topics">Preferred Properties</h2>
+
+                        <table class="whitetext" style="width:100%">
+                            <tr>
+                                <td>Female</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_fem}}" disabled></td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Modern</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_mod}}" disabled></td>
+                                <td>Classic</td>
+                            </tr>
+                            <tr>
+                                <td>Noisy</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_noi}}" disabled></td>
+                                <td>Quiet</td>
+                            </tr>
+                            <tr>
+                                <td>Simple</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_sim}}" disabled></td>
+                                <td>Complex</td>
+                            </tr>
+                            <tr>
+                                <td>Subtle</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_sub}}" disabled></td>
+                                <td>Clear</td>
+                            </tr>
+                            <tr>
+                                <td>Very Big</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_big}}" disabled></td>
+                                <td>Very Small</td>
+                            </tr>
+                            <tr>
+                                <td>Abstract</td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_abs}}" disabled></td>
+                                <td>Organic</td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row addspacebelow">
+                    <div class="col">
+                        <h3 class="topics">Preferred Colours</h2>
+
+                        <table class="whitetext" style="width:100%">
+                            <tr>
+                                <td class="coloursborder" width="25%" style="background-color: {{assignment.colour_1}}">{{assignment.colour_1}}</td>
+                                <td class="coloursborder" width="25%" style="background-color: {{assignment.colour_2}}">{{assignment.colour_2}}</td>
+                                <td class="coloursborder" width="25%" style="background-color: {{assignment.colour_3}}">{{assignment.colour_3}}</td>
+                                <td class="coloursborder" width="25%" style="background-color: {{assignment.colour_4}}">{{assignment.colour_4}}</td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row addspacebelow">
+                    <div class="col">
+                        <h3 class="topics">Preferred Themes</h2>
+                        {% if assignment.abstract %}
+                        <div class="themeborder">Abstract</div>
+                        {% endif %}
+                        {% if assignment.architecture %}
+                        <div class="themeborder">Architecture</div>
+                        {% endif %}
+                        {% if assignment.nature %}
+                        <div class="themeborder">Nature</div>
+                        {% endif %}
+                        {% if assignment.collage %}
+                        <div class="themeborder">Collage</div>
+                        {% endif %}
+                        {% if assignment.animals %}
+                        <div class="themeborder">Animals</div>
+                        {% endif %}
+                        {% if assignment.fantasy %}
+                        <div class="themeborder">Fantasy</div>
+                        {% endif %}
+                        {% if assignment.interior %}
+                        <div class="themeborder">Interior</div>
+                        {% endif %}
+                        {% if assignment.landscape %}
+                        <div class="themeborder">Landscape</div>
+                        {% endif %}
+                        {% if assignment.maritime %}
+                        <div class="themeborder">Maritime</div>
+                        {% endif %}
+                        {% if assignment.people %}
+                        <div class="themeborder">People</div>
+                        {% endif %}
+                        {% if assignment.sports %}
+                        <div class="themeborder">Sports</div>
+                        {% endif %}
+                        {% if assignment.city_life %}
+                        <div class="themeborder">City</div>
+                        {% endif %}
+                        {% if assignment.still %}
+                        <div class="themeborder">Still Life</div>
+                        {% endif %}
+                        {% if assignment.vehicles %}
+                        <div class="themeborder">Vehicles</div>
+                        {% endif %}
+                        {% if assignment.beach %}
+                        <div class="themeborder">Beach</div>
+                        {% endif %}
+                        {% if assignment.futurism %}
+                        <div class="themeborder">Futurism</div>
+                        {% endif %}
+                        {% if assignment.portrait %}
+                        <div class="themeborder">Portrait</div>
+                        {% endif %}
+                        {% if assignment.space %}
+                        <div class="themeborder">Space</div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Preferred Materials</h2>
+                        <p>{{assignment.materials}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Preferred Techniques</h2>
+                        <p>{{assignment.techniques}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Images</h2>
+                        <p>Supported soon</p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-end addspacebelow">
+                    <div class="col">
+                        <form action="{{url_for('add_proposal', assignment_id=assignment._id)}}">
+                        <button type="submit" class="btn btn-light endpagebuttons">Delete Assignment</button>
+                        </form>
+
+                        <form action="{{url_for('assignments')}}">
+                        <button type="submit" class="btn btn-secondary endpagebuttons">Back to Assignments</button>
+                        </form>
+                    </div>
+                </div>
+                
+                {% for proposal in proposals %}
+                <div class="container assignment_view">
+                    <div class="row addspacebelow">
+                        <div class="col-md-12 register striped-background">
+                        
+                            
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col">
+                                        <form action="{{url_for('insert_proposal', assignment_id=assignment._id)}}" method="POST">
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Title of Proposal</label>
+                                            <input type="text" class="form-control" name="title" id="title" placeholder="Proposal for {{assignment.title}}">
+                                        </div>
+                                        <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Description</label>
+                                        <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput2">Materials Used</label>
+                                            <input type="text" class="form-control" name="materials" id="materials" placeholder="Materials">
+                                        </div>
+                                        <p>Uploading images to support your proposal will be available soon</p>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput2">Available period, from</label>
+                                            <input type="date" class="form-control" name="availability_start" id="availability_start" placeholder="Another input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput2">Untill</label>
+                                            <input type="date" class="form-control" name="availability_end" id="availability_end" placeholder="Another input">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row justify-content-end">
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-light endpagebuttons">Submit a Proposal</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                            
+                            
+                        </div> 
+                    </div>
+                </div>
+                {% endfor %}
+
+                
+
+            </div> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}
