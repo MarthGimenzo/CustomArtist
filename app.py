@@ -224,7 +224,7 @@ def register_artist():
 
         if existing_artist == None:
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            artists.insert({'username' : request.form['artistname'], 'password' : hashpass})
+            artists.insert({'username' : request.form['artistname'], 'password' : hashpass, 'phone' : request.form['phone']})
             session['artistname'] = request.form['artistname']
             return render_template('artist_index.html', assignments=mongo.db.assignments.find())
         
