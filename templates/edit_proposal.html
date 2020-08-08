@@ -1,5 +1,32 @@
 {% extends 'artist_base.html' %} {% block content %}
 
+<!--Delete Proposal Modal -->
+        
+<div class="modal fade" id="delete_proposal" tabindex="-1" role="dialog" aria-labelledby="delete_proposal" aria-hidden="true" data-backdrop="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content custom">
+                    <div class="modal-header custom">
+                        <h2 class="modal-title" id="artistModal">Delete Proposalt</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <form action="{{url_for('delete_proposal', proposal_id = proposal._id)}}">
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete:</p>
+                            <p>"{{proposal.title}}"</p>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-light">Delete Proposal</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+</div>
+
 <h3 class="bordered_header">Edit your Proposal</h3>
 
 <div class="container assignment_view">
@@ -68,6 +95,9 @@
                                     <div class="col">
                                         
                                         <button type="submit" class="btn btn-light endpagebuttons">Save Changes</button>
+                                        
+                                        <button type="button" class="btn btn-secondary endpagebuttons" data-toggle="modal" data-target="#delete_proposal">Delete Proposal</button>
+                                        
                                         
                                     </div>
                                 </div>

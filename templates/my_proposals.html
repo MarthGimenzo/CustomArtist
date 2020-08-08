@@ -3,7 +3,6 @@
 <h3 class="bordered_header">My Proposals</h3>
 
 
-
 {% for proposal in proposals %}
 <div class="container assignment_view addspacebelow">
     <div class="row">
@@ -54,10 +53,6 @@
                         <p>{{assignment._id}}</p>
                         <form action="{{url_for('edit_proposal', proposal_id=proposal._id, assignment_id=assignment._id)}}">
                         <button type="submit" class="btn btn-light endpagebuttons">Edit Proposal</button>
-                        </form>
-
-                        <form action="">
-                        <button type="submit" class="btn btn-secondary endpagebuttons">Delete Proposal</button>
                         </form>
                     </div>
                 </div>

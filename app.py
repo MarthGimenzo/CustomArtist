@@ -71,7 +71,7 @@ def my_assignments():
     clients = mongo.db.clients
     login_client = clients.find_one({'username' : session['clientname']}) 
     client_id = login_client['_id']
-    only_user_assignments = mongo.db.assignments.find({'client_id' : ObjectId(client_id)})
+    only_user_assignments = mongo.db.assignments.find({'client_id': ObjectId(client_id)})
     return render_template('client_index.html', assignments=only_user_assignments)
 
 
@@ -123,6 +123,12 @@ def my_proposals():
     print(all_assignments)
     return render_template('my_proposals.html', proposals=session_artist_proposals, assignments=all_assignments)
 
+
+@app.route('/delete_proposal/<proposal_id>')
+def delete_proposal(proposal_id):
+    mongo.db.proposals.delete_one({'_id': ObjectId(proposal_id)})
+    
+    return redirect(url_for('my_proposals'))
 
 @app.route('/edit_proposal/<proposal_id>/<assignment_id>')
 def edit_proposal(proposal_id, assignment_id):
