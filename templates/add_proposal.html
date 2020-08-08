@@ -1,5 +1,34 @@
 {% extends 'artist_base.html' %} {% block content %}
 
+<form id="add_proposal" name='add_proposal' action="{{url_for('insert_proposal', assignment_id=assignment._id)}}" method="POST">
+
+<!--Add Proposal Modal -->
+
+<div class="modal fade" id="add_proposal_modal" tabindex="-1" role="dialog" aria-labelledby="add_proposal" aria-hidden="true" data-backdrop="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content custom">
+                    <div class="modal-header custom">
+                        <h2 class="modal-title" id="artistModal">Submit Proposal</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    
+                        <div class="modal-body">
+                            <p>Do you want to submit this proposal?</p>
+                            
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-light">Submit Proposal</button>
+                        </div>
+                    
+                </div>
+            </div>
+</div>
+
 <h3 class="bordered_header">Add a Proposal</h3>
 
 <div class="container assignment_view">
@@ -41,7 +70,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col">
-                                        <form action="{{url_for('insert_proposal', assignment_id=assignment._id)}}" method="POST">
+                                        
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Title of Proposal</label>
                                             <input type="text" class="form-control" name="title" id="title" placeholder="Give your proposal a title (Max 35 characters)" maxlength="35" required>
@@ -72,7 +101,7 @@
                                 </div>
                                 <div class="row justify-content-end">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-light endpagebuttons">Submit a Proposal</button>
+                                        <button id="submitProposalButton" type="button" class="btn btn-light endpagebuttons" >Submit Proposal</button>
                                     </div>
                                 </div>
                                 </form>

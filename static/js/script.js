@@ -84,4 +84,30 @@ $(document).ready(function() {
     
     });
 
+        // Validate form when adding a proposal and call Modal if valid
+
+    var form = $( "#add_proposal" );
+    console.log(form)
+
+    $( "#submitProposalButton" ).click(function() {
+        var title = document.forms["add_proposal"]["title"].value
+        var description = document.forms["add_proposal"]["description"].value
+        var materials = document.forms["add_proposal"]["materials"].value
+        var techniques = document.forms["add_proposal"]["techniques"].value
+        var availability_start = document.forms["add_proposal"]["availability_start"].value
+        var availability_end = document.forms["add_proposal"]["availability_end"].value
+
+        if ((title == "") || (description == "") || (materials == "") || (techniques == "") || (availability_start == "") || (availability_end == "")){
+            console.log("Validation")
+            document.forms['add_proposal'].reportValidity()
+            }
+        else {
+            
+            console.log("This happens")
+            $('#add_proposal_modal').modal('show')
+        }
+
+    
+    });
+
 });
