@@ -45,7 +45,7 @@ $(document).ready(function() {
         
     }, 10000);
 
-    
+    // Toggle themes
     $('.theme').click(function() {
         $(this).toggleClass("down");
         console.log("Toggled")
@@ -56,6 +56,29 @@ $(document).ready(function() {
         else {
         $(this).children().val("false");
     }
+    });
+
+    var form = $( "#add_assignment" );
+    console.log(form)
+
+    $( "button" ).click(function() {
+        var title = document.forms["add_assignment"]["title"].value
+        var short_description = document.forms["add_assignment"]["short_description"].value
+        var long_description = document.forms["add_assignment"]["long_description"].value
+        var location = document.forms["add_assignment"]["location"].value
+        var end_date = document.forms["add_assignment"]["end_date"].value
+
+        if ((title == "") || (short_description == "") || (long_description == "") || (location == "") || (end_date == "")){
+            console.log("Validation")
+            document.forms['add_assignment'].reportValidity()
+            }
+        else {
+            
+            console.log("This happens")
+            $('#add_assignment_modal').modal('show')
+        }
+
+    
     });
 
 });
