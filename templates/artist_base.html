@@ -11,6 +11,33 @@
 
     <body>
 
+        <!--Client Logout Modal -->
+        
+        <div class="modal fade" id="artistLogoutModal" tabindex="-1" role="dialog" aria-labelledby="artistLogoutModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content custom">
+                    <div class="modal-header custom">
+                        <h2 class="modal-title" id="artistModal">Logout?</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <form action="{{ url_for('sign_out') }}">
+                        <div class="modal-body">
+                            <p>Hi {{ session['artistname'] }}</p>
+                            <p>Are you sure you want to log out?</p>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-light">Log Out</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!-- Navigation Bar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
             <div class="container">
@@ -29,7 +56,7 @@
                             <a class="nav-link" href="{{url_for('my_proposals')}}">My Proposals</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('sign_out') }}">Log Out: {{ session['artistname'] }}</a>
+                            <a class="nav-link" data-toggle="modal" href="#artistLogoutModal">Log Out: {{ session['artistname'] }}</a>
                         </li>
                     </ul>
                 </div>
