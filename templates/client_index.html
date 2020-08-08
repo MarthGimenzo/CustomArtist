@@ -4,7 +4,7 @@
 
 {% for assignment in assignments %}
 
-<div class="container assignment_view">
+<div class="container assignment_view addspacebelow">
     <div class="row">
         <div class="col-12 register">
         <h2 class="register-title">{{assignment.title}}</h2>
@@ -24,12 +24,12 @@
                     </div>
                     
                 </div>
-                <div class="row justify-content-end">
+                <div class="row justify-content-end addspacebelow">
                     <div class="col offset-md-11">
                         <form action="{{url_for('assignment_details_client', assignment_id=assignment._id)}}">
                         <button type="submit" class="btn btn-light endpageassignmentbuttons addspacebelow">View Details</button>
                         </form>
-                    <br><br>
+                    
                     </div>
                 </div>
             </div>
