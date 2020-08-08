@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, url_for, request, session, redirect
 from flask_pymongo import PyMongo
+from datetime import date
 import bcrypt
 
 from bson.objectid import ObjectId
@@ -166,6 +167,12 @@ def insert_assignment():
     client_insession_record = mongo.db.clients.find_one({"username": session['clientname']})
     full_insert['client_id'] = (client_insession_record['_id'])
     print(full_insert)
+
+    today = date.today()
+    datetoday = today.strftime("%Y-%m-%d")
+    print(datetoday)
+    full_insert['add_date'] = datetoday
+
     assignments.insert_one(full_insert)
     return redirect(url_for('my_assignments'))
 
