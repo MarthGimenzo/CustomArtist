@@ -120,7 +120,8 @@ def my_proposals():
 
     # Add all assigmnents so that it can be iterated through
     all_assignments = list(mongo.db.assignments.find())
-    print(all_assignments)
+    print("HIER")
+    print(session_artist_proposals)
     return render_template('my_proposals.html', proposals=session_artist_proposals, assignments=all_assignments)
 
 

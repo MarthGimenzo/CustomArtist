@@ -58,10 +58,24 @@
                 </div>
                 {% endif %}
                 {% endfor %}
+
+                
             </div>
         </div>
     </div>
 </div>
 {% endfor %}
+
+{% if not proposals %}
+                
+<div class="container assignment_view">
+    <div class="row addspacebelow">
+        <div class="col-md-12 register striped-background">
+            <h2 class="bordered-header">You do not have any running proposals</h2>
+        </div> 
+    </div>
+</div>
+
+{% endif %}
 
 {% endblock %}
