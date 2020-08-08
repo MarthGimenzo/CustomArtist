@@ -6,7 +6,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content custom">
                     <div class="modal-header custom">
-                        <h2 class="modal-title" id="artistModal">Delete Proposalt</h2>
+                        <h2 class="modal-title" id="artistModal">Delete Proposal</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -30,7 +30,7 @@
 <h3 class="bordered_header">Edit your Proposal</h3>
 
 <div class="container assignment_view">
-    <div class="row">
+    <div class="row addspacebelow">
         <div class="col-md-12 register">
         <h2 class="register-title">{{assignments.title}}</h2>
             <div class="container-fluid">
@@ -39,7 +39,7 @@
                     <div class="col-5">
                     <ul class="whitetext">
                         <li>Type: {{assignments.type}}</li>
-                        <li>Added by: {{assignments.client_id}}</li>
+                        <li>Added by: {{assignments.company}}</li>
                         <li>Offer: {{assignments.offer}}</li>
                         <li>Date added: {{assignments.add_date}}</li>
                         <li>End date: {{assignments.end_date}}</li>
@@ -69,24 +69,24 @@
                                         <form action="{{url_for('update_proposal', proposal_id=proposal._id, assignment_id=assignments._id)}}" method="POST">
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Title of Proposal</label>
-                                            <input type="text" class="form-control" name="title" id="title" value="{{proposal.title}}">
+                                            <input type="text" class="form-control" name="title" id="title" value="{{proposal.title}}" maxlength="35" required>
                                         </div>
                                         <div class="form-group">
                                         <label for="exampleFormControlTextarea1">Description</label>
-                                        <textarea class="form-control" name="description" id="description" rows="3">{{proposal.description}}</textarea>
+                                        <textarea class="form-control" name="description" id="description" rows="3" maxlength="200" required>{{proposal.description}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput2">Materials Used</label>
-                                            <input type="text" class="form-control" name="materials" id="materials" value="{{proposal.materials}}">
+                                            <input type="text" class="form-control" name="materials" id="materials" value="{{proposal.materials}}" maxlength="100" required>
                                         </div>
                                         <p>Uploading images to support your proposal will be available soon</p>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput2">Available period, from</label>
-                                            <input type="date" class="form-control" name="availability_start" id="availability_start" placeholder="Another input" value="{{proposal.availability_start}}">
+                                            <input type="date" class="form-control" name="availability_start" id="availability_start" placeholder="Another input" value="{{proposal.availability_start}}" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput2">Untill</label>
-                                            <input type="date" class="form-control" name="availability_end" id="availability_end" placeholder="Another input" value="{{proposal.availability_end}}">
+                                            <input type="date" class="form-control" name="availability_end" id="availability_end" placeholder="Another input" value="{{proposal.availability_end}}" required>
                                         </div>
                                         
                                     </div>
