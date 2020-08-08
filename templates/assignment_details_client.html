@@ -1,5 +1,7 @@
 {% extends 'client_base.html' %} {% block content %}
 
+
+
 <h3 class="bordered_header">My Assignment Details</h3>
 
 <div class="container assignment_view">
@@ -202,9 +204,9 @@
 
                 <div class="row justify-content-end addspacebelow">
                     <div class="col">
-                        <form action="{{url_for('add_proposal', assignment_id=assignment._id)}}">
-                        <button type="submit" class="btn btn-light endpagebuttons">Delete Assignment</button>
-                        </form>
+                        
+                        <button type="submit" class="btn btn-light endpagebuttons" data-toggle="modal" data-target="#delete_assignment">Delete Assignment</button>
+                        
 
                         <form action="{{url_for('my_assignments')}}">
                         <button type="submit" class="btn btn-secondary endpagebuttons">Back to Assignments</button>
