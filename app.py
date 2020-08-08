@@ -75,7 +75,7 @@ def my_assignments():
     clients = mongo.db.clients
     login_client = clients.find_one({'username' : session['clientname']}) 
     client_id = login_client['_id']
-    only_user_assignments = mongo.db.assignments.find({'client_id': ObjectId(client_id)})
+    only_user_assignments = list(mongo.db.assignments.find({'client_id': ObjectId(client_id)}))
     return render_template('client_index.html', assignments=only_user_assignments)
 
 
@@ -243,7 +243,7 @@ def register_client():
             clients.insert({'username' : request.form['clientname'], 'password' : hashpass})
             session['clientname'] = request.form['clientname']
             return redirect(url_for('my_assignments'))
-        
+
         return render_template('register_client.html',userexists=True)
 
     print('Hello, You!')
