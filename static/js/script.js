@@ -44,4 +44,18 @@ $(document).ready(function() {
         });
         
     }, 10000);
+
+    
+    $('.theme').click(function() {
+        $(this).toggleClass("down");
+        console.log("Toggled")
+        if ($(this).children().val() == "false") {
+            console.log("Changed")
+        $(this).children().val("true");
+            }
+        else {
+        $(this).children().val("false");
+    }
+    });
+
 });

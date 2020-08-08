@@ -380,6 +380,14 @@ label {
     width:32.5%
 }
 
+.theme {
+    background-color: white;
+}
+
+.down {
+    background-color: lightblue;
+}
+
 .endpageassignmentbuttons {
     float: right;
 }
