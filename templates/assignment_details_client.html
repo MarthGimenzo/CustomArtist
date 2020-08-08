@@ -244,8 +244,9 @@
                         <h3 class="topics">Proposals for {{assignment.title}}</h2>
                     </div>
                 </div>
-
+                
                 {% for proposal in proposals %}
+                
                 <div class="container assignment_view">
                     <div class="row addspacebelow">
                         <div class="col-md-12 register striped-background">
@@ -291,10 +292,19 @@
                         </div> 
                     </div>
                 </div>
+   
                 {% endfor %}
-
+                {% if not proposals %}
                 
+                <div class="container assignment_view">
+                    <div class="row addspacebelow">
+                        <div class="col-md-12 register striped-background">
+                            <h2 class="bordered-header">You have no proposals yet</h2>
+                            </div> 
+                    </div>
+                </div>
 
+                {% endif %}
             </div> 
         </div>
     </div>
