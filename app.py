@@ -60,11 +60,10 @@ def client_login():
     if login_client:
         if bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), login_client['password']) == login_client['password']:
             session['clientname'] = request.form['clientname']
+            login_client = clients.find_one({'username' : session['clientname']}) 
             client_id = login_client['_id']
-            print(client_id)
-            only_user_assignments = mongo.db.assignments.find({'client_id' : ObjectId(client_id)})
-
-            return render_template('client_index.html', assignments=only_user_assignments)
+            only_user_assignments = list(mongo.db.assignments.find({'client_id': ObjectId(client_id)}))
+            return redirect(url_for('my_assignments', assignments=only_user_assignments))
         
     print('Not Accepted')
     return render_template('index.html', badlogin2=True)
@@ -242,10 +241,11 @@ def register_client():
             hashpass = bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), bcrypt.gensalt())
             clients.insert({'username' : request.form['clientname'], 'password' : hashpass})
             session['clientname'] = request.form['clientname']
-            
+            print("Yes this works1")
             login_client = clients.find_one({'username' : session['clientname']}) 
             client_id = login_client['_id']
             only_user_assignments = list(mongo.db.assignments.find({'client_id': ObjectId(client_id)}))
+            print("Yes this works")
             return redirect(url_for('my_assignments', assignments=only_user_assignments))
 
         return render_template('register_client.html',userexists=True)
