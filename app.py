@@ -161,8 +161,9 @@ def assignment_details_client(assignment_id):
 
 @app.route('/delete_assignment/<assignment_id>')
 def delete_assignment(assignment_id):
-    print(assignment_id)
-    mongo.db.assignments.remove({'_id': ObjectId(assignment_id)})
+    mongo.db.assignments.delete_one({'_id': ObjectId(assignment_id)})
+    mongo.db.proposals.delete_many({'assignment_id': ObjectId(assignment_id)})
+    
     return redirect(url_for('my_assignments'))
 
 @app.route('/insert_assignment', methods=['POST'])
