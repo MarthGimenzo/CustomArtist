@@ -2,23 +2,23 @@
 
 <h3 class="bordered_header">New Assignment</h3>
 
-<form action="">
+<form action="{{url_for('insert_assignment')}}" method="POST">
 <div class="container assignment_view">
-    <div class="row">
+    <div class="row addspacebelow">
         <div class="col-md-12 register">
         <h2 class="register-title">Add details for a new Assignment</h2>
            <div class="container-fluid">
                 <div class="row">
-                    <div class="col">
+                    <div class="col addspacebelow">
                         <h3 class="topics">Assignment Title</h2>
-                        <input class="form-control" type="text" placeholder="Assignment Title">
+                        <input class="form-control" type="text" name="title" placeholder="Assignment Title">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <h3 class="topics">Short Description</h2>
                         <div class="form-group">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                        <textarea class="form-control" name="short_description" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                     <div class="col">
                         <h3 class="topics">Assignment Description</h2>
                         <div class="form-group">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        <textarea class="form-control" name="long_description" rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -38,31 +38,31 @@
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 1</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="Enter a goal">
+                            <input type="text" class="form-control" name="goal_1" placeholder="Enter a goal">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 2</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="Enter a goal">
+                            <input type="text" class="form-control" name="goal_2" placeholder="Enter a goal">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 3</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="Enter a goal">
+                            <input type="text" class="form-control" name="goal_3" placeholder="Enter a goal">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 4</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="Enter a goal">
+                            <input type="text" class="form-control" name="goal_4" placeholder="Enter a goal">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 5</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="Enter a goal">
+                            <input type="text" class="form-control" name="goal_5" placeholder="Enter a goal">
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <h3 class="topics">Assignment Type</h2>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Business of Private</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" name="type">
                             <option>Business</option>
                             <option>Private</option>
                             </select>
@@ -81,7 +81,19 @@
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Business name</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="Business name">
+                            <input type="text" class="form-control" name="company" placeholder="Business name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="topics">Offer</h2>
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">€</label>
+                            <div class="col-sm-10">
+                            <input type="number" class="form-control" name="offer" placeholder="Enter amount" step="1.0">
                             </div>
                         </div>
                     </div>
@@ -94,37 +106,37 @@
                         <table class="whitetext" style="width:100%">
                             <tr>
                                 <td>Female</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td><input type="range" class="slider" name="aes_fem" min="0" max="10"></td>
                                 <td>Male</td>
                             </tr>
                             <tr>
                                 <td>Modern</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td><input type="range" class="slider" name="aes_mod" min="0" max="10"></td>
                                 <td>Classic</td>
                             </tr>
                             <tr>
                                 <td>Noisy</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td><input type="range" class="slider" name="aes_noi" min="0" max="10"></td>
                                 <td>Quiet</td>
                             </tr>
                             <tr>
                                 <td>Simple</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td><input type="range" class="slider" name="aes_sim" min="0" max="10"></td>
                                 <td>Complex</td>
                             </tr>
                             <tr>
                                 <td>Subtle</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td><input type="range" class="slider" name="aes_sub" min="0" max="10"></td>
                                 <td>Clear</td>
                             </tr>
                             <tr>
                                 <td>Very Big</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td><input type="range" class="slider" name="aes_big" min="0" max="10"></td>
                                 <td>Very Small</td>
                             </tr>
                             <tr>
                                 <td>Abstract</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10"></td>
+                                <td><input type="range" class="slider" name="aes_abs" min="0" max="10"></td>
                                 <td>Organic</td>
                             </tr>
                             <tr>
@@ -139,10 +151,10 @@
 
                         <table class="whitetext" style="width:100%">
                             <tr>
-                                <td><label for="head">Color 1 </label><input type="color" id="head" name="head"></td>
-                                <td><label for="head">Color 2 </label><input type="color" id="head" name="head"></td>
-                                <td><label for="head">Color 3 </label><input type="color" id="head" name="head"></td>
-                                <td><label for="head">Color 4 </label><input type="color" id="head" name="head"></td>
+                                <td><label for="head">Color 1 </label><input type="color" name="colour_1"></td>
+                                <td><label for="head">Color 2 </label><input type="color" name="colour_2"></td>
+                                <td><label for="head">Color 3 </label><input type="color" name="colour_3"></td>
+                                <td><label for="head">Color 4 </label><input type="color" name="colour_4"></td>
                             </tr>
                             
                         </table>
@@ -210,17 +222,17 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row addspacebelow">
                     <div class="col">
                         <h3 class="topics">Preferred Materials</h2>
-                        <input class="form-control" type="text" placeholder="Preferred Materials">
+                        <input class="form-control" type="text" name="materials" placeholder="Preferred Materials">
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row addspacebelow">
                     <div class="col">
                         <h3 class="topics">Preferred Techniques</h2>
-                        <input class="form-control" type="text" placeholder="Preferred Techniques">
+                        <input class="form-control" type="text" name="techniques" placeholder="Preferred Techniques">
                     </div>
                 </div>
 
