@@ -59,10 +59,7 @@ def client_login():
 
     if login_client:
         if bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), login_client['password']) == login_client['password']:
-            print('Accepted')
             session['clientname'] = request.form['clientname']
-            
-            print(login_client)
             client_id = login_client['_id']
             print(client_id)
             only_user_assignments = mongo.db.assignments.find({'client_id' : ObjectId(client_id)})
@@ -107,9 +104,10 @@ def insert_proposal(assignment_id):
     # Add artist name to the proposal
     full_insert['artist_name'] = session['artistname']
 
-    # Add the _id of the artist's record to the proposal as artist_id
-    artist_insession_record = mongo.db.artists.find_one({"username" : session['artistname']})
+    # Add the _id and phone of the artist's record to the proposal as artist_id and artist_phone
+    artist_insession_record = mongo.db.artists.find_one({"username": session['artistname']})
     full_insert['artist_id'] = (artist_insession_record['_id'])
+    full_insert['artist_phone'] = (artist_insession_record['phone'])
 
     # Add the _id of the assignment record to the proposal as assignment_id
     coupled_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
@@ -244,7 +242,7 @@ def register_client():
             hashpass = bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), bcrypt.gensalt())
             clients.insert({'username' : request.form['clientname'], 'password' : hashpass})
             session['clientname'] = request.form['clientname']
-            return render_template('client_index.html', assignments=mongo.db.assignments.find())
+            return redirect(url_for('my_assignments'))
         
         return render_template('register_client.html',userexists=True)
 
