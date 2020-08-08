@@ -158,6 +158,13 @@ def assignment_details_client(assignment_id):
     coupled_proposals = mongo.db.proposals.find({"assignment_id" : ObjectId(assignment_id)})
     return render_template('assignment_details_client.html', assignment=the_assignment, proposals=coupled_proposals)
 
+
+@app.route('/delete_assignment/<assignment_id>')
+def delete_assignment(assignment_id):
+    print(assignment_id)
+    mongo.db.assignments.remove({'_id': ObjectId(assignment_id)})
+    return redirect(url_for('my_assignments'))
+
 @app.route('/insert_assignment', methods=['POST'])
 def insert_assignment():
     full_insert = request.form.to_dict()
