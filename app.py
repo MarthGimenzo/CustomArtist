@@ -14,13 +14,19 @@ app.secret_key = os.environ['SECRET_KEY']
 
 mongo = PyMongo(app)
 
+#Index Page Route
+
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if 'artistname' in session:
         return render_template('artist_index.html')
 
+    elif 'clientname' in session:
+        return render_template('client_index.html')
+
     return render_template('index.html')
 
+#Login Routes
 
 @app.route('/artist_login', methods=['POST'])
 def artist_login():
@@ -34,6 +40,7 @@ def artist_login():
         if bcrypt.hashpw(request.form['artistpass'].encode('utf-8'), login_artist['password']) == login_artist['password']:
             print('Accepted')
             session['artistname'] = request.form['artistname']
+            
             return render_template('artist_index.html', assignments=mongo.db.assignments.find())
         
     print('Not Accepted')
