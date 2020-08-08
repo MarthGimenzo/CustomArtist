@@ -13,7 +13,7 @@
             <form method="POST" action="{{ url_for('register_artist') }}">
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="whitetex topics">Username</label>
-                    <input type="text" class="form-control" name="artistname" placeholder="Username" minlength="8" required>
+                    <input type="text" class="form-control" name="artistname" placeholder="Username" minlength="5" maxlength="10" required>
                     {% if userexists %}
                     <p class="warning">That Username Already Exists!</p>
                     {% endif %}
