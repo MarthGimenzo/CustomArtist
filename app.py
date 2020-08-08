@@ -242,7 +242,11 @@ def register_client():
             hashpass = bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), bcrypt.gensalt())
             clients.insert({'username' : request.form['clientname'], 'password' : hashpass})
             session['clientname'] = request.form['clientname']
-            return redirect(url_for('my_assignments'))
+            
+            login_client = clients.find_one({'username' : session['clientname']}) 
+            client_id = login_client['_id']
+            only_user_assignments = list(mongo.db.assignments.find({'client_id': ObjectId(client_id)}))
+            return redirect(url_for('my_assignments', assignments=only_user_assignments))
 
         return render_template('register_client.html',userexists=True)
 
