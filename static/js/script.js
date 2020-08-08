@@ -46,6 +46,7 @@ $(document).ready(function() {
     }, 10000);
 
     // Toggle themes
+
     $('.theme').click(function() {
         $(this).toggleClass("down");
         console.log("Toggled")
@@ -58,10 +59,12 @@ $(document).ready(function() {
     }
     });
 
+    // Validate form when adding an assignment and call Modal if valid
+
     var form = $( "#add_assignment" );
     console.log(form)
 
-    $( "button" ).click(function() {
+    $( "#submitAssignmentButton" ).click(function() {
         var title = document.forms["add_assignment"]["title"].value
         var short_description = document.forms["add_assignment"]["short_description"].value
         var long_description = document.forms["add_assignment"]["long_description"].value
