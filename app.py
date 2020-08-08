@@ -41,15 +41,17 @@ def artist_login():
             print('Accepted')
             session['artistname'] = request.form['artistname']
             
-            return render_template('artist_index.html', assignments=mongo.db.assignments.find())
-        
+            all_assignments = list(mongo.db.assignments.find())
+            return render_template('artist_index.html', assignments=all_assignments)
+            
     print('Not Accepted')
     return render_template('index.html', badlogin=True)
 
 
 @app.route('/artist_login')
 def assignments():
-    return render_template('artist_index.html', assignments=mongo.db.assignments.find())
+    all_assignments = list(mongo.db.assignments.find())
+    return render_template('artist_index.html', assignments=all_assignments)
 
 
 @app.route('/client_login', methods=['POST'])

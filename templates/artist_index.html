@@ -41,4 +41,16 @@
 
 {% endfor %}
 
+{% if not assignments %}
+                
+<div class="container assignment_view">
+    <div class="row addspacebelow">
+        <div class="col-md-12 register striped-background">
+            <h2 class="bordered-header">There are no assignments available</h2>
+        </div> 
+    </div>
+</div>
+
+{% endif %}
+
 {% endblock %}
