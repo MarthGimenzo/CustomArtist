@@ -13,9 +13,16 @@
                     <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
                     <div class="col-5">
                     <ul class="whitetext">
-                        <li>Offer: {{assignment.offer}}</li>
+                        {% if assignment.offer %}
+                        <li>Offer: $ {{assignment.offer}},-</li>
+                        {% endif %}
+                        {% if assignment.add_date %}
                         <li>Date added: {{assignment.add_date}}</li>
+                        {% endif %}
+                        {% if assignment.location %}
                         <li>Location: {{assignment.location}}</li>
+                        {% endif %}
+                        
                     </ul>
                     
                     </div>

@@ -18,12 +18,6 @@ mongo = PyMongo(app)
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    if 'artistname' in session:
-        return render_template('artist_index.html')
-
-    elif 'clientname' in session:
-        return render_template('client_index.html')
-
     return render_template('index.html')
 
 #Login Routes
