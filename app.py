@@ -133,7 +133,7 @@ def edit_proposal(proposal_id, assignment_id):
     the_proposal = mongo.db.proposals.find_one({"_id": ObjectId(proposal_id)})
     all_assignments = mongo.db.assignments.find_one({"_id": ObjectId(assignment_id)})
     print(all_assignments)
-    return render_template('edit_proposal.html', proposal=the_proposal, assignments=all_assignments)
+    return render_template('edit_proposal.html', proposal=the_proposal, assignment=all_assignments)
 
 
 @app.route('/update_proposal/<proposal_id>/<assignment_id>', methods=["POST"])
