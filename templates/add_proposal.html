@@ -1,6 +1,7 @@
 {% extends 'artist_base.html' %} {% block content %}
 
 <form id="add_proposal" name="add_proposal" action="{{url_for('insert_proposal', assignment_id=assignment._id)}}" method="POST">
+    
     <!--Add Proposal Modal -->
 
     <div class="modal fade" id="add_proposal_modal" tabindex="-1" role="dialog" aria-labelledby="add_proposal" aria-hidden="true" data-backdrop="false">

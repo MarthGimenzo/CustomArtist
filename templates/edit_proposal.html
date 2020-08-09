@@ -1,143 +1,128 @@
 {% extends 'artist_base.html' %} {% block content %}
 
 <!--Delete Proposal Modal -->
-        
+
 <div class="modal fade" id="delete_proposal" tabindex="-1" role="dialog" aria-labelledby="delete_proposal" aria-hidden="true" data-backdrop="false">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content custom">
-                    <div class="modal-header custom">
-                        <h2 class="modal-title" id="artistModal">Delete Proposal</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    
-                    <form action="{{url_for('delete_proposal', proposal_id = proposal._id)}}">
-                        <div class="modal-body">
-                            <p>Are you sure you want to delete:</p>
-                            <p>"{{proposal.title}}"</p>
-                            
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-light">Delete Proposal</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-</div>
-
-<h3 class="bordered_header">Edit your Proposal</h3>
-
-<div class="container assignment_view">
-    <div class="row addspacebelow">
-        <div class="col-md-12 register">
-        <h2 class="register-title">{{assignment.title}}</h2>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
-                    <div class="col-5">
-                        <ul class="whitetext">
-                            {% if assignment.type %}
-                            <li>Type: {{assignment.type}}</li>
-                            {% endif %}
-                            {% if assignment.company %}
-                            <li>Added by: {{assignment.company}}</li>
-                            {% endif %}
-                            {% if assignment.offer %}
-                            <li>Offer: $ {{assignment.offer}},-</li>
-                            {% endif %}
-                            {% if assignment.add_date %}
-                            <li>Date added: {{assignment.add_date}}</li>
-                            {% endif %}
-                            {% if assignment.end_date %}
-                            <li>End date: {{assignment.end_date}}</li>
-                            {% endif %}
-                            {% if assignment.location %}
-                            <li>Location: {{assignment.location}}</li>
-                            {% endif %}
-                        </ul>                    
-                    </div>
-                    <div class="col-5">
-                    <p>{{assignment.short_description}}</p>
-                    </div>    
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <h3 class="topics">Assignment Description</h2>
-                        <p>{{assignment.long_description}}</p>
-                    </div>
-                </div>
-
-                <div class="container assignment_view">
-                    <div class="row addspacebelow">
-                        <div class="col-md-12 register striped-background">
-                        <h2 class="register-title">Edit your proposal</h2>
-                            
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col">
-                                        <form action="{{url_for('update_proposal', proposal_id=proposal._id, assignment_id=assignment._id)}}" method="POST">
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">Title of Proposal</label>
-                                            <input type="text" class="form-control" name="title" id="title" value="{{proposal.title}}" maxlength="35" required>
-                                        </div>
-                                        <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Description</label>
-                                        <textarea class="form-control" name="description" id="description" rows="3" maxlength="500" required>{{proposal.description}}</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput2">Materials Used</label>
-                                            <input type="text" class="form-control" name="materials" id="materials" value="{{proposal.materials}}" maxlength="100" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput2">Techniques Used</label>
-                                            <input type="text" class="form-control" name="techniques" id="techniques" value="{{proposal.techniques}}" maxlength="100" required>
-                                        </div>
-                                        <p>Uploading images to support your proposal will be available soon</p>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput2">Available period, from</label>
-                                            <input type="date" class="form-control" name="availability_start" id="availability_start" placeholder="Another input" value="{{proposal.availability_start}}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput2">Untill</label>
-                                            <input type="date" class="form-control" name="availability_end" id="availability_end" placeholder="Another input" value="{{proposal.availability_end}}" required>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col">
-                                        
-                                        <button type="submit" class="btn btn-light endpagebuttons">Save Changes</button>
-                                        
-                                        <button type="button" class="btn btn-secondary endpagebuttons" data-toggle="modal" data-target="#delete_proposal">Delete Proposal</button>
-                                        
-                                        
-                                    </div>
-                                </div>
-                                </form>
-                            </div>
-                            
-                            
-                        </div> 
-                    </div>
-                </div>
-
-                <div class="row justify-content-end">
-                    <div class="col">
-                        <form action="{{url_for('my_proposals')}}">
-                            <button type="submit" class="btn btn-secondary endpagebuttons">Back to My Proposals</button>
-                        </form>
-                    </div>
-                </div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content custom">
+            <div class="modal-header custom">
+                <h2 class="modal-title" id="artistModal">Delete Proposal</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
 
-                
-        </div> 
+            <form action="{{url_for('delete_proposal', proposal_id = proposal._id)}}">
+                <div class="modal-body">
+                    <p>Are you sure you want to delete:</p>
+                    <p>"{{proposal.title}}"</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-light">Delete Proposal</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
+<!--Edit Proposal Form -->
+
+<form action="{{url_for('update_proposal', proposal_id=proposal._id, assignment_id=assignment._id)}}" method="POST">
+    <h3 class="bordered_header">Edit your Proposal</h3>
+    <div class="container assignment_view">
+        <div class="row addspacebelow">
+            <div class="col-md-12 register">
+                <h2 class="register-title">{{assignment.title}}</h2>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo" alt="" /></div>
+                        <div class="col-5">
+                            <ul class="whitetext">
+                                {% if assignment.type %}
+                                <li>Type: {{assignment.type}}</li>
+                                {% endif %} {% if assignment.company %}
+                                <li>Added by: {{assignment.company}}</li>
+                                {% endif %} {% if assignment.offer %}
+                                <li>Offer: $ {{assignment.offer}},-</li>
+                                {% endif %} {% if assignment.add_date %}
+                                <li>Date added: {{assignment.add_date}}</li>
+                                {% endif %} {% if assignment.end_date %}
+                                <li>End date: {{assignment.end_date}}</li>
+                                {% endif %} {% if assignment.location %}
+                                <li>Location: {{assignment.location}}</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                        <div class="col-5">
+                            <p>{{assignment.short_description}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="topics">Assignment Description</h3>
+                            <p>{{assignment.long_description}}</p>
+                        </div>
+                    </div>
+
+                    <div class="container assignment_view">
+                        <div class="row addspacebelow">
+                            <div class="col-md-12 register striped-background">
+                                <h2 class="register-title">Edit your proposal</h2>
+
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Title of Proposal</label>
+                                                <input type="text" class="form-control" name="title" id="title" value="{{proposal.title}}" maxlength="35" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" name="description" id="description" rows="3" maxlength="500" required>{{proposal.description}}</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Materials Used</label>
+                                                <input type="text" class="form-control" name="materials" id="materials" value="{{proposal.materials}}" maxlength="100" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Techniques Used</label>
+                                                <input type="text" class="form-control" name="techniques" id="techniques" value="{{proposal.techniques}}" maxlength="100" required />
+                                            </div>
+                                            <p>Uploading images to support your proposal will be available soon</p>
+                                            <div class="form-group">
+                                                <label>Available period, from</label>
+                                                <input type="date" class="form-control" name="availability_start" id="availability_start" value="{{proposal.availability_start}}" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Untill</label>
+                                                <input type="date" class="form-control" name="availability_end" id="availability_end" value="{{proposal.availability_end}}" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="col">
+                                            <button type="submit" class="btn btn-light endpagebuttons">Save Changes</button>
+
+                                            <button type="button" class="btn btn-secondary endpagebuttons" data-toggle="modal" data-target="#delete_proposal">Delete Proposal</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Go back to My Proposals -->
+                    <div class="row justify-content-end">
+                        <div class="col">
+                            <button class="btn btn-secondary endpagebuttons" onclick="window.location.href='{{url_for('my_proposals')}}'">Back to My Proposals</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
 {% endblock %}
