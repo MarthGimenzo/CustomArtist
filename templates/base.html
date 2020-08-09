@@ -7,12 +7,11 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
-        
     </head>
 
     <body>
         <!--Artist Login Modal -->
-        
+
         <div class="modal fade" id="artistLoginModal" tabindex="-1" role="dialog" aria-labelledby="artistModal" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content custom">
@@ -22,16 +21,15 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    
+
                     <form method="POST" action="{{ url_for('artist_login') }}">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label class="topics topics-small" for="inputArtistusername">Artist Username</label>
+                                <label class="topics topics-small">Artist Username</label>
                                 <input type="text" class="form-control" id="artistname" name="artistname" placeholder="Enter Artist Username" required />
-                                
                             </div>
                             <div class="form-group">
-                                <label class="topics topics-small" for="inputArtistpassword">Password</label>
+                                <label class="topics topics-small">Password</label>
                                 <input type="password" class="form-control" id="artistpass" name="artistpass" placeholder="Password" required />
                             </div>
                             {% if badlogin %}
@@ -57,16 +55,15 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    
+
                     <form method="POST" action="{{ url_for('client_login') }}">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label class="topics topics-small" for="inputClientusername">Client Username</label>
+                                <label class="topics topics-small">Client Username</label>
                                 <input type="text" class="form-control" id="clientname" name="clientname" placeholder="Enter Client Username" required />
-                                
                             </div>
                             <div class="form-group">
-                                <label class="topics topics-small" for="inputClientpassword">Password</label>
+                                <label class="topics topics-small">Password</label>
                                 <input type="password" class="form-control" id="clienttpass" name="clientpass" placeholder="Password" required />
                             </div>
                             {% if badlogin2 %}
@@ -109,8 +106,7 @@
 
         <!-- Content -->
 
-        {% block title_and_slogan %} {% endblock %} 
-        {% block register_artist %} {% endblock %}
+        {% block title_and_slogan %} {% endblock %} {% block register_artist %} {% endblock %}
 
         <!-- Changing Background Div -->
         <div class="fader"></div>
@@ -121,10 +117,17 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
         {% if badlogin %}
-        <script>$(document).ready(function(){$("#artistLoginModal").modal('show');});</script>
-        {% endif %}
-        {% if badlogin2 %}
-        <script>$(document).ready(function(){$("#clientLoginModal").modal('show');});</script>
+        <script>
+            $(document).ready(function () {
+                $("#artistLoginModal").modal("show");
+            });
+        </script>
+        {% endif %} {% if badlogin2 %}
+        <script>
+            $(document).ready(function () {
+                $("#clientLoginModal").modal("show");
+            });
+        </script>
         {% endif %}
     </body>
 </html>
