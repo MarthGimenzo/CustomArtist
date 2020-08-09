@@ -2,398 +2,385 @@
 
 @import url("//hello.myfonts.net/count/3befa6");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-  
 @font-face {
-  font-family: 'BeatsterOutline';
-  src: url('fonts/font.woff2') format('woff2'), url('fonts/font.woff') format('woff');
+	font-family: 'BeatsterOutline';
+	src: url('fonts/font.woff2') format('woff2'), url('fonts/font.woff') format('woff');
 }
+
 
 /* Element styles */
 
-html{
-    height: 100%;
-    
-    background: transparent;
+html {
+	height: 100%;
+	background: transparent;
 }
 
-body{
-    height: 100%;
-    
-    background: repeating-linear-gradient(
-    45deg,
-    #696969,
-    #696969 1px,
-    black 3px,
-    black 10px
-);
+body {
+	height: 100%;
+	background: repeating-linear-gradient( 45deg, #696969, #696969 1px, black 3px, black 10px);
 }
 
-h1{
-    font-family: 'BeatsterOutline';
+h1 {
+	font-family: 'BeatsterOutline';
 }
 
-h2{
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    text-align: center;
-    font-weight: 900;
+h2 {
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	text-align: center;
+	font-weight: 900;
 }
 
-h3{
-    font-family: 'Montserrat', sans-serif;
-    color: black;
-    font-weight: bold;
-    font-size: xx-large;
-    text-align: center;
-    margin-top: 15px;
-    font-weight: 550;
+h3 {
+	font-family: 'Montserrat', sans-serif;
+	color: black;
+	font-weight: bold;
+	font-size: xx-large;
+	text-align: center;
+	margin-top: 15px;
+	font-weight: 550;
 }
 
-h4{
-    font-family: 'BeatsterOutline';
-    color: white;
-    text-align: center;
-    font-weight: 500;
+h4 {
+	font-family: 'BeatsterOutline';
+	color: white;
+	text-align: center;
+	font-weight: 500;
 }
 
 p {
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    text-align: justify;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	text-align: justify;
 }
 
 hr {
-    color: white;
-    border: 1px;
+	color: white;
+	border: 1px;
 }
 
 td {
-    text-align: center;
+	text-align: center;
 }
 
 .addspacebelow {
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
+
 
 /* Additional styles for fonts */
 
 .whitetext {
-    color: white;
+	color: white;
 }
 
 .black {
-    color: black;
+	color: black;
 }
 
 .note {
-    color: #CDCDCD;
-    font-style: italic;
+	color: #CDCDCD;
+	font-style: italic;
 }
 
 .warning {
-    color: red;
-    font-style: italic;
+	color: red;
+	font-style: italic;
 }
-
 
 .bordered_header {
-    font-weight: 900;
-    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-
+	font-weight: 900;
+	text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
+
 
 /* Logo in Navbar */
 
 .logo {
-    max-width: 100px;
+	max-width: 100px;
 }
+
 
 /* Navbar styles */
 
 .navbar-dark .navbar-nav .nav-link {
-    color: white;
-    font-family: 'BeatsterOutline';
-    font-size: xx-large;
-    padding-left:30px;
-    padding-right:30px;
+	color: white;
+	font-family: 'BeatsterOutline';
+	font-size: xx-large;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 .bg-dark {
-    background-color: black!important;
+	background-color: black!important;
 }
 
-/* Modal */
+
+/* Modals */
 
 .modal-content {
-    background-color: black;
-    border: 1px solid white;
-    border-radius: 20px;
-    outline: 0;
-    font-family: 'Montserrat', sans-serif;
-    max-width: 100%;
+	background-color: black;
+	border: 1px solid white;
+	border-radius: 20px;
+	outline: 0;
+	font-family: 'Montserrat', sans-serif;
+	max-width: 100%;
 }
+
 
 /* Backgrounds */
 
 .fader {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    min-width: 100%;
-    height: 100vh;
-    position: static;
-    
-    z-index: 3;
-    opacity: 1;
-    
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	min-width: 100%;
+	height: 100vh;
+	position: static;
+	z-index: 3;
+	opacity: 1;
 }
 
 .transition-bottom {
-    
-    background-color: yellow!important;
+	background-color: yellow!important;
 }
 
 .ontop {
-    position: absolute;
-    min-width: 100%;
-    max-height: 100%;
-    z-index: 10;
+	position: absolute;
+	min-width: 100%;
+	max-height: 100%;
+	z-index: 10;
 }
 
 .striped-background {
-    background: repeating-linear-gradient(
-    45deg,
-    #696969,
-    #696969 1px,
-    black 1px,
-    black 10px
-);
+	background: repeating-linear-gradient( 45deg, #696969, #696969 1px, black 1px, black 10px);
 }
+
 
 /* Adds space above the header inside the black div on the index page */
 
 .mainfieldheader {
-    margin-top: 20px;
+	margin-top: 20px;
 }
+
 
 /* Adds the paint cloud behind the main logo */
 
 .paint {
-    background-image: url("../images/Paintcloud.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: 50% 0;
-    filter: drop-shadow(0 0 30px white);
+	background-image: url("../images/Paintcloud.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: 50% 0;
+	filter: drop-shadow(0 0 30px white);
 }
+
 
 /* Index page logo and slogan style */
 
 .mainlogo {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    filter: drop-shadow(0 0 30px grey);
-    opacity: 100%!important;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	max-width: 100%;
+	filter: drop-shadow(0 0 30px grey);
+	opacity: 100%!important;
 }
 
 .slogan {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-weight: bold;
-    filter: drop-shadow(0 0 30px white);
-    opacity: 100%!important;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	font-weight: bold;
+	filter: drop-shadow(0 0 30px white);
+	opacity: 100%!important;
 }
+
 
 /* Index page logo and slogan style small view */
 
 @media only screen and (max-width: 575px) {
-  .slogan {
-      text-size-adjust: auto;
-      font-size: 200%;
-  }
+	.slogan {
+		text-size-adjust: auto;
+		font-size: 200%;
+	}
 }
+
 
 /* Index page logo and slogan style medium view */
 
 @media only screen and (max-width: 991px) {
-  .mainlogo {
-    max-width: 40%;
-    text-align: center;
-    margin: auto;
-  }
-  .slogan {
-      text-size-adjust: auto;
-    }
+	.mainlogo {
+		max-width: 40%;
+		text-align: center;
+		margin: auto;
+	}
+	.slogan {
+		text-size-adjust: auto;
+	}
 }
+
 
 /* Index page logo and slogan style large view */
 
 @media only screen and (min-width: 1199px) {
-  .mainlogo {
-    max-width: 90%;
-    text-align: center;
-    margin: auto;
-  }
-  .slogan {
-      text-size-adjust: auto;
-    }
+	.mainlogo {
+		max-width: 90%;
+		text-align: center;
+		margin: auto;
+	}
+	.slogan {
+		text-size-adjust: auto;
+	}
 }
+
+
 /* Black div */
 
 .mainfield {
-    background-color: black;
-    margin-left: auto;
-    margin-right: auto;
-    filter: drop-shadow(0 0 10px black);
-    
+	background-color: black;
+	margin-left: auto;
+	margin-right: auto;
+	filter: drop-shadow(0 0 10px black);
 }
-
-/* Makes sure content stays on top */
 
 
 /* Basic Divs */
 
 .register {
-    background-color: black;
-    border: 1px solid white;
-    border-radius: 20px;
-    outline: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size:1.3vw;
-    
+	background-color: black;
+	border: 1px solid white;
+	border-radius: 20px;
+	outline: 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.3vw;
 }
 
 @media only screen and (max-width: 575px) {
-    .register {
-        font-size:1.6vw;
-        
-    }
+	.register {
+		font-size: 1.6vw;
+	}
 }
-    
+
 .register-title {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 0.3rem;
-    border-bottom: 1px solid #e9ecef;
-    border-top-left-radius: .3rem;
-    border-top-right-radius: .3rem;
-    padding-right: 0px;
-    padding-left: 0px;
-    font-size:2vw;
-    
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding: 0.3rem;
+	border-bottom: 1px solid #e9ecef;
+	border-top-left-radius: .3rem;
+	border-top-right-radius: .3rem;
+	padding-right: 0px;
+	padding-left: 0px;
+	font-size: 2vw;
 }
-
-
 
 .topics {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 0.3rem;
-    color: white;
-    border-top-left-radius: .3rem;
-    border-top-right-radius: .3rem;
-    padding-right: 0px;
-    padding-left: 0px;
-    font-size:2vw;
-    margin-top: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding: 0.3rem;
+	color: white;
+	border-top-left-radius: .3rem;
+	border-top-right-radius: .3rem;
+	padding-right: 0px;
+	padding-left: 0px;
+	font-size: 2vw;
+	margin-top: 0;
 }
 
 @media only screen and (max-width: 575px) {
-    .topics-small {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: start;
-        -ms-flex-align: start;
-        align-items: flex-start;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        padding: 0.3rem;
-        color: white;
-        border-top-left-radius: .3rem;
-        border-top-right-radius: .3rem;
-        padding-right: 0px;
-        padding-left: 0px;
-        font-size:4vw;
-        margin-top: 0;
-    }
+	.topics-small {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+		align-items: flex-start;
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		padding: 0.3rem;
+		color: white;
+		border-top-left-radius: .3rem;
+		border-top-right-radius: .3rem;
+		padding-right: 0px;
+		padding-left: 0px;
+		font-size: 4vw;
+		margin-top: 0;
+	}
 }
 
 
 /* Forms */
 
 label {
-    color: white;
+	color: white;
 }
+
 
 /* Assignments page */
 
 .assignment_view {
-    padding-top: 15px;
+	padding-top: 15px;
 }
 
 .assignment_logo {
-    max-width: 11vw;
-    margin-left: 10px;
-    margin-top: 10px;
+	max-width: 11vw;
+	margin-left: 10px;
+	margin-top: 10px;
 }
 
 .slider {
-    width:90%;
+	width: 90%;
 }
 
 .coloursborder {
-    margin: 1px;
-    padding: 2px;
-    border-radius: 1rem;
+	margin: 1px;
+	padding: 2px;
+	border-radius: 1rem;
 }
 
 .themeborder {
-    margin: 1px;
-    padding: 2px;
-    border-radius: 1rem;
-    color: black;
-    text-align: center;
-    background-color: white;
-    float: left;
-    width:32.5%
+	margin: 1px;
+	padding: 2px;
+	border-radius: 1rem;
+	color: black;
+	text-align: center;
+	background-color: white;
+	float: left;
+	width: 32.5%
 }
 
 .theme {
-    background-color: white;
+	background-color: white;
 }
 
 .down {
-    background-color: lightblue;
+	background-color: lightblue;
 }
 
 .endpageassignmentbuttons {
-    float: right;
+	float: right;
 }
 
 .endpagebuttons {
-    float: right;
-    margin-right: 10px;
-    margin-bottom: 15px;
+	float: right;
+	margin-right: 10px;
+	margin-bottom: 15px;
 }
