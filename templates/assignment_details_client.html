@@ -38,12 +38,24 @@
                     <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
                     <div class="col-5">
                     <ul class="whitetext">
+                        {% if assignment.type %}
                         <li>Type: {{assignment.type}}</li>
+                        {% endif %}
+                        {% if assignment.company %}
                         <li>Added by: {{assignment.company}}</li>
-                        <li>Offer: {{assignment.offer}}</li>
+                        {% endif %}
+                        {% if assignment.offer %}
+                        <li>Offer: $ {{assignment.offer}},-</li>
+                        {% endif %}
+                        {% if assignment.add_date %}
                         <li>Date added: {{assignment.add_date}}</li>
+                        {% endif %}
+                        {% if assignment.end_date %}
                         <li>End date: {{assignment.end_date}}</li>
-                        <li>Location: {{assignment.city}}</li>
+                        {% endif %}
+                        {% if assignment.location %}
+                        <li>Location: {{assignment.location}}</li>
+                        {% endif %}
                     </ul>
                     
                     </div>
@@ -149,77 +161,78 @@
                 <div class="row addspacebelow">
                     <div class="col">
                         <h3 class="topics">Preferred Themes</h2>
-                        {% if assignment.abstract %}
+                        {% if assignment.abstract == 'true' %}
                         <div class="themeborder">Abstract</div>
                         {% endif %}
-                        {% if assignment.architecture %}
+                        {% if assignment.architecture == 'true' %}
                         <div class="themeborder">Architecture</div>
                         {% endif %}
-                        {% if assignment.nature %}
+                        {% if assignment.nature == 'true' %}
                         <div class="themeborder">Nature</div>
                         {% endif %}
-                        {% if assignment.collage %}
+                        {% if assignment.collage == 'true' %}
                         <div class="themeborder">Collage</div>
                         {% endif %}
-                        {% if assignment.animals %}
+                        {% if assignment.animals == 'true' %}
                         <div class="themeborder">Animals</div>
                         {% endif %}
-                        {% if assignment.fantasy %}
+                        {% if assignment.fantasy == 'true' %}
                         <div class="themeborder">Fantasy</div>
                         {% endif %}
-                        {% if assignment.interior %}
+                        {% if assignment.interior == 'true' %}
                         <div class="themeborder">Interior</div>
                         {% endif %}
-                        {% if assignment.landscape %}
+                        {% if assignment.landscape == 'true' %}
                         <div class="themeborder">Landscape</div>
                         {% endif %}
-                        {% if assignment.maritime %}
+                        {% if assignment.maritime == 'true' %}
                         <div class="themeborder">Maritime</div>
                         {% endif %}
-                        {% if assignment.people %}
+                        {% if assignment.people == 'true' %}
                         <div class="themeborder">People</div>
                         {% endif %}
-                        {% if assignment.sports %}
+                        {% if assignment.sports == 'true' %}
                         <div class="themeborder">Sports</div>
                         {% endif %}
-                        {% if assignment.city_life %}
+                        {% if assignment.citylife == 'true' %}
                         <div class="themeborder">City</div>
                         {% endif %}
-                        {% if assignment.still %}
+                        {% if assignment.stilllife == 'true' %}
                         <div class="themeborder">Still Life</div>
                         {% endif %}
-                        {% if assignment.vehicles %}
+                        {% if assignment.vehicles == 'true' %}
                         <div class="themeborder">Vehicles</div>
                         {% endif %}
-                        {% if assignment.beach %}
+                        {% if assignment.beach == 'true' %}
                         <div class="themeborder">Beach</div>
                         {% endif %}
-                        {% if assignment.futurism %}
+                        {% if assignment.futurism == 'true' %}
                         <div class="themeborder">Futurism</div>
                         {% endif %}
-                        {% if assignment.portrait %}
+                        {% if assignment.portrait == 'true' %}
                         <div class="themeborder">Portrait</div>
                         {% endif %}
-                        {% if assignment.space %}
+                        {% if assignment.space == 'true' %}
                         <div class="themeborder">Space</div>
                         {% endif %}
                     </div>
                 </div>
-
+                {% if assignment.materials %}
                 <div class="row">
                     <div class="col">
                         <h3 class="topics">Preferred Materials</h2>
                         <p>{{assignment.materials}}</p>
                     </div>
                 </div>
-
+                {% endif %}
+                {% if assignment.techniques %}
                 <div class="row">
                     <div class="col">
                         <h3 class="topics">Preferred Techniques</h2>
                         <p>{{assignment.techniques}}</p>
                     </div>
                 </div>
-
+                {% endif %}
                 <div class="row">
                     <div class="col">
                         <h3 class="topics">Images</h2>
