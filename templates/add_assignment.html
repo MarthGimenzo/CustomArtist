@@ -1,317 +1,274 @@
 {% extends 'client_base.html' %} {% block content %}
 
-<form id="add_assignment" name='add_assignment' action="{{url_for('insert_assignment')}}" method="POST">
+<form id="add_assignment" name="add_assignment" action="{{url_for('insert_assignment')}}" method="POST">
+    
+    <!--Add Assignment Modal -->
 
-<!--Add Assignment Modal -->
+    <div class="modal fade" id="add_assignment_modal" tabindex="-1" role="dialog" aria-labelledby="add_assignment" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content custom">
+                <div class="modal-header custom">
+                    <h2 class="modal-title" id="artistModal">Submit Assignment</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-<div class="modal fade" id="add_assignment_modal" tabindex="-1" role="dialog" aria-labelledby="add_assignment" aria-hidden="true" data-backdrop="false">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content custom">
-                    <div class="modal-header custom">
-                        <h2 class="modal-title" id="artistModal">Submit Assignment</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    
-                    
-                        <div class="modal-body">
-                            <p>Do you want to submit this assignment?</p>
-                            
-                            
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-light">Submit Assignment</button>
-                        </div>
-                    
+                <div class="modal-body">
+                    <p>Do you want to submit this assignment?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-light">Submit Assignment</button>
                 </div>
             </div>
-</div>
-
-<h3 class="bordered_header">New Assignment</h3>
-
-
-<div class="container assignment_view">
-    <div class="row addspacebelow">
-        <div class="col-md-12 register">
-        <h2 class="register-title">Add details for a new Assignment</h2>
-           <div class="container-fluid">
-                <div class="row">
-                    <div class="col addspacebelow">
-                        <h3 class="topics">Assignment Title</h2>
-                        <input class="form-control" type="text" name="title" placeholder="Give your assignment a title (Max 35 characters)" maxlength="35" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <h3 class="topics">Short Description</h2>
-                        <div class="form-group">
-                        <textarea class="form-control" name="short_description" rows="2" placeholder="Enter a short description of your assignment (Max 100 characters)" maxlength="100" required></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <h3 class="topics">Assignment Description</h2>
-                        <div class="form-group">
-                        <textarea class="form-control" name="long_description" rows="5" placeholder="Enter a detailed description of your assignment (Max 500 characters)" maxlength="500" required></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <h3 class="topics">Goals</h2>
-                        <p>If you like, you can enter some goals for your assignment.<br>
-                        Describe the aspects of your assignment that you find important.</p>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 1</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" name="goal_1" placeholder="Enter a goal (Optional, max 100 characters)" maxlength="100">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 2</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" name="goal_2" placeholder="Enter a goal (Optional, max 100 characters)" maxlength="100">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 3</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" name="goal_3" placeholder="Enter a goal (Optional, max 100 characters)" maxlength="100">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 4</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" name="goal_4" placeholder="Enter a goal (Optional, max 100 characters)" maxlength="100">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 5</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" name="goal_5" placeholder="Enter a goal (Optional, max 100 characters)" maxlength="100">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <h3 class="topics">Assignment Type</h2>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Business of Private</label>
-                            <select class="form-control" name="type">
-                            <option>Business</option>
-                            <option>Private</option>
-                            </select>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Business name</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" name="company" placeholder="Enter your business name (Optional)" maxlength="35">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Location</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" name="location" placeholder="Enter name of your city/town" maxlength="35" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">End Date</label>
-                            <div class="col-sm-10">
-                            <input type="date" class="form-control" name="end_date" placeholder="End date" required>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <h3 class="topics">Offer</h2>
-                        <p>What are you willing to offer the artist? Enter an amount in whole numbers.</p>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">$</label>
-                            <div class="col-sm-10">
-                            <input type="number" class="form-control" name="offer" placeholder="Enter amount of money you offer (Optional)">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row addspacebelow">
-                    <div class="col">
-                        <h3 class="topics">Preferred Properties</h2>
-                        <p>Adjust the sliders to indicate your preferred properties of the artwork.</p>
-                        <table class="whitetext" style="width:100%">
-                            <tr>
-                                <td>Female</td>
-                                <td><input type="range" class="slider" name="aes_fem" min="0" max="10"></td>
-                                <td>Male</td>
-                            </tr>
-                            <tr>
-                                <td>Modern</td>
-                                <td><input type="range" class="slider" name="aes_mod" min="0" max="10"></td>
-                                <td>Classic</td>
-                            </tr>
-                            <tr>
-                                <td>Noisy</td>
-                                <td><input type="range" class="slider" name="aes_noi" min="0" max="10"></td>
-                                <td>Quiet</td>
-                            </tr>
-                            <tr>
-                                <td>Simple</td>
-                                <td><input type="range" class="slider" name="aes_sim" min="0" max="10"></td>
-                                <td>Complex</td>
-                            </tr>
-                            <tr>
-                                <td>Subtle</td>
-                                <td><input type="range" class="slider" name="aes_sub" min="0" max="10"></td>
-                                <td>Clear</td>
-                            </tr>
-                            <tr>
-                                <td>Very Big</td>
-                                <td><input type="range" class="slider" name="aes_big" min="0" max="10"></td>
-                                <td>Very Small</td>
-                            </tr>
-                            <tr>
-                                <td>Abstract</td>
-                                <td><input type="range" class="slider" name="aes_abs" min="0" max="10"></td>
-                                <td>Organic</td>
-                            </tr>
-                            <tr>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="row addspacebelow">
-                    <div class="col">
-                        <h3 class="topics">Preferred Colours</h2>
-                        <p>If you like, you can pick some colors that you would like to see in the artwork.<br>
-                        If you pick no color, it will be viewed to the artist as 'black'.
-                        </p>
-                        
-                        <table class="whitetext" style="width:100%">
-                            <tr>
-                                <td><label for="head">Color 1 </label><input type="color" value="White" name="colour_1"></td>
-                                <td><label for="head">Color 2 </label><input type="color" value="White" name="colour_2"></td>
-                                <td><label for="head">Color 3 </label><input type="color" value="White" name="colour_3"></td>
-                                <td><label for="head">Color 4 </label><input type="color" value="White" name="colour_4"></td>
-                            </tr>
-                            
-                        </table>
-                    </div>
-                </div>
-
-                <div class="row addspacebelow">
-                    <div class="col">
-                        <h3 class="topics">Preferred Themes</h2>
-                        <p>Select the themes that match the assignment.</p>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "abstract" value = "false">Abstract</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "architecture" value = "false">Architecture</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "nature" value = "false">Nature</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "collage" value = "false">Collage</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "animals" value = "false">Animals</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "fantasy" value = "false">Fantasy</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "interior" value = "false">Interior</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "landscape" value = "false">Landscape</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "maritime" value = "false">Maritime</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "people" value = "false">People</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "sports" value = "false">Sports</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "citylife" value = "false">City Life</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "stilllife" value = "false">Still Life</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "vehicles" value = "false">Vehicles</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "beach" value = "false">Beach</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "futurism" value = "false">Futurism</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "portrait" value = "false">Portrait</input>
-                        </div>
-                        <div class="themeborder theme">
-                            <input class="" type = "hidden" name = "space" value = "false">Space</input>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="row addspacebelow">
-                    <div class="col">
-                        <h3 class="topics">Preferred Materials</h2>
-                        <p>Optionally, you can describe the materials you would like to see in your artwork.</p>
-                        <input class="form-control" type="text" name="materials" placeholder="Enter your preferred materials (Optional)" maxlength="35">
-                    </div>
-                </div>
-
-                <div class="row addspacebelow">
-                    <div class="col">
-                        <h3 class="topics">Preferred Techniques</h2>
-                        <p>Optionally, you can describe the techniques you would like to see being used in the artwork.</p>
-                        <input class="form-control" type="text" name="techniques" placeholder="Enter your preferred materials (Optional)" maxlength="35">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <h3 class="topics">Images</h2>
-                        <p>Supported soon</p>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col">
-                        <h3 class="topics">Extra Comments</h2>
-                        <div class="form-group">
-                        <textarea class="form-control" name="comments" rows="2" maxlength="100" placeholder="Add extra comments if necessary"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row justify-content-end addspacebelow">
-                    <div class="col">
-                        
-                        <button id="submitAssignmentButton" type="button" class="btn btn-light endpagebuttons" >Submit Assignment</button>
-                        
-                    </div>
-                </div>
-            </div> 
         </div>
     </div>
-</div>
+
+    <h3 class="bordered_header">New Assignment</h3>
+
+    <div class="container assignment_view">
+        <div class="row addspacebelow">
+            <div class="col-md-12 register">
+                <h2 class="register-title">Add details for a new Assignment</h2>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col addspacebelow">
+                            <h3 class="topics">Assignment Title</h3>
+                            <input class="form-control" type="text" name="title" placeholder="Give your assignment a title (Max 35 characters)" maxlength="35" required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="topics">Short Description</h3>
+                            <div class="form-group">
+                                <textarea class="form-control" name="short_description" rows="2" placeholder="Enter a short description of your assignment (Max 100 characters)" maxlength="100" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="topics">Assignment Description</h3>
+                            <div class="form-group">
+                                <textarea class="form-control" name="long_description" rows="5" placeholder="Enter a detailed description of your assignment (Max 500 characters)" maxlength="500" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="topics">Goals</h3>
+                            <p>
+                                If you like, you can enter some goals for your assignment.<br />
+                                Describe the aspects of your assignment that you find important.
+                            </p>
+                            <div class="form-group row">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 1</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="goal_1" placeholder="Enter a goal (Optional, max 100 characters)" maxlength="100" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 2</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="goal_2" placeholder="Enter a goal (Optional, max 100 characters)" maxlength="100" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 3</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="goal_3" placeholder="Enter a goal (Optional, max 100 characters)" maxlength="100" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 4</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="goal_4" placeholder="Enter a goal (Optional, max 100 characters)" maxlength="100" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">Goal 5</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="goal_5" placeholder="Enter a goal (Optional, max 100 characters)" maxlength="100" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="topics">Assignment Type</h3>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Business of Private</label>
+                                <select class="form-control" name="type">
+                                    <option>Business</option>
+                                    <option>Private</option>
+                                </select>
+                            </div>
+                            <div class="form-group row">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">Business name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="company" placeholder="Enter your business name (Optional)" maxlength="35" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">Location</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="location" placeholder="Enter name of your city/town" maxlength="35" required />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">End Date</label>
+                                <div class="col-sm-10">
+                                    <input type="date" class="form-control" name="end_date" placeholder="End date" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="topics">Offer</h3>
+                            <p>What are you willing to offer the artist? Enter an amount in whole numbers.</p>
+                            <div class="form-group row">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">$</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" name="offer" placeholder="Enter amount of money you offer (Optional)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row addspacebelow">
+                        <div class="col">
+                            <h3 class="topics">Preferred Properties</h3>
+                            <p>Adjust the sliders to indicate your preferred properties of the artwork.</p>
+                            <table class="whitetext" style="width: 100%;">
+                                <tr>
+                                    <td>Female</td>
+                                    <td><input type="range" class="slider" name="aes_fem" min="0" max="10" /></td>
+                                    <td>Male</td>
+                                </tr>
+                                <tr>
+                                    <td>Modern</td>
+                                    <td><input type="range" class="slider" name="aes_mod" min="0" max="10" /></td>
+                                    <td>Classic</td>
+                                </tr>
+                                <tr>
+                                    <td>Noisy</td>
+                                    <td><input type="range" class="slider" name="aes_noi" min="0" max="10" /></td>
+                                    <td>Quiet</td>
+                                </tr>
+                                <tr>
+                                    <td>Simple</td>
+                                    <td><input type="range" class="slider" name="aes_sim" min="0" max="10" /></td>
+                                    <td>Complex</td>
+                                </tr>
+                                <tr>
+                                    <td>Subtle</td>
+                                    <td><input type="range" class="slider" name="aes_sub" min="0" max="10" /></td>
+                                    <td>Clear</td>
+                                </tr>
+                                <tr>
+                                    <td>Very Big</td>
+                                    <td><input type="range" class="slider" name="aes_big" min="0" max="10" /></td>
+                                    <td>Very Small</td>
+                                </tr>
+                                <tr>
+                                    <td>Abstract</td>
+                                    <td><input type="range" class="slider" name="aes_abs" min="0" max="10" /></td>
+                                    <td>Organic</td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row addspacebelow">
+                        <div class="col">
+                            <h3 class="topics">Preferred Colours</h3>
+                            <p>
+                                If you like, you can pick some colors that you would like to see in the artwork.<br />
+                                If you pick no color, it will be viewed to the artist as 'black'.
+                            </p>
+
+                            <table class="whitetext" style="width: 100%;">
+                                <tr>
+                                    <td><label for="head">Color 1 </label><input type="color" value="White" name="colour_1" /></td>
+                                    <td><label for="head">Color 2 </label><input type="color" value="White" name="colour_2" /></td>
+                                    <td><label for="head">Color 3 </label><input type="color" value="White" name="colour_3" /></td>
+                                    <td><label for="head">Color 4 </label><input type="color" value="White" name="colour_4" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row addspacebelow">
+                        <div class="col">
+                            <h3 class="topics">Preferred Themes</h3>
+                            <p>Select the themes that match the assignment.</p>
+                            <div class="themeborder theme"><input type="hidden" name="abstract" value="false" />Abstract</div>
+                            <div class="themeborder theme"><input type="hidden" name="architecture" value="false" />Architecture</div>
+                            <div class="themeborder theme"><input type="hidden" name="nature" value="false" />Nature</div>
+                            <div class="themeborder theme"><input type="hidden" name="collage" value="false" />Collage</div>
+                            <div class="themeborder theme"><input type="hidden" name="animals" value="false" />Animals</div>
+                            <div class="themeborder theme"><input type="hidden" name="fantasy" value="false" />Fantasy</div>
+                            <div class="themeborder theme"><input type="hidden" name="interior" value="false" />Interior</div>
+                            <div class="themeborder theme"><input type="hidden" name="landscape" value="false" />Landscape</div>
+                            <div class="themeborder theme"><input type="hidden" name="maritime" value="false" />Maritime</div>
+                            <div class="themeborder theme"><input type="hidden" name="people" value="false" />People</div>
+                            <div class="themeborder theme"><input type="hidden" name="sports" value="false" />Sports</div>
+                            <div class="themeborder theme"><input type="hidden" name="citylife" value="false" />City Life</div>
+                            <div class="themeborder theme"><input type="hidden" name="stilllife" value="false" />Still Life</div>
+                            <div class="themeborder theme"><input type="hidden" name="vehicles" value="false" />Vehicles</div>
+                            <div class="themeborder theme"><input type="hidden" name="beach" value="false" />Beach</div>
+                            <div class="themeborder theme"><input type="hidden" name="futurism" value="false" />Futurism</div>
+                            <div class="themeborder theme"><input type="hidden" name="portrait" value="false" />Portrait</div>
+                            <div class="themeborder theme"><input type="hidden" name="space" value="false" />Space</div>
+                        </div>
+                    </div>
+
+                    <div class="row addspacebelow">
+                        <div class="col">
+                            <h3 class="topics">Preferred Materials</h3>
+                            <p>Optionally, you can describe the materials you would like to see in your artwork.</p>
+                            <input class="form-control" type="text" name="materials" placeholder="Enter your preferred materials (Optional)" maxlength="35" />
+                        </div>
+                    </div>
+
+                    <div class="row addspacebelow">
+                        <div class="col">
+                            <h3 class="topics">Preferred Techniques</h3>
+                            <p>Optionally, you can describe the techniques you would like to see being used in the artwork.</p>
+                            <input class="form-control" type="text" name="techniques" placeholder="Enter your preferred materials (Optional)" maxlength="35" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="topics">Images</h3>
+                            <p>Supported soon</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="topics">Extra Comments</h3>
+                            <div class="form-group">
+                                <textarea class="form-control" name="comments" rows="2" maxlength="100" placeholder="Add extra comments if necessary"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-end addspacebelow">
+                        <div class="col">
+                            <button id="submitAssignmentButton" type="button" class="btn btn-light endpagebuttons">Submit Assignment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
 {% endblock %}
