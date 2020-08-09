@@ -33,11 +33,11 @@ def index():
 def register_artist():
     if request.method == 'POST':
         artists = mongo.db.artists
-        existing_artist = artists.find_one({'username' : request.form['artistname']})
+        existing_artist = artists.find_one({'username': request.form['artistname']})
 
         if existing_artist == None:
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            artists.insert({'username' : request.form['artistname'], 'password' : hashpass, 'phone' : request.form['phone']})
+            artists.insert({'username': request.form['artistname'], 'password': hashpass, 'phone': request.form['phone']})
             session['artistname'] = request.form['artistname']
             
             all_assignments = list(mongo.db.assignments.find())
@@ -57,7 +57,7 @@ def artist_login():
     print('Got to Login')
     artists = mongo.db.artists
     print(artists)
-    login_artist = artists.find_one({'username' : request.form['artistname']})
+    login_artist = artists.find_one({'username': request.form['artistname']})
     print('Got here3')
     print(login_artist)
     if login_artist:
@@ -144,14 +144,14 @@ def update_proposal(proposal_id, assignment_id):
 
     proposals.update({'_id': ObjectId(proposal_id)},
     {
-        'title' : request.form.get('title'),
-        'description' : request.form.get('description'),
-        'materials' : request.form.get('materials'),
-        'availability_start' : request.form.get('availability_start'),
-        'availability_end' : request.form.get('availability_end'),
-        'artist_name' : session['artistname'],
-        'artist_id' : (artist_insession_record['_id']),
-        'assignment_id' : ObjectId(assignment_id)
+        'title': request.form.get('title'),
+        'description': request.form.get('description'),
+        'materials': request.form.get('materials'),
+        'availability_start': request.form.get('availability_start'),
+        'availability_end': request.form.get('availability_end'),
+        'artist_name': session['artistname'],
+        'artist_id': (artist_insession_record['_id']),
+        'assignment_id': ObjectId(assignment_id)
     })
     return redirect(url_for('my_proposals'))
 
@@ -187,14 +187,14 @@ def sign_out():
 def register_client():
     if request.method == 'POST':
         clients = mongo.db.clients
-        existing_client = clients.find_one({'username' : request.form['clientname']})
+        existing_client = clients.find_one({'username': request.form['clientname']})
 
         if existing_client == None:
             hashpass = bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), bcrypt.gensalt())
-            clients.insert({'username' : request.form['clientname'], 'password' : hashpass})
+            clients.insert({'username': request.form['clientname'], 'password': hashpass})
             session['clientname'] = request.form['clientname']
             print("Yes this works1")
-            login_client = clients.find_one({'username' : session['clientname']}) 
+            login_client = clients.find_one({'username': session['clientname']}) 
             client_id = login_client['_id']
             only_user_assignments = list(mongo.db.assignments.find({'client_id': ObjectId(client_id)}))
             print("Yes this works")
@@ -211,7 +211,7 @@ def register_client():
 @app.route('/client_login', methods=['POST'])
 def client_login():
     clients = mongo.db.clients
-    login_client = clients.find_one({'username' :  request.form['clientname']})
+    login_client = clients.find_one({'username':  request.form['clientname']})
 
     if login_client:
         if bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), login_client['password']) == login_client['password']:
@@ -227,7 +227,7 @@ def client_login():
 @app.route('/client_login/my_assignments')
 def my_assignments():
     clients = mongo.db.clients
-    login_client = clients.find_one({'username' : session['clientname']}) 
+    login_client = clients.find_one({'username': session['clientname']}) 
     client_id = login_client['_id']
     only_user_assignments = list(mongo.db.assignments.find({'client_id': ObjectId(client_id)}))
     return render_template('client_index.html', assignments=only_user_assignments)
