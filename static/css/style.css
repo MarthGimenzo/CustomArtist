@@ -237,6 +237,40 @@ td {
 	}
 }
 
+/* How Does it Work Section */
+
+.mascot {
+    display: flex;
+    margin: auto;
+	max-width: 100%;
+    
+}
+
+.explanation {
+    display: flex;
+    align-items: center;
+}
+
+.howdoesitworktopic {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	padding: 0.3rem;
+	border-bottom: 1px solid #e9ecef;
+	border-top-left-radius: .3rem;
+	border-top-right-radius: .3rem;
+	padding-right: 0px;
+	padding-left: 0px;
+    color: white;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 900;
+}
 
 /* Black div */
 
