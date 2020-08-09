@@ -6,9 +6,6 @@ $(document).ready(function() {
     // Thank you for the great explanation!
 
     var count = Math.floor(Math.random() * 9);
-
-
-    console.log('count at first: ' + count);
     var images = [
         "/static/images/backgrounds/bg1.jpg",
         "/static/images/backgrounds/bg2.jpg",
@@ -23,73 +20,56 @@ $(document).ready(function() {
 
     var image = $(".fader");
     image.css("background-image", "url(" + images[count] + ")");
-    console.log(image)
-    console.log("background-image", "url(" + images[count] + ")")
-    console.log('count now: ' + count);
 
     setInterval(function() {
-        
-        image.fadeOut(1000, function() {
 
-            console.log('old count: ' + count);
+        image.fadeOut(1000, function() {
             var oldcount = count;
-            while (count == oldcount){
+            while (count == oldcount) {
                 count = Math.floor(Math.random() * 9);
             }
 
             // New picture presents defined on new count
             image.css("background-image", "url(" + images[count] + ")");
-            console.log('new picture presents: ' + count);
             image.fadeIn(1000);
         });
-        
+
     }, 10000);
 
     // Toggle themes
 
     $('.theme').click(function() {
         $(this).toggleClass("down");
-        console.log("Toggled")
         if ($(this).children().val() == "false") {
-            console.log("Changed")
-        $(this).children().val("true");
-            }
-        else {
-        $(this).children().val("false");
-    }
+            $(this).children().val("true");
+        } else {
+            $(this).children().val("false");
+        }
     });
 
     // Validate form when adding an assignment and call Modal if valid
 
-    var form = $( "#add_assignment" );
-    console.log(form)
+    var form = $("#add_assignment");
 
-    $( "#submitAssignmentButton" ).click(function() {
+    $("#submitAssignmentButton").click(function() {
         var title = document.forms["add_assignment"]["title"].value
         var short_description = document.forms["add_assignment"]["short_description"].value
         var long_description = document.forms["add_assignment"]["long_description"].value
         var location = document.forms["add_assignment"]["location"].value
         var end_date = document.forms["add_assignment"]["end_date"].value
 
-        if ((title == "") || (short_description == "") || (long_description == "") || (location == "") || (end_date == "")){
-            console.log("Validation")
+        if ((title == "") || (short_description == "") || (long_description == "") || (location == "") || (end_date == "")) {
             document.forms['add_assignment'].reportValidity()
-            }
-        else {
-            
-            console.log("This happens")
+        } else {
             $('#add_assignment_modal').modal('show')
         }
-
-    
     });
 
-        // Validate form when adding a proposal and call Modal if valid
+    // Validate form when adding a proposal and call Modal if valid
 
-    var form = $( "#add_proposal" );
-    console.log(form)
+    var form = $("#add_proposal");
 
-    $( "#submitProposalButton" ).click(function() {
+    $("#submitProposalButton").click(function() {
         var title = document.forms["add_proposal"]["title"].value
         var description = document.forms["add_proposal"]["description"].value
         var materials = document.forms["add_proposal"]["materials"].value
@@ -97,17 +77,13 @@ $(document).ready(function() {
         var availability_start = document.forms["add_proposal"]["availability_start"].value
         var availability_end = document.forms["add_proposal"]["availability_end"].value
 
-        if ((title == "") || (description == "") || (materials == "") || (techniques == "") || (availability_start == "") || (availability_end == "")){
-            console.log("Validation")
+        if ((title == "") || (description == "") || (materials == "") || (techniques == "") || (availability_start == "") || (availability_end == "")) {
             document.forms['add_proposal'].reportValidity()
-            }
-        else {
-            
-            console.log("This happens")
+        } else {
             $('#add_proposal_modal').modal('show')
         }
 
-    
+
     });
 
 });
