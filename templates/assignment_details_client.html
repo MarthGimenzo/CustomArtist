@@ -1,30 +1,29 @@
 {% extends 'client_base.html' %} {% block content %}
 
-    <!--Delete Assignment Modal -->
-        
+<!--Delete Assignment Modal -->
+
 <div class="modal fade" id="delete_assignment" tabindex="-1" role="dialog" aria-labelledby="delete_assignment" aria-hidden="true" data-backdrop="false">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content custom">
-                    <div class="modal-header custom">
-                        <h2 class="modal-title" id="artistModal">Delete Assignment</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    
-                    <form action="{{url_for('delete_assignment', assignment_id = assignment._id)}}">
-                        <div class="modal-body">
-                            <p>Are you sure you want to delete:</p>
-                            <p>"{{assignment.title}}"</p>
-                            
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-light">Delete Assignment</button>
-                        </div>
-                    </form>
-                </div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content custom">
+            <div class="modal-header custom">
+                <h2 class="modal-title" id="artistModal">Delete Assignment</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+
+            <form action="{{url_for('delete_assignment', assignment_id = assignment._id)}}">
+                <div class="modal-body">
+                    <p>Are you sure you want to delete:</p>
+                    <p>"{{assignment.title}}"</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-light">Delete Assignment</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <h3 class="bordered_header">My Assignment Details</h3>
@@ -32,111 +31,112 @@
 <div class="container assignment_view addspacebelow">
     <div class="row">
         <div class="col-md-12 register">
-        <h2 class="register-title">{{assignment.title}}</h2>
-           <div class="container-fluid">
+            <h2 class="register-title">{{assignment.title}}</h2>
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
+                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo" alt="" /></div>
                     <div class="col-5">
-                    <ul class="whitetext">
-                        {% if assignment.type %}
-                        <li>Type: {{assignment.type}}</li>
-                        {% endif %}
-                        {% if assignment.company %}
-                        <li>Added by: {{assignment.company}}</li>
-                        {% endif %}
-                        {% if assignment.offer %}
-                        <li>Offer: $ {{assignment.offer}},-</li>
-                        {% endif %}
-                        {% if assignment.add_date %}
-                        <li>Date added: {{assignment.add_date}}</li>
-                        {% endif %}
-                        {% if assignment.end_date %}
-                        <li>End date: {{assignment.end_date}}</li>
-                        {% endif %}
-                        {% if assignment.location %}
-                        <li>Location: {{assignment.location}}</li>
-                        {% endif %}
-                    </ul>
-                    
+                        <ul class="whitetext">
+                            {% if assignment.type %}
+                            <li>Type: {{assignment.type}}</li>
+                            {% endif %} {% if assignment.company %}
+                            <li>Added by: {{assignment.company}}</li>
+                            {% endif %} {% if assignment.offer %}
+                            <li>Offer: $ {{assignment.offer}},-</li>
+                            {% endif %} {% if assignment.add_date %}
+                            <li>Date added: {{assignment.add_date}}</li>
+                            {% endif %} {% if assignment.end_date %}
+                            <li>End date: {{assignment.end_date}}</li>
+                            {% endif %} {% if assignment.location %}
+                            <li>Location: {{assignment.location}}</li>
+                            {% endif %}
+                        </ul>
                     </div>
                     <div class="col-5">
-                    <p>{{assignment.short_description}}</p>
+                        <p>{{assignment.short_description}}</p>
                     </div>
-                    
                 </div>
 
                 <div class="row">
                     <div class="col">
-                        <h3 class="topics">Assignment Description</h2>
+                        <h3 class="topics">Assignment Description</h3>
                         <p>{{assignment.long_description}}</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md">
-                    <h3 class="topics">Goals</h2>
-                    <ol class="whitetext">
-                        {% if assignment.goal_1 %}
-                        <li>{{assignment.goal_1}}</li>
-                        {% endif %}
-                        {% if assignment.goal_2 %}
-                        <li>{{assignment.goal_2}}</li>
-                        {% endif %}
-                        {% if assignment.goal_3 %}
-                        <li>{{assignment.goal_3}}</li>
-                        {% endif %}
-                        {% if assignment.goal_4 %}
-                        <li>{{assignment.goal_4}}</li>
-                        {% endif %}
-                        {% if assignment.goal_5 %}
-                        <li>{{assignment.goal_5}}</li>
-                        {% endif %}
-                    </ol>
-                    
+                        <h3 class="topics">Goals</h3>
+                        <ol class="whitetext">
+                            {% if assignment.goal_1 %}
+                            <li>{{assignment.goal_1}}</li>
+                            {% endif %} {% if assignment.goal_2 %}
+                            <li>{{assignment.goal_2}}</li>
+                            {% endif %} {% if assignment.goal_3 %}
+                            <li>{{assignment.goal_3}}</li>
+                            {% endif %} {% if assignment.goal_4 %}
+                            <li>{{assignment.goal_4}}</li>
+                            {% endif %} {% if assignment.goal_5 %}
+                            <li>{{assignment.goal_5}}</li>
+                            {% endif %}
+                        </ol>
                     </div>
                 </div>
 
                 <div class="row addspacebelow">
                     <div class="col">
-                        <h3 class="topics">Preferred Properties</h2>
+                        <h3 class="topics">Preferred Properties</h3>
 
-                        <table class="whitetext" style="width:100%">
+                        <table class="whitetext" style="width: 100%;">
                             <tr>
                                 <td>Female</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_fem}}" disabled></td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_fem}}" disabled /></td>
                                 <td>Male</td>
                             </tr>
                             <tr>
                                 <td>Modern</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_mod}}" disabled></td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_mod}}" disabled /></td>
                                 <td>Classic</td>
                             </tr>
                             <tr>
                                 <td>Noisy</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_noi}}" disabled></td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_noi}}" disabled /></td>
                                 <td>Quiet</td>
                             </tr>
                             <tr>
                                 <td>Simple</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_sim}}" disabled></td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_sim}}" disabled /></td>
                                 <td>Complex</td>
                             </tr>
                             <tr>
                                 <td>Subtle</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_sub}}" disabled></td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_sub}}" disabled /></td>
                                 <td>Clear</td>
                             </tr>
                             <tr>
                                 <td>Very Big</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_big}}" disabled></td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_big}}" disabled /></td>
                                 <td>Very Small</td>
                             </tr>
                             <tr>
                                 <td>Abstract</td>
-                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_abs}}" disabled></td>
+                                <td><input type="range" class="slider" name="points" min="0" max="10" value="{{assignment.aes_abs}}" disabled /></td>
                                 <td>Organic</td>
                             </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row addspacebelow">
+                    <div class="col">
+                        <h3 class="topics">Preferred Colours</h3>
+
+                        <table class="whitetext" style="width: 100%;">
                             <tr>
+                                <td class="coloursborder" style="background-color: {{assignment.colour_1}}">{{assignment.colour_1}}</td>
+                                <td class="coloursborder" style="background-color: {{assignment.colour_2}}">{{assignment.colour_2}}</td>
+                                <td class="coloursborder" style="background-color: {{assignment.colour_3}}">{{assignment.colour_3}}</td>
+                                <td class="coloursborder" style="background-color: {{assignment.colour_4}}">{{assignment.colour_4}}</td>
                             </tr>
                         </table>
                     </div>
@@ -144,75 +144,42 @@
 
                 <div class="row addspacebelow">
                     <div class="col">
-                        <h3 class="topics">Preferred Colours</h2>
-
-                        <table class="whitetext" style="width:100%">
-                            <tr>
-                                <td class="coloursborder" width="25%" style="background-color: {{assignment.colour_1}}">{{assignment.colour_1}}</td>
-                                <td class="coloursborder" width="25%" style="background-color: {{assignment.colour_2}}">{{assignment.colour_2}}</td>
-                                <td class="coloursborder" width="25%" style="background-color: {{assignment.colour_3}}">{{assignment.colour_3}}</td>
-                                <td class="coloursborder" width="25%" style="background-color: {{assignment.colour_4}}">{{assignment.colour_4}}</td>
-                            </tr>
-                            
-                        </table>
-                    </div>
-                </div>
-
-                <div class="row addspacebelow">
-                    <div class="col">
-                        <h3 class="topics">Preferred Themes</h2>
+                        <h3 class="topics">Preferred Themes</h3>
                         {% if assignment.abstract == 'true' %}
                         <div class="themeborder">Abstract</div>
-                        {% endif %}
-                        {% if assignment.architecture == 'true' %}
+                        {% endif %} {% if assignment.architecture == 'true' %}
                         <div class="themeborder">Architecture</div>
-                        {% endif %}
-                        {% if assignment.nature == 'true' %}
+                        {% endif %} {% if assignment.nature == 'true' %}
                         <div class="themeborder">Nature</div>
-                        {% endif %}
-                        {% if assignment.collage == 'true' %}
+                        {% endif %} {% if assignment.collage == 'true' %}
                         <div class="themeborder">Collage</div>
-                        {% endif %}
-                        {% if assignment.animals == 'true' %}
+                        {% endif %} {% if assignment.animals == 'true' %}
                         <div class="themeborder">Animals</div>
-                        {% endif %}
-                        {% if assignment.fantasy == 'true' %}
+                        {% endif %} {% if assignment.fantasy == 'true' %}
                         <div class="themeborder">Fantasy</div>
-                        {% endif %}
-                        {% if assignment.interior == 'true' %}
+                        {% endif %} {% if assignment.interior == 'true' %}
                         <div class="themeborder">Interior</div>
-                        {% endif %}
-                        {% if assignment.landscape == 'true' %}
+                        {% endif %} {% if assignment.landscape == 'true' %}
                         <div class="themeborder">Landscape</div>
-                        {% endif %}
-                        {% if assignment.maritime == 'true' %}
+                        {% endif %} {% if assignment.maritime == 'true' %}
                         <div class="themeborder">Maritime</div>
-                        {% endif %}
-                        {% if assignment.people == 'true' %}
+                        {% endif %} {% if assignment.people == 'true' %}
                         <div class="themeborder">People</div>
-                        {% endif %}
-                        {% if assignment.sports == 'true' %}
+                        {% endif %} {% if assignment.sports == 'true' %}
                         <div class="themeborder">Sports</div>
-                        {% endif %}
-                        {% if assignment.citylife == 'true' %}
+                        {% endif %} {% if assignment.citylife == 'true' %}
                         <div class="themeborder">City</div>
-                        {% endif %}
-                        {% if assignment.stilllife == 'true' %}
+                        {% endif %} {% if assignment.stilllife == 'true' %}
                         <div class="themeborder">Still Life</div>
-                        {% endif %}
-                        {% if assignment.vehicles == 'true' %}
+                        {% endif %} {% if assignment.vehicles == 'true' %}
                         <div class="themeborder">Vehicles</div>
-                        {% endif %}
-                        {% if assignment.beach == 'true' %}
+                        {% endif %} {% if assignment.beach == 'true' %}
                         <div class="themeborder">Beach</div>
-                        {% endif %}
-                        {% if assignment.futurism == 'true' %}
+                        {% endif %} {% if assignment.futurism == 'true' %}
                         <div class="themeborder">Futurism</div>
-                        {% endif %}
-                        {% if assignment.portrait == 'true' %}
+                        {% endif %} {% if assignment.portrait == 'true' %}
                         <div class="themeborder">Portrait</div>
-                        {% endif %}
-                        {% if assignment.space == 'true' %}
+                        {% endif %} {% if assignment.space == 'true' %}
                         <div class="themeborder">Space</div>
                         {% endif %}
                     </div>
@@ -220,109 +187,94 @@
                 {% if assignment.materials %}
                 <div class="row">
                     <div class="col">
-                        <h3 class="topics">Preferred Materials</h2>
+                        <h3 class="topics">Preferred Materials</h3>
                         <p>{{assignment.materials}}</p>
                     </div>
                 </div>
-                {% endif %}
-                {% if assignment.techniques %}
+                {% endif %} {% if assignment.techniques %}
                 <div class="row">
                     <div class="col">
-                        <h3 class="topics">Preferred Techniques</h2>
+                        <h3 class="topics">Preferred Techniques</h3>
                         <p>{{assignment.techniques}}</p>
                     </div>
                 </div>
                 {% endif %}
                 <div class="row">
                     <div class="col">
-                        <h3 class="topics">Images</h2>
+                        <h3 class="topics">Images</h3>
                         <p>Supported soon</p>
                     </div>
                 </div>
 
                 <div class="row justify-content-end addspacebelow">
                     <div class="col">
-                        
                         <button type="submit" class="btn btn-light endpagebuttons" data-toggle="modal" data-target="#delete_assignment">Delete Assignment</button>
-                        
 
                         <form action="{{url_for('my_assignments')}}">
-                        <button type="submit" class="btn btn-secondary endpagebuttons">Back to Assignments</button>
+                            <button type="submit" class="btn btn-secondary endpagebuttons">Back to Assignments</button>
                         </form>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col">
-                        <h3 class="topics">Proposals for {{assignment.title}}</h2>
+                        <h3 class="topics">Proposals for {{assignment.title}}</h3>
                     </div>
                 </div>
-                
+
                 {% for proposal in proposals %}
-                
+
                 <div class="container assignment_view">
                     <div class="row addspacebelow">
                         <div class="col-md-12 register striped-background">
                             <h2 class="register-title">{{proposal.title}}</h2>
-                            
+
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col">
-                                        <form action="{{url_for('insert_proposal', assignment_id=assignment._id)}}" method="POST">
                                         <div class="form-group">
-                                            <label class="topics" for="formGroupExampleInput">By Artist:</label>
+                                            <label class="topics">By Artist:</label>
                                             <p>{{proposal.artist_name}}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label class="topics" for="formGroupExampleInput">Artist Phone Number:</label>
+                                            <label class="topics">Artist Phone Number:</label>
                                             <p>{{proposal.artist_phone}}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label class="topics" for="exampleFormControlTextarea1">Description</label>
+                                            <label class="topics">Description</label>
                                             <p>{{proposal.description}}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label class="topics" for="formGroupExampleInput2">Materials Used</label>
+                                            <label class="topics">Materials Used</label>
                                             <p>{{proposal.materials}}</p>
                                         </div>
-                                        <p>Uploading images to support your proposal will be available soon</p>
                                         <div class="form-group">
-                                            <label class="topics" for="formGroupExampleInput2">Available period, from</label>
+                                            <label class="topics">Available period, from</label>
                                             <p>{{proposal.availability_start}}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label class="topics" for="formGroupExampleInput2">Untill</label>
+                                            <label class="topics">Untill</label>
                                             <p>{{proposal.availability_end}}</p>
                                         </div>
-                                        
                                     </div>
                                 </div>
-                                <div class="row justify-content-end">
-                                    <div class="col">
-                                        <button type="submit" class="btn btn-light endpagebuttons">Accept this Proposal</button>
-                                    </div>
-                                </div>
-                                </form>
                             </div>
-                            
-                            
-                        </div> 
+                        </div>
                     </div>
                 </div>
-   
-                {% endfor %}
-                {% if not proposals %}
-                
+
+                {% endfor %} {% if not proposals %}
+
                 <div class="container assignment_view">
                     <div class="row addspacebelow">
                         <div class="col-md-12 register striped-background">
                             <h2 class="bordered-header">You have no proposals yet</h2>
-                            </div> 
+                        </div>
                     </div>
                 </div>
 
                 {% endif %}
-            </div> 
+            </div>
         </div>
     </div>
 </div>
