@@ -43,7 +43,7 @@ def artist_login():
             
             all_assignments = list(mongo.db.assignments.find())
             return render_template('artist_index.html', assignments=all_assignments)
-            
+
     print('Not Accepted')
     return render_template('index.html', badlogin=True)
 
@@ -225,7 +225,9 @@ def register_artist():
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
             artists.insert({'username' : request.form['artistname'], 'password' : hashpass, 'phone' : request.form['phone']})
             session['artistname'] = request.form['artistname']
-            return render_template('artist_index.html', assignments=mongo.db.assignments.find())
+            
+            all_assignments = list(mongo.db.assignments.find())
+            return render_template('artist_index.html', assignments=all_assignments)
         
         return render_template('register_artist.html',userexists=True)
     
