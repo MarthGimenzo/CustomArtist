@@ -1,142 +1,121 @@
 {% extends 'artist_base.html' %} {% block content %}
 
-<form id="add_proposal" name='add_proposal' action="{{url_for('insert_proposal', assignment_id=assignment._id)}}" method="POST">
+<form id="add_proposal" name="add_proposal" action="{{url_for('insert_proposal', assignment_id=assignment._id)}}" method="POST">
+    <!--Add Proposal Modal -->
 
-<!--Add Proposal Modal -->
+    <div class="modal fade" id="add_proposal_modal" tabindex="-1" role="dialog" aria-labelledby="add_proposal" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content custom">
+                <div class="modal-header custom">
+                    <h2 class="modal-title" id="artistModal">Submit Proposal</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-<div class="modal fade" id="add_proposal_modal" tabindex="-1" role="dialog" aria-labelledby="add_proposal" aria-hidden="true" data-backdrop="false">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content custom">
-                    <div class="modal-header custom">
-                        <h2 class="modal-title" id="artistModal">Submit Proposal</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    
-                    
-                        <div class="modal-body">
-                            <p>Do you want to submit this proposal?</p>
-                            
-                            
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-light">Submit Proposal</button>
-                        </div>
-                    
+                <div class="modal-body">
+                    <p>Do you want to submit this proposal?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-light">Submit Proposal</button>
                 </div>
             </div>
-</div>
+        </div>
+    </div>
 
-<h3 class="bordered_header">Add a Proposal</h3>
+    <h3 class="bordered_header">Add a Proposal</h3>
 
-<div class="container assignment_view">
-    <div class="row addspacebelow">
-        <div class="col-md-12 register">
-        <h2 class="register-title">{{assignment.title}}</h2>
-           <div class="container-fluid">
-                <div class="row">
-                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
-                    <div class="col-5">
-                    <ul class="whitetext">
-                        {% if assignment.type %}
-                        <li>Type: {{assignment.type}}</li>
-                        {% endif %}
-                        {% if assignment.company %}
-                        <li>Added by: {{assignment.company}}</li>
-                        {% endif %}
-                        {% if assignment.offer %}
-                        <li>Offer: $ {{assignment.offer}},-</li>
-                        {% endif %}
-                        {% if assignment.add_date %}
-                        <li>Date added: {{assignment.add_date}}</li>
-                        {% endif %}
-                        {% if assignment.end_date %}
-                        <li>End date: {{assignment.end_date}}</li>
-                        {% endif %}
-                        {% if assignment.location %}
-                        <li>Location: {{assignment.location}}</li>
-                        {% endif %}
-                    </ul>
-                    
+    <div class="container assignment_view">
+        <div class="row addspacebelow">
+            <div class="col-md-12 register">
+                <div class="container-fluid">
+                    <h2 class="register-title">{{assignment.title}}</h2>
+                    <div class="row">
+                        <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo" alt="" /></div>
+                        <div class="col-5">
+                            <ul class="whitetext">
+                                {% if assignment.type %}
+                                <li>Type: {{assignment.type}}</li>
+                                {% endif %} {% if assignment.company %}
+                                <li>Added by: {{assignment.company}}</li>
+                                {% endif %} {% if assignment.offer %}
+                                <li>Offer: $ {{assignment.offer}},-</li>
+                                {% endif %} {% if assignment.add_date %}
+                                <li>Date added: {{assignment.add_date}}</li>
+                                {% endif %} {% if assignment.end_date %}
+                                <li>End date: {{assignment.end_date}}</li>
+                                {% endif %} {% if assignment.location %}
+                                <li>Location: {{assignment.location}}</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                        <div class="col-5">
+                            <p>{{assignment.short_description}}</p>
+                        </div>
                     </div>
-                    <div class="col-5">
-                    <p>{{assignment.short_description}}</p>
-                    </div>
-                    
-                </div>
 
-                <div class="row">
-                    <div class="col">
-                        <h3 class="topics">Assignment Description</h2>
-                        <p>{{assignment.long_description}}</p>
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="topics">Assignment Description</h3>
+                            <p>{{assignment.long_description}}</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="container assignment_view">
-                    <div class="row addspacebelow">
-                        <div class="col-md-12 register striped-background">
-                        <h2 class="register-title">My proposal for: {{assignment.title}}</h2>
-                            
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col">
-                                        
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">Title of Proposal</label>
-                                            <input type="text" class="form-control" name="title" id="title" placeholder="Give your proposal a title (Max 35 characters)" maxlength="35" required>
+                    <div class="container assignment_view">
+                        <div class="row addspacebelow">
+                            <div class="col-md-12 register striped-background">
+                                <h2 class="register-title">My proposal for: {{assignment.title}}</h2>
+
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Title of Proposal</label>
+                                                <input type="text" class="form-control" name="title" id="title" placeholder="Give your proposal a title (Max 35 characters)" maxlength="35" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" name="description" id="description" placeholder="Give a detailed description of your proposal (Max 500 characters)" rows="3" maxlength="500" required></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Materials Used</label>
+                                                <input type="text" class="form-control" name="materials" id="materials" placeholder="Enter the materials you are using (Max 100 characters)" maxlength="100" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Techniques Used</label>
+                                                <input type="text" class="form-control" name="techniques" id="techniques" placeholder="Enter the techniques you are using (Max 100 characters)" maxlength="100" required />
+                                            </div>
+                                            <p>Uploading images to support your proposal will be available soon</p>
+                                            <div class="form-group">
+                                                <label>Available period, from</label>
+                                                <input type="date" class="form-control" name="availability_start" id="availability_start" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Untill</label>
+                                                <input type="date" class="form-control" name="availability_end" id="availability_end" required />
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Description</label>
-                                        <textarea class="form-control" name="description" id="description" placeholder="Give a detailed description of your proposal (Max 500 characters)" rows="3" maxlength="500" required></textarea>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="col">
+                                            <button id="submitProposalButton" type="button" class="btn btn-light endpagebuttons">Submit Proposal</button>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput2">Materials Used</label>
-                                            <input type="text" class="form-control" name="materials" id="materials" placeholder="Enter the materials you are using (Max 100 characters)" maxlength="100" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput2">Techniques Used</label>
-                                            <input type="text" class="form-control" name="techniques" id="techniques" placeholder="Enter the techniques you are using (Max 100 characters)" maxlength="100" required>
-                                        </div>
-                                        <p>Uploading images to support your proposal will be available soon</p>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput2">Available period, from</label>
-                                            <input type="date" class="form-control" name="availability_start" id="availability_start" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput2">Untill</label>
-                                            <input type="date" class="form-control" name="availability_end" id="availability_end" required>
-                                        </div>
-                                        
                                     </div>
                                 </div>
-                                <div class="row justify-content-end">
-                                    <div class="col">
-                                        <button id="submitProposalButton" type="button" class="btn btn-light endpagebuttons" >Submit Proposal</button>
-                                    </div>
-                                </div>
-                                </form>
                             </div>
-                            
-                            
-                        </div> 
+                        </div>
                     </div>
                 </div>
 
+                <!-- Go back to assignments -->
                 <div class="row justify-content-end">
                     <div class="col">
-                        <form action="{{url_for('assignments')}}">
-                            <button type="submit" class="btn btn-secondary endpagebuttons">Back to Assignment Details</button>
-                        </form>
+                        <button class="btn btn-secondary endpagebuttons" onclick="window.location.href='{{url_for('assignments')}}'">Back to Assignments</button>
                     </div>
                 </div>
-</div>
-
-                
-        </div> 
+            </div>
+        </div>
     </div>
-</div>
-
-
+</form>
 {% endblock %}
