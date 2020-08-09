@@ -7,36 +7,30 @@
 <div class="container assignment_view addspacebelow">
     <div class="row">
         <div class="col-12 register">
-        <h2 class="register-title">{{assignment.title}}</h2>
+            <h2 class="register-title">{{assignment.title}}</h2>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo"alt=""></div>
+                    <div class="col-2"><img src="/static/images/placeholder.jpg" class="assignment_logo" alt="" /></div>
                     <div class="col-5">
-                    <ul class="whitetext">
-                        {% if assignment.offer %}
-                        <li>Offer: $ {{assignment.offer}},-</li>
-                        {% endif %}
-                        {% if assignment.add_date %}
-                        <li>Date added: {{assignment.add_date}}</li>
-                        {% endif %}
-                        {% if assignment.location %}
-                        <li>Location: {{assignment.location}}</li>
-                        {% endif %}
-                        
-                    </ul>
-                    
+                        <ul class="whitetext">
+                            {% if assignment.offer %}
+                            <li>Offer: $ {{assignment.offer}},-</li>
+                            {% endif %} {% if assignment.add_date %}
+                            <li>Date added: {{assignment.add_date}}</li>
+                            {% endif %} {% if assignment.location %}
+                            <li>Location: {{assignment.location}}</li>
+                            {% endif %}
+                        </ul>
                     </div>
                     <div class="col-5">
-                    <p>{{assignment.short_description}}</p>
+                        <p>{{assignment.short_description}}</p>
                     </div>
-                    
                 </div>
                 <div class="row justify-content-end addspacebelow">
                     <div class="col offset-md-11">
                         <form action="{{url_for('assignment_details_client', assignment_id=assignment._id)}}">
-                        <button type="submit" class="btn btn-light endpageassignmentbuttons addspacebelow">View Details</button>
+                            <button type="submit" class="btn btn-light endpageassignmentbuttons addspacebelow">View Details</button>
                         </form>
-                    
                     </div>
                 </div>
             </div>
@@ -44,18 +38,14 @@
     </div>
 </div>
 
-{% endfor %}
+{% endfor %} {% if not assignments %}
 
-{% if not assignments %}
-                
 <div class="container assignment_view">
     <div class="row addspacebelow">
         <div class="col-md-12 register striped-background">
             <h2 class="bordered-header">You do not have any running assignments</h2>
-        </div> 
+        </div>
     </div>
 </div>
 
-{% endif %}
-
-{% endblock %}
+{% endif %} {% endblock %}
