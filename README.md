@@ -374,7 +374,7 @@ PIP, Python3 and Git need to be installed on your computer.
 1.	On the GitHub repository of Custom Artist, click clone or download;
 2.	Click ‘Download ZIP;
 3.	Unpack the downloaded ZIP file;
-4.	Open the index.html file with your preferred browser;
+4.	Open the index.html file with your preferred IDE;
 5.	Install Flask by entering pip install flask in the terminal of your IDE
 
 ### Heroku Deployment
@@ -397,8 +397,31 @@ Users will be able to upload assignments and proposals. And as such, the assignm
 
 ## Credits
 
-All content was on the website was conceived by myself, except for the following content.
+All content was on the website was conceived by myself.
 
 ### Media
 
+- The logo, both with and without the mascot, and the mascot itself, were designed by [Jo Zhuang](https://99designs.nl/profiles/jozhuang)
+- The background image with the woman on the graffiti wall comes from [Alphacoders.com](https://wall.alphacoders.com/by_sub_category.php?id=168539&name=Graffiti+Wallpapers&filter=4K+Ultra+HD).
+- The background image with the grafiti bird is made by [Luis Seven Martins](https://frankiebeane.wordpress.com/2015/04/26/l7m-luis-seven-martins-sao-paulo-brasil-graffiti-artist/).
+- The background image with the colorful painting of a park comes from [Alimentatiehaven.nl](https://alimentatiehaven.nl/art-201/).
+- The background image with the of the sculpture comes from [Coderch & Malavia Sculptors](https://www.facebook.com/CoderchMalaviaSculptors/).
+- The 2 background images with the fireworks come from [Ryan Mc Ginley](https://www.juxtapoz.com/news/news/ryan-mcginleys-fireworks/).
+- The 3 background images with the model pictures come from [Ilva Stoelwinder](https://twitter.com/ilvaphotography).
+- The phone icon in the 'How Does It Work' section comes from [IconBros](https://nl.pinterest.com/pin/814588651336180920/).
+- The colourful cloud behind the logo on the homepage comes from [Freepik.com](https://nl.freepik.com/vrije-foto-vectoren/splash-achtergrond).
+- The placeholder image of the person in the assignment divs is a free picture taken from [Thebuiscitstuidio](https://www.thebiscuitstudio.co.za/simple-testimonials/elizabeth-gray/placeholder-team-women/).
+- The fading backgrounds were created using a tutorial of [rudolfson.junior](https://www.youtube.com/watch?v=XjPdQSqtJhs).
+
 ### Acknowledgements
+
+The idea of this website is my own. I made a thesis about it in my education Leisure Management, but never got the chance to make it myself. Now, I was able to make the first step :)
+
+### Special Thanks
+
+* Code Instute, and all their tutors;
+* My mentor, Antonio Rodriguez;
+* Other students from Code Institute;
+* Ilva Stoelwinder;
+* Berber Visser;
+
