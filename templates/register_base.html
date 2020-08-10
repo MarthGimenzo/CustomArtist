@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Custom Artist</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+    </head>
+
+    <body>
+        <!--Artist Login Modal -->
+
+        <div class="modal fade" id="artistLoginModal" tabindex="-1" role="dialog" aria-labelledby="artistModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content custom">
+                    <div class="modal-header custom">
+                        <h2 class="modal-title" id="artistModal">Login as Artist</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <form method="POST" action="{{ url_for('artist_login') }}">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="topics topics-small">Artist Username</label>
+                                <input type="text" class="form-control" id="artistname" name="artistname" placeholder="Enter Artist Username" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="topics topics-small">Password</label>
+                                <input type="password" class="form-control" id="artistpass" name="artistpass" placeholder="Password" required />
+                            </div>
+                            {% if badlogin %}
+                            <p class="warning">Incorrect Artist Username and/or Password</p>
+                            {% endif %}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" onclick="location.href='{{ url_for('register_artist') }}'">Register as new Artist</button>
+                            <button type="submit" class="btn btn-light">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Client Login Modal -->
+        <div class="modal fade" id="clientLoginModal" tabindex="-1" role="dialog" aria-labelledby="clientModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content custom">
+                    <div class="modal-header custom">
+                        <h2 class="modal-title" id="clientModal">Login as Client</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <form method="POST" action="{{ url_for('client_login') }}">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="topics topics-small">Client Username</label>
+                                <input type="text" class="form-control" id="clientname" name="clientname" placeholder="Enter Client Username" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="topics topics-small">Password</label>
+                                <input type="password" class="form-control" id="clienttpass" name="clientpass" placeholder="Password" required />
+                            </div>
+                            {% if badlogin2 %}
+                            <p class="warning">Incorrect Client Username and/or Password</p>
+                            {% endif %}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" onclick="location.href='{{ url_for('register_client') }}'">Register as new Client</button>
+                            <button type="submit" class="btn btn-light">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url_for('index') }}">
+                    <img src="/static/images/Customartist.png" class="logo" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto pl-4 mt-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#artistLoginModal">Artists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#clientLoginModal">Clients</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content -->
+
+        {% block title_and_slogan %} {% endblock %} {% block register_artist %} {% endblock %}
+
+        <!-- Changing Background Div -->
+        <div class="fader"></div>
+
+        <!-- End Page Scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        {% if badlogin %}
+        <script>
+            $(document).ready(function () {
+                $("#artistLoginModal").modal("show");
+            });
+        </script>
+        {% endif %} {% if badlogin2 %}
+        <script>
+            $(document).ready(function () {
+                $("#clientLoginModal").modal("show");
+            });
+        </script>
+        {% endif %}
+    </body>
+</html>
