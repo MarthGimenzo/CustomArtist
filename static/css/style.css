@@ -34,11 +34,10 @@ h2 {
 h3 {
 	font-family: 'Montserrat', sans-serif;
 	color: black;
-	font-weight: bold;
 	font-size: xx-large;
 	text-align: center;
 	margin-top: 15px;
-	font-weight: 550;
+	font-weight: 500;
 }
 
 h4 {
@@ -210,7 +209,6 @@ footer {
 
 @media only screen and (max-width: 575px) {
 	.slogan {
-		text-size-adjust: auto;
 		font-size: 200%;
 	}
 }
@@ -224,9 +222,6 @@ footer {
 		text-align: center;
 		margin: auto;
 	}
-	.slogan {
-		text-size-adjust: auto;
-	}
 }
 
 
@@ -237,9 +232,6 @@ footer {
 		max-width: 90%;
 		text-align: center;
 		margin: auto;
-	}
-	.slogan {
-		text-size-adjust: auto;
 	}
 }
 
