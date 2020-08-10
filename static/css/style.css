@@ -63,6 +63,12 @@ td {
 	text-align: center;
 }
 
+footer {
+    color: white;
+    background-color: black;
+    margin-top: 40px;
+}
+
 .addspacebelow {
 	margin-bottom: 15px;
 }
