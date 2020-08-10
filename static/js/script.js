@@ -15,8 +15,7 @@ $(document).ready(function() {
         "/static/images/backgrounds/bg6.jpg",
         "/static/images/backgrounds/bg7.jpg",
         "/static/images/backgrounds/bg8.jpg",
-        "/static/images/backgrounds/bg9.jpg",
-    ];
+        "/static/images/backgrounds/bg9.jpg"];
 
     var image = $(".fader");
     image.css("background-image", "url(" + images[count] + ")");
@@ -25,7 +24,7 @@ $(document).ready(function() {
 
         image.fadeOut(1000, function() {
             var oldcount = count;
-            while (count == oldcount) {
+            while (count === oldcount) {
                 count = Math.floor(Math.random() * 9);
             }
 
