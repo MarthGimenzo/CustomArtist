@@ -85,12 +85,15 @@
             crossorigin="anonymous"
         ></script>
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        
         {% if userexists_modal %}
+        
         <script>
             $(document).ready(function () {
                 $("#myModal").modal("show");
             });
         </script>
+        
         {% endif %}
     </body>
 </html>
