@@ -22,7 +22,7 @@ Clients can view the proposals from artists for their assignments in their dashb
 
 ### Sitemap
 
-IMAGE HERE
+![Sitemap](https://github.com/MarthGimenzo/CustomArtist/blob/master/static/images/readme_images/Sitemap.png)
  
 ### User Stories
 
@@ -121,7 +121,7 @@ Two fonts were used on the website:
 
 #### Database Structure
 
-IMAGE HERE
+![Database Structure](https://github.com/MarthGimenzo/CustomArtist/blob/master/static/images/readme_images/Databases.png)
 
 ## Testing
 
