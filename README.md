@@ -35,7 +35,11 @@ IMAGE HERE
 7.	Clients want to get in touch with the artist of a certain proposal.
 
 ### Mockups
- 
+
+In this pdf file you can find the mockups that were created for Custom Artist
+
+[Mockups]()
+
 ### Design
 
 The website has an overall ‘black’ feeling with a white font. This is to symbolize a blackboard. To give the page color, pictures of different artist fade in and out on the background. 
@@ -317,7 +321,7 @@ IMAGE HERE
 
 1. When clicked on the ‘View Details’ button of an assignment, the artist is redirected to the ‘My Assignment Details’ page of that specific assignment correctly.
 
-##### My Assignment Details
+#### My Assignment Details
 
 ##### A client wants to see all details of an assignment
 
