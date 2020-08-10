@@ -369,7 +369,8 @@ Two fonts were used on the website:
 ### Run Project Locally
 
 You can run the project locally in your IDE by following these instructions:
-PIP, Python3 and Git need to be installed on your computer
+PIP, Python3 and Git need to be installed on your computer.
+
 1.	On the GitHub repository of Custom Artist, click clone or download;
 2.	Click ‘Download ZIP;
 3.	Unpack the downloaded ZIP file;
@@ -387,6 +388,12 @@ Deployment of Custom Artist to Heroku has been done by the following steps:
 6.	The new requirements.txt file and Procfile were added and commited and pushed to GitHub
 7.	A connection between the IDE and Heroku was established by logging in on Heroku in the terminal of the IDE.
 8.	The project was pushed to Heroku
+
+### Deployment version vs. development version
+
+There are no major differences between the deployment version and the development version.
+The only differences that might be noticed are changes in the database.
+Users will be able to upload assignments and proposals. And as such, the assignments and proposals in the database may change over time.
 
 ## Credits
 
