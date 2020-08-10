@@ -1,20 +1,22 @@
 import os
+import bcrypt
 from flask import Flask, render_template, url_for, request, session, redirect
 from flask_pymongo import PyMongo
 from datetime import date
-import bcrypt
-
 from bson.objectid import ObjectId
+if os.path.exists("env.py"):
+    import env
 
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = os.environ['MONGO_CA']
-app.config['MONGO_URI'] = os.environ['MONGO_URI_CA']
-app.secret_key = os.environ['SECRET_KEY']
+app.config['MONGO_DBNAME'] = os.environ.get('MONGO_CA')
+app.config['MONGO_URI'] = os.environ.get('MONGO_URI_CA')
+app.secret_key = os.environ.get('SECRET_KEY')
 
 mongo = PyMongo(app)
 
-#### Index Page Route ####
+# Index Page Route
+
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
@@ -26,47 +28,45 @@ def index():
 
     return render_template('index.html')
 
-##### Artist Side ####
+# ARTIST SIDE
 # Registering as new artist
+
 
 @app.route('/register_artist', methods=['POST', 'GET'])
 def register_artist():
     if request.method == 'POST':
         artists = mongo.db.artists
-        existing_artist = artists.find_one({'username': request.form['artistname']})
+        existing_artist = artists.find_one({'username':
+                                           request.form['artistname']})
 
-        if existing_artist == None:
-            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            artists.insert({'username': request.form['artistname'], 'password': hashpass, 'phone': request.form['phone']})
+        if existing_artist is None:
+            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'),
+                                     bcrypt.gensalt())
+            artists.insert({'username': request.form['artistname'],
+                            'password': hashpass,
+                            'phone': request.form['phone']})
             session['artistname'] = request.form['artistname']
-            
             all_assignments = list(mongo.db.assignments.find())
-            return render_template('artist_index.html', assignments=all_assignments)
-        
-        return render_template('register_artist.html',userexists=True)
-    
-    print('Hello, You!')
+            return render_template('artist_index.html',
+                                   assignments=all_assignments)
+        return render_template('register_artist.html', userexists=True)
     return render_template('register_artist.html')
 
 
-##### Artist Side ####
-#Artist Login Route
+# ARTIST SIDE
+# Artist Login Route
 
 @app.route('/artist_login', methods=['POST'])
 def artist_login():
-    print('Got to Login')
     artists = mongo.db.artists
-    print(artists)
     login_artist = artists.find_one({'username': request.form['artistname']})
-    print('Got here3')
-    print(login_artist)
     if login_artist:
-        if bcrypt.hashpw(request.form['artistpass'].encode('utf-8'), login_artist['password']) == login_artist['password']:
-            print('Accepted')
+        if bcrypt.hashpw(request.form['artistpass'].encode('utf-8'),
+                         login_artist['password']) == login_artist['password']:
             session['artistname'] = request.form['artistname']
-            
             all_assignments = list(mongo.db.assignments.find())
-            return render_template('artist_index.html', assignments=all_assignments)
+            return render_template('artist_index.html',
+                                   assignments=all_assignments)
 
     print('Not Accepted')
     return render_template('index.html', badlogin=True)
@@ -78,21 +78,25 @@ def assignments():
     return render_template('artist_index.html', assignments=all_assignments)
 
 
-##### Artist Side ####
-#View Details of assignment as artist
+# ARTIST SIDE
+# View Details of assignment as artist
+
 
 @app.route('/assignment_detail/<assignment_id>')
 def assignment_details(assignment_id):
-    the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
-    return render_template('assignment_details.html', assignment=the_assignment)
+    the_assignment = mongo.db.assignments.find_one({"_id":
+                                                   ObjectId(assignment_id)})
+    return render_template('assignment_details.html',
+                           assignment=the_assignment)
 
 
-##### Artist Side ####
+# ARTIST SIDE
 # Adding a proposal
 
 @app.route('/add_proposal/<assignment_id>')
 def add_proposal(assignment_id):
-    the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
+    the_assignment = mongo.db.assignments.find_one({"_id":
+                                                   ObjectId(assignment_id)})
     return render_template('add_proposal.html', assignment=the_assignment)
 
 
@@ -104,109 +108,122 @@ def insert_proposal(assignment_id):
     # Add artist name to the proposal
     full_insert['artist_name'] = session['artistname']
 
-    # Add the _id and phone of the artist's record to the proposal as artist_id and artist_phone
-    artist_insession_record = mongo.db.artists.find_one({"username": session['artistname']})
+    # Add the _id and phone of the artist's record to the proposal
+    artist_insession_record = mongo.db.artists.find_one({"username":
+                                                        session['artistname']})
     full_insert['artist_id'] = (artist_insession_record['_id'])
     full_insert['artist_phone'] = (artist_insession_record['phone'])
 
     # Add the _id of the assignment record to the proposal as assignment_id
-    coupled_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
+    coupled_assignment = mongo.db.assignments.find_one({"_id":
+                                                       ObjectId(assignment_id)})
     full_insert['assignment_id'] = (coupled_assignment['_id'])
 
     proposals.insert_one(full_insert)
     return redirect(url_for('assignments'))
 
-##### Artist Side ####
+# ARTIST SIDE
 # Deleting a proposal
+
 
 @app.route('/delete_proposal/<proposal_id>')
 def delete_proposal(proposal_id):
     mongo.db.proposals.delete_one({'_id': ObjectId(proposal_id)})
-    
     return redirect(url_for('my_proposals'))
 
-##### Artist Side ####
+# ARTIST SIDE
 # Editing and updating a proposal
+
 
 @app.route('/edit_proposal/<proposal_id>/<assignment_id>')
 def edit_proposal(proposal_id, assignment_id):
     the_proposal = mongo.db.proposals.find_one({"_id": ObjectId(proposal_id)})
-    all_assignments = mongo.db.assignments.find_one({"_id": ObjectId(assignment_id)})
-    print(all_assignments)
-    return render_template('edit_proposal.html', proposal=the_proposal, assignment=all_assignments)
+    all_assignments = mongo.db.assignments.find_one({"_id":
+                                                    ObjectId(assignment_id)})
+    return render_template('edit_proposal.html',
+                           proposal=the_proposal, assignment=all_assignments)
 
 
 @app.route('/update_proposal/<proposal_id>/<assignment_id>', methods=["POST"])
 def update_proposal(proposal_id, assignment_id):
     proposals = mongo.db.proposals
 
-    artist_insession_record = mongo.db.artists.find_one({"username" : session['artistname']})
+    artist_insession_record = mongo.db.artists.find_one({"username":
+                                                        session['artistname']})
 
     proposals.update({'_id': ObjectId(proposal_id)},
-    {
-        'title': request.form.get('title'),
-        'description': request.form.get('description'),
-        'materials': request.form.get('materials'),
-        'availability_start': request.form.get('availability_start'),
-        'availability_end': request.form.get('availability_end'),
-        'artist_name': session['artistname'],
-        'artist_id': (artist_insession_record['_id']),
-        'assignment_id': ObjectId(assignment_id)
-    })
+                     {'title': request.form.get('title'),
+                      'description': request.form.get('description'),
+                      'materials': request.form.get('materials'),
+                      'availability_start':
+                      request.form.get('availability_start'),
+                      'availability_end': request.form.get('availability_end'),
+                      'artist_name': session['artistname'],
+                      'artist_id': (artist_insession_record['_id']),
+                      'assignment_id': ObjectId(assignment_id)
+                      })
     return redirect(url_for('my_proposals'))
 
 
-##### Artist Side ####
+# ARTIST SIDE
 # Viewing proposals of the artist in session
 
 @app.route('/my_proposals')
 def my_proposals():
 
     # Find only proposals of the current user in session
-    session_artist_proposals = list(mongo.db.proposals.find({"artist_name" : session['artistname']}))
+    session_artist_proposals = list(mongo.db.proposals.find({"artist_name":
+                                                            session['artistname']}))
 
     # Add all assigmnents so that it can be iterated through
     all_assignments = list(mongo.db.assignments.find())
-    print("HIER")
-    print(session_artist_proposals)
-    return render_template('my_proposals.html', proposals=session_artist_proposals, assignments=all_assignments)
+    return render_template('my_proposals.html',
+                           proposals=session_artist_proposals,
+                           assignments=all_assignments)
 
 
-##### Artist Side ####
+# ARTIST SIDE
 # Signing out as artist
+
 
 @app.route('/sign_out')
 def sign_out():
     session.pop('artistname')
     return redirect(url_for('index'))
 
-##### Client Side ####
+
+# CLIENT SIDE
 # Registering as a new Client
+
 
 @app.route('/register_client', methods=['POST', 'GET'])
 def register_client():
     if request.method == 'POST':
         clients = mongo.db.clients
-        existing_client = clients.find_one({'username': request.form['clientname']})
+        existing_client = clients.find_one({'username':
+                                           request.form['clientname']})
 
-        if existing_client == None:
-            hashpass = bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), bcrypt.gensalt())
-            clients.insert({'username': request.form['clientname'], 'password': hashpass})
+        if existing_client is None:
+            hashpass = bcrypt.hashpw(request.form['clientpass'].encode('utf-8'),
+                                     bcrypt.gensalt())
+            clients.insert({'username': request.form['clientname'],
+                           'password': hashpass})
             session['clientname'] = request.form['clientname']
-            print("Yes this works1")
-            login_client = clients.find_one({'username': session['clientname']}) 
+            login_client = clients.find_one({'username':
+                                            session['clientname']})
             client_id = login_client['_id']
-            only_user_assignments = list(mongo.db.assignments.find({'client_id': ObjectId(client_id)}))
-            print("Yes this works")
-            return redirect(url_for('my_assignments', assignments=only_user_assignments))
+            only_user_assignments = list(mongo.db.assignments.find({'client_id':
+                                         ObjectId(client_id)}))
+            return redirect(url_for('my_assignments',
+                                    assignments=only_user_assignments))
 
-        return render_template('register_client.html',userexists=True)
+        return render_template('register_client.html', userexists=True)
 
-    print('Hello, You!')
     return render_template('register_client.html')
 
-##### Client Side ####
-#Client Login Route
+# CLIENT SIDE
+# Client Login Route
+
 
 @app.route('/client_login', methods=['POST'])
 def client_login():
@@ -214,12 +231,11 @@ def client_login():
     login_client = clients.find_one({'username':  request.form['clientname']})
 
     if login_client:
-        if bcrypt.hashpw(request.form['clientpass'].encode('utf-8'), login_client['password']) == login_client['password']:
+        if bcrypt.hashpw(request.form['clientpass'].encode('utf-8'),
+                         login_client['password']) == login_client['password']:
             session['clientname'] = request.form['clientname']
             client_id = login_client['_id']
-            only_user_assignments = list(mongo.db.assignments.find({'client_id': ObjectId(client_id)}))
-            return redirect(url_for('my_assignments', assignments=only_user_assignments))
-        
+            return redirect(url_for('my_assignments'))
     print('Not Accepted')
     return render_template('index.html', badlogin2=True)
 
@@ -227,24 +243,30 @@ def client_login():
 @app.route('/client_login/my_assignments')
 def my_assignments():
     clients = mongo.db.clients
-    login_client = clients.find_one({'username': session['clientname']}) 
+    login_client = clients.find_one({'username': session['clientname']})
     client_id = login_client['_id']
-    only_user_assignments = list(mongo.db.assignments.find({'client_id': ObjectId(client_id)}))
-    return render_template('client_index.html', assignments=only_user_assignments)
+    only_user_assignments = list(mongo.db.assignments.find({'client_id':
+                                                           ObjectId(client_id)}))
+    return render_template('client_index.html',
+                           assignments=only_user_assignments)
 
 
-##### Client Side ####
-#View Details of Client's posted assignment
+# CLIENT SIDE
+# View Details of Client's posted assignment
 
 @app.route('/assignment_details_client/<assignment_id>')
 def assignment_details_client(assignment_id):
-    the_assignment = mongo.db.assignments.find_one({"_id" : ObjectId(assignment_id)})
-    coupled_proposals = list(mongo.db.proposals.find({"assignment_id" : ObjectId(assignment_id)}))
-    
-    return render_template('assignment_details_client.html', assignment=the_assignment, proposals=coupled_proposals)
+    the_assignment = mongo.db.assignments.find_one({"_id":
+                                                   ObjectId(assignment_id)})
+    coupled_proposals = list(mongo.db.proposals.find({"assignment_id":
+                                                     ObjectId(assignment_id)}))
+    return render_template('assignment_details_client.html',
+                           assignment=the_assignment,
+                           proposals=coupled_proposals)
 
-##### Client Side ####
-#Adding a new assignment
+# CLIENT SIDE
+# Adding a new assignment
+
 
 @app.route('/add_assignment')
 def add_assignment():
@@ -257,7 +279,8 @@ def insert_assignment():
     assignments = mongo.db.assignments
 
     # Add the _id of the client's record as client_id
-    client_insession_record = mongo.db.clients.find_one({"username": session['clientname']})
+    client_insession_record = mongo.db.clients.find_one({"username":
+                                                        session['clientname']})
     full_insert['client_id'] = (client_insession_record['_id'])
     print(full_insert)
 
@@ -270,18 +293,17 @@ def insert_assignment():
     return redirect(url_for('my_assignments'))
 
 
-##### Client Side ####
+# CLIENT SIDE
 # Deleting an assignment
 
 @app.route('/delete_assignment/<assignment_id>')
 def delete_assignment(assignment_id):
     mongo.db.assignments.delete_one({'_id': ObjectId(assignment_id)})
     mongo.db.proposals.delete_many({'assignment_id': ObjectId(assignment_id)})
-    
     return redirect(url_for('my_assignments'))
 
 
-##### Client Side ####
+# CLIENT SIDE
 # Signing out as Client
 
 @app.route('/sign_out_client')
@@ -289,9 +311,9 @@ def sign_out_client():
     session.pop('clientname')
     return redirect(url_for('index'))
 
-##### Other ####
+# Other
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-        port=int(os.environ.get('PORT')),
-        debug=True)
+            port=int(os.environ.get('PORT')),
+            debug=True)
