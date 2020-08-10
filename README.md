@@ -38,7 +38,7 @@ IMAGE HERE
 
 In this pdf file you can find the mockups that were created for Custom Artist
 
-[Mockups]()
+[PDF of Mockups of Custom Artist](https://github.com/MarthGimenzo/CustomArtist/blob/master/static/pdf/Customartist_mockups.pdf)
 
 ### Design
 
