@@ -411,7 +411,12 @@ All content was on the website was conceived by myself.
 - The phone icon in the 'How Does It Work' section comes from [IconBros](https://nl.pinterest.com/pin/814588651336180920/).
 - The colourful cloud behind the logo on the homepage comes from [Freepik.com](https://nl.freepik.com/vrije-foto-vectoren/splash-achtergrond).
 - The placeholder image of the person in the assignment divs is a free picture taken from [Thebuiscitstuidio](https://www.thebiscuitstudio.co.za/simple-testimonials/elizabeth-gray/placeholder-team-women/).
-- The fading backgrounds were created using a tutorial of [rudolfson.junior](https://www.youtube.com/watch?v=XjPdQSqtJhs).
+
+### Techniques
+
+- The fading backgrounds were created using a tutorial of [rudolfson.junior](https://www.youtube.com/watch?v=XjPdQSqtJhs). Thank you very much!
+- The javascript scroll-to system was based on code by [devers](https://coderwall.com/p/z7gfjq/scroll-to-page-sections-with-nav-links). Thank you very much!
+- The Flask login system was based on a tutorial by [Pretty Printed](https://www.youtube.com/watch?v=vVx1737auSE). Thank you very much!
 
 ### Acknowledgements
 
