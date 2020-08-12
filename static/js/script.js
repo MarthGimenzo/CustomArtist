@@ -48,8 +48,6 @@ $(document).ready(function() {
 
     // Validate form when adding an assignment and call Modal if valid
 
-    var form = $("#add_assignment");
-
     $("#submitAssignmentButton").click(function() {
         var title = document.forms["add_assignment"]["title"].value
         var short_description = document.forms["add_assignment"]["short_description"].value
@@ -65,8 +63,6 @@ $(document).ready(function() {
     });
 
     // Validate form when adding a proposal and call Modal if valid
-
-    var form = $("#add_proposal");
 
     $("#submitProposalButton").click(function() {
         var title = document.forms["add_proposal"]["title"].value

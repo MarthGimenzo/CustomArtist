@@ -7,6 +7,7 @@ from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
 
+
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = os.environ.get('MONGO_CA')
@@ -234,7 +235,6 @@ def client_login():
         if bcrypt.hashpw(request.form['clientpass'].encode('utf-8'),
                          login_client['password']) == login_client['password']:
             session['clientname'] = request.form['clientname']
-            client_id = login_client['_id']
             return redirect(url_for('my_assignments'))
     print('Not Accepted')
     return render_template('index.html', badlogin2=True)
@@ -312,6 +312,7 @@ def sign_out_client():
     return redirect(url_for('index'))
 
 # Other
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
