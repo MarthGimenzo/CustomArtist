@@ -375,7 +375,7 @@ PIP, Python3 and Git need to be installed on your computer.
 2.	Click ‘Download ZIP;
 3.	Unpack the downloaded ZIP file;
 4.	Open the index.html file with your preferred IDE;
-5.	Install Flask by entering pip install flask in the terminal of your IDE
+5.	Install Flask by entering 'pip3 install flask' in the terminal of your IDE
 
 ### Heroku Deployment
 
@@ -417,6 +417,7 @@ All content was on the website was conceived by myself.
 - The fading backgrounds were created using a tutorial of [rudolfson.junior](https://www.youtube.com/watch?v=XjPdQSqtJhs). Thank you very much!
 - The javascript scroll-to system was based on code by [devers](https://coderwall.com/p/z7gfjq/scroll-to-page-sections-with-nav-links). Thank you very much!
 - The Flask login system was based on a tutorial by [Pretty Printed](https://www.youtube.com/watch?v=vVx1737auSE). Thank you very much!
+- The repository was set up by using the [Code Institute Full Template](https://github.com/Code-Institute-Org/gitpod-full-template). Thank you very much!
 
 ### Acknowledgements
 
